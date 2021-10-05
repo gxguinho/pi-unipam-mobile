@@ -2,9 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:unipam_mobile/shared/themes/app_colors.dart';
-import 'package:unipam_mobile/shared/themes/app_colors.dart';
-import 'package:unipam_mobile/shared/themes/app_text.dart';
 import 'package:unipam_mobile/shared/widgets/label_button/label_button.dart';
+import 'package:unipam_mobile/shared/widgets/text_input/text_input.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({Key? key}) : super(key: key);
@@ -54,43 +53,21 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 30),
-                      child: Text(
-                        "Ensira seu email associado com sua conta para ser enviado uma confirmação",
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: AppColors.text,
-                        ),
+                    const SizedBox(height: 20),
+                    Text(
+                      "Ensira seu email associado com sua conta para ser enviado uma confirmação",
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: AppColors.text,
                       ),
                     ),
+                    const SizedBox(height: 30),
+                    Container(child: TextInput1(type: "Email *")),
+                    const SizedBox(height: 30),
                     Container(
-                      child: TextField(
-                        style: TextStyle(color: Colors.white),
-                        onChanged: (text) {
-                          print(text);
-                        },
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: AppColors.primary)),
-                            prefixIcon: Icon(
-                              Icons.email,
-                              color: AppColors.white,
-                            ),
-                            labelText: 'E-mail *',
-                            labelStyle: TextStyle(color: AppColors.white),
-                            border: OutlineInputBorder()),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 30),
-                      child: Container(
-                        height: 40,
-                        width: 500,
-                        child: LabelButton(),
+                      child: LabelButton(
+                        text: "Enviar email de confirmação",
                       ),
                     ),
                   ],
