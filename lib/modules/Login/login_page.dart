@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:unipam_mobile/shared/themes/app_colors.dart';
 
+
+
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 
@@ -14,14 +16,18 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   bool isHiddenPassword = true;
 
+  String Email = '';
+  String Passaword = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.background,
-        body: SingleChildScrollView(
-          child: SizedBox(
+        body: SizedBox(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
+           child: SingleChildScrollView(
+            
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -53,7 +59,7 @@ class _LoginState extends State<Login> {
                           TextField(
                             style: TextStyle(color: Colors.white),
                             onChanged: (text) {
-                              print(text);
+                              Email= text;
                             },
                             keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
@@ -73,6 +79,9 @@ class _LoginState extends State<Login> {
                           ),
                           TextField(
                             style: TextStyle(color: Colors.white),
+                            onChanged:(text){
+                              Passaword = text;
+                            },
                             obscureText: isHiddenPassword,
                             decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
@@ -97,7 +106,14 @@ class _LoginState extends State<Login> {
                           ),
                           // ignore: deprecated_member_use
                           RaisedButton(
-                            onPressed: () {},
+                            onPressed: (
+                            ) {
+                              if(Email == 'mariafernanda212@hotmail.com' && Passaword == '123' ){
+                                print('Logado');
+                              }else{
+                                print ('Não Logado');
+                              }
+                            },
                             child: Container(
                               width: double.infinity,
                               alignment: Alignment.center,
