@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:unipam_mobile/modules/Academic/academic_page.dart';
 import 'package:unipam_mobile/modules/Home/home_page.dart';
 import 'app_controller.dart';
+import 'package:unipam_mobile/modules/Login/login_page.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -30,5 +31,4 @@ class AppWidget extends StatelessWidget {
         }
       );
    });
-  }
 }
