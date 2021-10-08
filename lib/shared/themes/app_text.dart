@@ -26,4 +26,34 @@ class AppText {
     fontWeight: FontWeight.bold,
     color: AppColors.white
   );
+
+  static final NameUser = GoogleFonts.archivo(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    color: AppColors.white
+  );
+
+  static final EmailUser = GoogleFonts.archivo(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: AppColors.white
+  );
+
+  static final barTitle = GoogleFonts.archivo(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: AppColors.white
+  );
+  
+  static final alertTitle = GoogleFonts.archivo(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: AppColors.white
+  );
+
+   static final alertContent = GoogleFonts.archivo(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: AppColors.white
+  );
 }
