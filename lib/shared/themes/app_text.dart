@@ -21,6 +21,36 @@ class AppText {
       fontSize: 20, fontWeight: FontWeight.normal, color: AppColors.error
   );
 
+  static final NameUser = GoogleFonts.archivo(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    color: AppColors.white
+  );
+
+  static final EmailUser = GoogleFonts.archivo(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: AppColors.white
+  );
+
+  static final barTitle = GoogleFonts.archivo(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: AppColors.white
+  );
+  
+  static final alertTitle = GoogleFonts.archivo(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: AppColors.white
+  );
+
+   static final alertContent = GoogleFonts.archivo(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: AppColors.white
+  );
+}
   // ignore: non_constant_identifier_names
   static final buttonTitle = GoogleFonts.archivo(
       fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.white
