@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:unipam_mobile/app_controller.dart';
+import 'package:unipam_mobile/modules/app/app_controller.dart';
 
 class CardNavegationButton extends StatelessWidget {
 

@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'modules/ForgotPassword/ForgotPassword_page.dart';
-import 'modules/ForgotPassword/NewPassword_page.dart';
-import 'modules/ForgotPassword/email_check.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:unipam_mobile/modules/Academic/academic_page.dart';
-import 'package:unipam_mobile/modules/Home/home_page.dart';
-import 'app_controller.dart';
-import 'package:unipam_mobile/modules/Login/login_page.dart';
+import 'modules/app/app_controller.dart';
+import 'modules/app/Academic/academic_page.dart';
+import 'modules/app/Home/home_page.dart';
+import 'modules/auth/ForgotPassword/email_check.dart';
+import 'modules/auth/ForgotPassword/forgot_password.dart';
+import 'modules/auth/ForgotPassword/new_password.dart';
+import 'modules/auth/Login/login_page.dart';
+
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -24,11 +25,16 @@ class AppWidget extends StatelessWidget {
           fontFamily: GoogleFonts.archivo().toString()
         ),
         title: "Unipam Mobile",
-        initialRoute: '/home',
+        initialRoute: '/',
         routes: {
+          '/': (context) => LoginPage(),
+          '/forgotpassword': (context) => ForgotPasswordPage(),
+          '/emailcheck': (context) => EmailCheckPage(),
+          '/newpassword': (context) => NewPasswordPage(),
           "/home": (context) => HomePage(),
           "/academic": (context) => AcademicPage()
         }
       );
    });
+  }
 }

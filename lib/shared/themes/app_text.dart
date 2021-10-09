@@ -13,10 +13,13 @@ class AppText {
   );
 
   static final input = GoogleFonts.archivo(
-      fontSize: 18, fontWeight: FontWeight.w500, color: AppColors.text
+      fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.text
   );
 
-  // ignore: non_constant_identifier_names
+   static final inputText = GoogleFonts.archivo(
+      fontSize: 20, fontWeight: FontWeight.w500, color: AppColors.text
+  );
+
   static final error = GoogleFonts.archivo(
       fontSize: 20, fontWeight: FontWeight.normal, color: AppColors.error
   );
@@ -50,9 +53,12 @@ class AppText {
     fontWeight: FontWeight.w500,
     color: AppColors.white
   );
-}
-  // ignore: non_constant_identifier_names
+  
   static final buttonTitle = GoogleFonts.archivo(
-      fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.white
+      fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.white
+  );
+
+  static final buttonText = GoogleFonts.archivo(
+      fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.text
   );
 }

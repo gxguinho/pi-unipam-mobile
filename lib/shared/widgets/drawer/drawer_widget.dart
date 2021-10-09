@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:unipam_mobile/app_controller.dart';
+import 'package:unipam_mobile/modules/app/app_controller.dart';
 import 'package:unipam_mobile/shared/themes/app_colors.dart';
 import 'package:unipam_mobile/shared/themes/app_text.dart';
 import 'package:unipam_mobile/shared/util/colors_theme.dart';
 import 'package:unipam_mobile/shared/util/pages_list.dart';
-import 'package:unipam_mobile/shared/widget/drawer/drawer_item.dart';
+import 'drawer_item.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({ Key? key }) : super(key: key);

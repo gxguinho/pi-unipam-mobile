@@ -1,18 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:unipam_mobile/shared/themes/app_colors.dart';
-import 'package:unipam_mobile/shared/widgets/label_button/label_button.dart';
-import 'package:unipam_mobile/shared/widgets/text_input/text_input.dart';
 
-class ForgotPassword extends StatefulWidget {
-  const ForgotPassword({Key? key}) : super(key: key);
+class NewPasswordPage extends StatefulWidget {
+  const NewPasswordPage({Key? key}) : super(key: key);
 
   @override
-  _ForgotPasswordState createState() => _ForgotPasswordState();
+  _NewPasswordPageState createState() => _NewPasswordPageState();
 }
 
-class _ForgotPasswordState extends State<ForgotPassword> {
+class _NewPasswordPageState extends State<NewPasswordPage> {
   TextEditingController nameController = TextEditingController();
 
   @override
@@ -37,16 +34,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
                 child: Column(
                   children: [
-                    Container(
-                      child: SvgPicture.asset(
-                        'assets/logo.svg',
-                        width: 200,
-                        height: 200,
-                      ),
-                    ),
                     Text(
-                      "Esqueci senha",
-                      textAlign: TextAlign.center,
+                      "Criar nova senha",
                       style: TextStyle(
                         fontSize: 24,
                         color: AppColors.white,
@@ -55,20 +44,11 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     ),
                     const SizedBox(height: 20),
                     Text(
-                      "Ensira seu e-mail associado com sua conta para ser enviado uma confirmação",
+                      "Sua nova senha precisa ser\ndiferente das anteriores",
                       textAlign: TextAlign.justify,
                       style: TextStyle(
                         fontSize: 18,
                         color: AppColors.text,
-                      ),
-                    ),
-                    const SizedBox(height: 30),
-                    Container(child: TextInput1(type: "E-mail *")),
-                    const SizedBox(height: 30),
-                    Container(
-                      child: LabelButton(
-                        text: "Enviar e-mail de confirmação",
-                        route: "/emailcheck",
                       ),
                     ),
                   ],

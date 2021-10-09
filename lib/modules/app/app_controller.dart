@@ -25,7 +25,7 @@ class AppController extends ChangeNotifier {
     notifyListeners();
   }
 
-  logout() {
-    
+  logout(context) {
+    Navigator.of(context).pushReplacementNamed('/');
   }
 }

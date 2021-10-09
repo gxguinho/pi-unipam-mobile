@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:unipam_mobile/shared/themes/app_colors.dart';
 import 'package:unipam_mobile/shared/themes/app_text.dart';
 import 'package:unipam_mobile/shared/util/pages_list.dart';
-import 'package:unipam_mobile/shared/widget/card_navegation/card_navegation_button.dart';
-import 'package:unipam_mobile/shared/widget/drawer/drawer_widget.dart';
+import 'package:unipam_mobile/shared/widgets/card_navegation/card_navegation_button.dart';
+import 'package:unipam_mobile/shared/widgets/drawer/drawer_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({ Key? key }) : super(key: key);
