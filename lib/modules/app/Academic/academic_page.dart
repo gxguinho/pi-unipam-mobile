@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:unipam_mobile/shared/themes/app_colors.dart';
 import 'package:unipam_mobile/shared/themes/app_text.dart';
 import 'package:unipam_mobile/shared/widgets/drawer/drawer_widget.dart';
 

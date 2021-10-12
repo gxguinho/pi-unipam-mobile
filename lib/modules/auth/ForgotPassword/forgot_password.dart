@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:unipam_mobile/shared/themes/app_colors.dart';
 import 'package:unipam_mobile/shared/themes/app_text.dart';
 import 'package:unipam_mobile/shared/widgets/label_button_navegation/label_button_navegation.dart';
 import 'package:unipam_mobile/shared/widgets/text_input_auth/text_input_auth.dart';
