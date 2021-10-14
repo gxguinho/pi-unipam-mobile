@@ -5,12 +5,14 @@ import 'package:unipam_mobile/shared/themes/app_text.dart';
 class LabelButtonNavegation extends StatelessWidget {
 
   final String text;
-  final String route;
+  final String? route;
+  final Function? onChanged;
 
   const LabelButtonNavegation({
     Key? key, 
     required this.text, 
-    required this.route
+    this.route,
+    this.onChanged
   }) : super(key: key);
 
   @override
@@ -26,7 +28,7 @@ class LabelButtonNavegation extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          Navigator.of(context).pushNamed(route);
+          onChanged == null ? Navigator.of(context).pushNamed(route!) : onChanged!();
         });
   }
 }
