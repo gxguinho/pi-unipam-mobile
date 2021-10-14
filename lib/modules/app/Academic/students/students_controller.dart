@@ -1,6 +1,6 @@
+import 'package:http/http.dart' as http;
 
 class StudentsController {
-
   static StudentsController instance = StudentsController();
 
   String name = "";
@@ -19,7 +19,7 @@ class StudentsController {
   String complemento = "";
   String estado = "";
   String cidade = "";
-  String nacionalidade = ""; 
+  String nacionalidade = "";
   String naturalidade = "";
   String email = "";
   int telefoneFixo = 0;
@@ -36,11 +36,8 @@ class StudentsController {
   String opcaoFaculdade = "";
   String grupoUsuario = "";
 
-
-
-  
   changeInputText(String text, String title) {
-    if(title == "Nome") name = text;
+    if (title == "Nome") name = text;
   }
 
   handleRegisterStudents() {
@@ -48,4 +45,9 @@ class StudentsController {
     print(cpf);
   }
 
+  getState() async {
+    var url = Uri.parse('https://www.fieam.com.br/senaiapi/api/Estados');
+    var response = await http.get(url);
+    return response.body;
+  }
 }

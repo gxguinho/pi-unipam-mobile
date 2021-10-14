@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unipam_mobile/modules/app/Academic/students/students_controller.dart';
 
 class InputModalList {
   var studentsInputs = [
@@ -45,7 +46,7 @@ class InputModalList {
       "type": TextInputType.text,
       "itens": ["Solteiro", "Casado", "Separado", "Viúvo", "Outro"],
     },
-     {
+    {
       "title": "Sexo",
       "icon": Icons.date_range,
       "error": "Campo Obrigatório",
@@ -53,7 +54,7 @@ class InputModalList {
       "type": TextInputType.text,
       "itens": ["Masculino", "Feminino"]
     },
-    { 
+    {
       "title": "Nome Da Mãe",
       "icon": Icons.people,
       "error": "Campo Obrigatório",
@@ -95,7 +96,7 @@ class InputModalList {
       "maxLength": 75,
       "type": TextInputType.number,
     },
-     {
+    {
       "title": "Complemento",
       "icon": Icons.people,
       "error": "Campo Obrigatório",
@@ -107,7 +108,7 @@ class InputModalList {
       "icon": Icons.people,
       "error": "Campo Obrigatório",
       "maxLength": 200,
-      "itens": ["Minas Gerais"],
+      "itens": [StudentsController.instance.getState()],
     },
     {
       "title": "Cidade",
@@ -237,3 +238,21 @@ class InputModalList {
     },
   ];
 }
+
+/* celular new MaskTextInputFormatter(
+                mask: '(##) #####-####', filter: {"#": RegExp(r'[0-9]')}) */
+
+                /* 
+                cpf new MaskTextInputFormatter(
+                mask: '###.###.###-##', filter: {"#": RegExp(r'[0-9]')})
+                 */
+
+                /* 
+                  data new MaskTextInputFormatter(
+                mask: '##/##/####', filter: {"#": RegExp(r'[0-9]')})
+                 */
+
+
+                /* 
+                  cep :   mask: '#####-###', filter: {"#": RegExp(r'[0-9]')})
+                 */

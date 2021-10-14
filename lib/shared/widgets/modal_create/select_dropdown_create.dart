@@ -6,7 +6,7 @@ class SelectDropDownCreate extends StatefulWidget {
 
   const SelectDropDownCreate({ Key? key, required this.itemsSelect, required this.title}) : super(key: key);
 
-  final List<String> itemsSelect;
+  final List<dynamic> itemsSelect;
   final String title;
 
   @override
@@ -29,7 +29,7 @@ class _SelectDropDownCreateState extends State<SelectDropDownCreate> {
             style: AppText.input
           ),
           SizedBox(height: 4),
-          DropdownButton<String>(
+          DropdownButton<dynamic>(
             hint: Text("Selecione..."),
             value: value,
             isExpanded: true,

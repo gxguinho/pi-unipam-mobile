@@ -49,7 +49,7 @@ class _ModalCreateState extends State<ModalCreate> {
                   type: e['type'] as TextInputType,
                   onChanged: (text) => StudentsController.instance.changeInputText(text, e['title'] as String),
                 ) : SelectDropDownCreate(
-                  itemsSelect: e["itens"] as List<String>,
+                  itemsSelect: e["itens"] as List<dynamic>,
                   title: e['title'] as String,
                 )
              ),
