@@ -35,7 +35,8 @@ class _ModalCreateState extends State<ModalCreate> {
                 StudentsController.instance.logradouro = "",
                 StudentsController.instance.bairro = "",
                 StudentsController.instance.cep = "",
-                StudentsController.instance.estado = ''
+                StudentsController.instance.estado = '',
+                StudentsController.instance.name = ""
               }, 
               icon: Icon(Icons.close)
            ),

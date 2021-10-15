@@ -1,18 +1,22 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
+import 'package:unipam_mobile/modules/app/app_controller.dart';
 import 'package:unipam_mobile/shared/model/studentsModel.dart';
+import 'package:unipam_mobile/shared/themes/app_text.dart';
 
 class StudentsController extends ChangeNotifier{
   static StudentsController instance = StudentsController();
   List<Map<dynamic,dynamic>> state = [];
   List<Map<dynamic, dynamic>> city = [];
   List students = [
-    {"name": "Gabriel", "date": DateTime.now().toString()},
-    {"name": "Jose", "date": DateTime.now().toString()}
+    {"name": "Gabriel", "date": DateTime.now()},
+    {"name": "Jose", "date": DateTime.now()}
   ];
 
   String name = "";
@@ -160,13 +164,64 @@ class StudentsController extends ChangeNotifier{
     };
 
 
-    var teste = {
+    if(name == "") {
+      // ignore: deprecated_member_use
+      return Scaffold.of(context).showSnackBar(SnackBar(
+        dismissDirection: DismissDirection.vertical,
+        backgroundColor: AppController.instance.colorSelected,
+        content: Container(
+          height: 100,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Lottie.asset("assets/error.json", width: 50, height: 50), 
+              SizedBox(height: 20),
+              Text(
+                "Não foram preenchido todos os campos", 
+                style: AppText.alertContent,
+              ),
+            ],
+          ),
+        ),
+        duration: Duration(seconds: 3),
+      ));
+    } else {
+      var teste = {
       "name": name,
-      "data": DateTime.now().toString(),
-    };
-    students.add(teste);
-    
-    Navigator.popAndPushNamed(context, "/students");
+      "date": DateTime.now(),
+      };
+      
+      students.add(teste);
+       Scaffold.of(context).showSnackBar(SnackBar(
+        dismissDirection: DismissDirection.vertical,
+        backgroundColor: AppController.instance.colorSelected,
+        content: Container(
+          height: 100,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Lottie.asset("assets/success.json", width: 50, height: 50), 
+              SizedBox(height: 20),
+              Text(
+                "Usuario Cadastrado", 
+                style: AppText.alertContent,
+              ),
+            ],
+          ),
+        ),
+        duration: Duration(seconds: 2),
+      ));
+        Future.delayed(Duration(seconds: 2), () {
+         Navigator.popAndPushNamed(context, "/students");
+      });
+    }
+  }
+
+  void removeItem(value) {
+    students.removeWhere((element) => value == element['name']);
+    notifyListeners();
   }
 
     Future<void> getState() async {
