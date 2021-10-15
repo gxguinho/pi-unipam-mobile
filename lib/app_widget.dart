@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:unipam_mobile/modules/app/Academic/notas/notas_page.dart';
 import 'modules/app/app_controller.dart';
 import 'modules/app/Academic/academic_page.dart';
 import 'modules/app/Home/home_page.dart';
@@ -27,7 +28,7 @@ class AppWidget extends StatelessWidget {
         title: "Unipam Mobile",
         initialRoute: '/',
         routes: {
-          '/': (context) => LoginPage(),
+          '/': (context) => NotasPage(),
           '/forgotpassword': (context) => ForgotPasswordPage(),
           '/emailcheck': (context) => EmailCheckPage(),
           '/newpassword': (context) => NewPasswordPage(),
