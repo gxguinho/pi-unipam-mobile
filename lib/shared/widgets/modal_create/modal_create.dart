@@ -17,52 +17,65 @@ class ModalCreate extends StatefulWidget {
 class _ModalCreateState extends State<ModalCreate> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(top: 80),
-      child: Scaffold(
-       appBar: AppBar(
-         title: Text(
-           "Novo Aluno",
-           style: AppText.barTitle
+    return AnimatedBuilder(
+    animation: StudentsController.instance,
+    builder: (context, child) {
+     return Container(
+        padding: EdgeInsets.only(top: 80),
+        child: Scaffold(
+         appBar: AppBar(
+           title: Text(
+             "Novo Aluno",
+             style: AppText.barTitle
+           ),
+           leading: IconButton(
+              onPressed: () => {
+                Navigator.pop(context),
+                StudentsController.instance.complemento = "",
+                StudentsController.instance.logradouro = "",
+                StudentsController.instance.bairro = "",
+                StudentsController.instance.cep = "",
+                StudentsController.instance.estado = ''
+              }, 
+              icon: Icon(Icons.close)
+           ),
          ),
-         leading: IconButton(
-            onPressed: () => Navigator.pop(context), 
-            icon: Icon(Icons.close)
+         body: Container(
+           child: ListView(
+             padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 25),
+             children: [
+               ...InputModalList().studentsInputs.map((e) => 
+                      e['title'] != "Sexo"
+                   && e['title'] != "Estado civil" 
+                   && e['title'] != "Estado" 
+                   && e['title'] != "Cidade" 
+                   && e['title'] != "Curso"
+                   && e['title'] != "Está Trabalhando" 
+                   && e['title'] != "Noções de informática" 
+                   && e['title'] != "Grupo de usuário" ? InputTextCreate(
+                    title: e['title'] as String,
+                    icon: e['icon'] as IconData,
+                    maxLength: e['maxLength'] as int,
+                    type: e['type'] as TextInputType,
+                    onChanged: (text) => StudentsController.instance.changeInputText(text, e['title'] as String),
+                  ) : SelectDropDownCreate(
+                    itemsSelect: e["itens"] as List<Map<dynamic, dynamic>>,
+                    title: e['title'] as String,
+                    onChanged: (text) => StudentsController.instance.changeInputText(text, e['title'] as String),
+                  )
+               ),
+               SizedBox(height: 20),
+               LabelButtonNavegation(
+                 text: "Cadastrar", 
+                 onChanged: () => StudentsController.instance.handleRegisterStudents()
+               ),
+               SizedBox(height: 10),
+             ],
+           ),
          ),
-       ),
-       body: Container(
-         child: ListView(
-           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 25),
-           children: [
-             ...InputModalList().studentsInputs.map((e) => 
-                e['title'] != "Sexo"
-                 && e['title'] != "Estado civil" 
-                 && e['title'] != "Estado" 
-                 && e['title'] != "Cidade" 
-                 && e['title'] != "Curso"
-                 && e['title'] != "Está Trabalhando" 
-                 && e['title'] != "Noções de informática" 
-                 && e['title'] != "Grupo de usuário" ? InputTextCreate(
-                  title: e['title'] as String,
-                  icon: e['icon'] as IconData,
-                  maxLength: e['maxLength'] as int,
-                  type: e['type'] as TextInputType,
-                  onChanged: (text) => StudentsController.instance.changeInputText(text, e['title'] as String),
-                ) : SelectDropDownCreate(
-                  itemsSelect: e["itens"] as List<dynamic>,
-                  title: e['title'] as String,
-                )
-             ),
-             SizedBox(height: 20),
-             LabelButtonNavegation(
-               text: "Cadastrar", 
-               onChanged: () => StudentsController.instance.handleRegisterStudents()
-             ),
-             SizedBox(height: 10),
-           ],
-         ),
-       ),
-      ),
+        ),
+      );
+      }
     );
   }
 }

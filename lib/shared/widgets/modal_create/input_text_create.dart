@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:unipam_mobile/modules/app/Academic/students/students_controller.dart';
 import 'package:unipam_mobile/modules/app/app_controller.dart';
 import 'package:unipam_mobile/shared/themes/app_colors.dart';
 import 'package:unipam_mobile/shared/themes/app_text.dart';
@@ -22,15 +23,24 @@ class InputTextCreate extends StatelessWidget {
       this.onChanged})
       : super(key: key);
 
+
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: TextField(
           inputFormatters: [
-            new MaskTextInputFormatter(
-                mask: '#####-###', filter: {"#": RegExp(r'[0-9]')})
+            title == "Data de nascimento" || title == "Data de matrícula" || title == "Data de desligamento" ?new MaskTextInputFormatter(
+                mask: '##/##/####', filter: {"#": RegExp(r'[0-9]')}) : title == "Telefone celular" || title == "Telefone fixo" ? new MaskTextInputFormatter(
+                mask: '(##) #####-####', filter: {"#": RegExp(r'[0-9]')}) : title == "CPF" ? new MaskTextInputFormatter(
+                mask: '###.###.###-##', filter: {"#": RegExp(r'[0-9]')}) : title == "CEP" ? new MaskTextInputFormatter(
+                mask: '#####-###', filter: {"#": RegExp(r'[0-9]')}) : new MaskTextInputFormatter()
           ],
+          controller: TextEditingController(text: 
+            title == 'Logradouro' ? StudentsController.instance.logradouro : 
+            title == 'Bairro' ? StudentsController.instance.bairro : title == 'Complemento' ? StudentsController.instance.complemento : title == 'CEP' ? StudentsController.instance.cep : null
+          ),
           onChanged: onChanged == null ? null : (text) => onChanged!(text),
           keyboardType: type,
           style: AppText.inputText,
