@@ -22,11 +22,10 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          }, 
-          icon: Icon(Icons.arrow_back)
-        ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back)),
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -51,15 +50,10 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                   style: AppText.description,
                 ),
                 SizedBox(height: 30),
-                TextInputAuth(
-                  type: "Email",
-                  onChanged: (text) => email = text
-                ),
+                TextInputAuth(type: "Email", onChanged: (text) => email = text),
                 SizedBox(height: 30),
                 LabelButtonNavegation(
-                  text: "Enviar e-mail de confirmação", 
-                  route: "/emailcheck"
-                )
+                    text: "Enviar e-mail de confirmação", route: "/emailcheck")
               ],
             ),
           ),

@@ -116,9 +116,11 @@ class _FrequencyViewState extends State<FrequencyView> {
           ),
         ],
       ),
+      resizeToAvoidBottomInset: false,
       body: Column(
         children: [
-          ScrollableWidget(child: buildDataTable()),
+          SingleChildScrollView(
+              child: ScrollableWidget(child: buildDataTable())),
         ],
       ),
     );
