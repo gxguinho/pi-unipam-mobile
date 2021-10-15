@@ -28,7 +28,7 @@ class LabelButtonNavegation extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          onChanged == null ? Navigator.of(context).pushNamed(route!) : onChanged!();
+          onChanged == null ? Navigator.of(context).pushNamed(route!) : onChanged!(context);
         });
   }
 }

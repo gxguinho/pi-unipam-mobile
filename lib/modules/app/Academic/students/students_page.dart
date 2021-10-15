@@ -45,43 +45,36 @@ class _StudentsPageState extends State<StudentsPage> {
               )),
         ],
       ),
-      body: DataTable(columnSpacing: 34, dataRowHeight: 60, columns: [
-        DataColumn(label: Text("Nome")),
-        DataColumn(label: Text("Data de criação"), numeric: true),
-        DataColumn(label: Text("")),
-        DataColumn(label: Text("")),
-      ], rows: [
-        DataRow(
-          cells: [
-            DataCell(Text("Gabriel")),
-            DataCell(Text("12/10/2021")),
-            DataCell(IconButton(
-                onPressed: () {
-                  print("remove");
-                },
-                icon: Icon(Icons.remove_circle))),
-            DataCell(IconButton(
-                onPressed: () {
-                  print("Edit");
-                },
-                icon: Icon(Icons.edit)))
-          ],
-        ),
-        DataRow(cells: [
-          DataCell(Text("Joao")),
-          DataCell(Text("12/10/2021")),
-          DataCell(IconButton(
-              onPressed: () {
-                print("remove");
-              },
-              icon: Icon(Icons.remove_circle))),
-          DataCell(IconButton(
-              onPressed: () {
-                print("Edit");
-              },
-              icon: Icon(Icons.edit)))
-        ])
-      ]),
+      body: DataTable(
+        columnSpacing: 34, 
+        dataRowHeight: 60, 
+        columns: [
+          DataColumn(label: Text("Nome")),
+          DataColumn(label: Text("Data de criação"), numeric: true),
+          DataColumn(label: Text("")),
+          DataColumn(label: Text("")),
+        ], 
+        rows: [
+          ...StudentsController.instance.students.map((e) => 
+            DataRow(
+            cells: [
+              DataCell(Text(e['name'])),
+              DataCell(Text(e['date'].toString())),
+              DataCell(IconButton(
+                  onPressed: () {
+                    print("remove");
+                  },
+                  icon: Icon(Icons.remove_circle))),
+              DataCell(IconButton(
+                  onPressed: () {
+                    print("Edit");
+                  },
+                  icon: Icon(Icons.edit)))
+            ],
+          ),
+          )
+        ]
+      ),
     );
   }
 

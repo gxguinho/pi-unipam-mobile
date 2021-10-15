@@ -67,7 +67,7 @@ class _ModalCreateState extends State<ModalCreate> {
                SizedBox(height: 20),
                LabelButtonNavegation(
                  text: "Cadastrar", 
-                 onChanged: () => StudentsController.instance.handleRegisterStudents()
+                 onChanged: (context) => StudentsController.instance.handleRegisterStudents(context)
                ),
                SizedBox(height: 10),
              ],

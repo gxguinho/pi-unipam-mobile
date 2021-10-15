@@ -2,13 +2,18 @@ import 'dart:convert';
 
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
 import 'package:unipam_mobile/shared/model/studentsModel.dart';
 
 class StudentsController extends ChangeNotifier{
   static StudentsController instance = StudentsController();
-
   List<Map<dynamic,dynamic>> state = [];
   List<Map<dynamic, dynamic>> city = [];
+  List students = [
+    {"name": "Gabriel", "date": DateTime.now().toString()},
+    {"name": "Jose", "date": DateTime.now().toString()}
+  ];
 
   String name = "";
   String cpf = "";
@@ -53,7 +58,7 @@ class StudentsController extends ChangeNotifier{
     if (title == "Sexo") name = text;
     if (title == "Nome Da Mãe") name = text;
     if (title == "Nome Do Pai") name = text;
-    if(title == "CEP")  changeCep(text);
+    if (title == "CEP")  changeCep(text);
     if (title == "Logradouro") name = text;
     if (title == "Número") name = text;
     if (title == "Bairro") name = text;
@@ -84,9 +89,17 @@ class StudentsController extends ChangeNotifier{
       var response = await http.get(url);
       Map<String,dynamic> json = jsonDecode(response.body);
       
-      logradouro = json['logradouro'];
-      bairro = json['bairro'];
-      complemento = json['complemento'];
+      if(json['erro'] == true){
+        logradouro = "";
+        bairro = "";
+        complemento = "";
+      } else {
+        logradouro = json['logradouro'];
+        bairro = json['bairro'];
+        complemento = json['complemento'];
+      }
+      
+      
       notifyListeners();
     }
   }
@@ -110,8 +123,8 @@ class StudentsController extends ChangeNotifier{
     city = cityParsed.toList();
   }
 
-  handleRegisterStudents() {
-    var students = {
+  handleRegisterStudents(context) {
+    var studentsRegister = {
       name,
       cpf,
       rg, 
@@ -146,7 +159,14 @@ class StudentsController extends ChangeNotifier{
       grupoUsuario,
     };
 
-    print(students);
+
+    var teste = {
+      "name": name,
+      "data": DateTime.now().toString(),
+    };
+    students.add(teste);
+    
+    Navigator.popAndPushNamed(context, "/students");
   }
 
     Future<void> getState() async {
