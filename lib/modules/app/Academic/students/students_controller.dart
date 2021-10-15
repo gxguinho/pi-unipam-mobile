@@ -57,26 +57,26 @@ class StudentsController extends ChangeNotifier{
     if (title == "CPF") cpf = text;
     if (title == "RG") rg = text;
     if (title == "Orgão expedidor") orgaoExpedidor = text;
-    if (title == "Data de nascimento") name = text;
-    if (title == "Estado civil") name = text;
-    if (title == "Sexo") name = text;
-    if (title == "Nome Da Mãe") name = text;
-    if (title == "Nome Do Pai") name = text;
+    if (title == "Data de nascimento") grupoUsuario = text;
+    if (title == "Estado civil") grupoUsuario = text;
+    if (title == "Sexo") grupoUsuario = text;
+    if (title == "Nome Da Mãe") grupoUsuario = text;
+    if (title == "Nome Do Pai") grupoUsuario = text;
     if (title == "CEP")  changeCep(text);
-    if (title == "Logradouro") name = text;
-    if (title == "Número") name = text;
-    if (title == "Bairro") name = text;
-    if (title == "Complemento") name = text;
+    if (title == "Logradouro") grupoUsuario = text;
+    if (title == "Número") grupoUsuario = text;
+    if (title == "Bairro") grupoUsuario = text;
+    if (title == "Complemento") grupoUsuario = text;
     if (title == "Estado") changeState(text);
-    if (title == "Cidade") name = text;
-    if (title == "Nacionalidade") name = text;
-    if (title == "Naturalidade") name = text;
-    if (title == "Email") name = text;
-    if (title == "Telefone fixo") name = text;
-    if (title == "Telefone celular") name = text;
-    if (title == "Curso") name = text;
-    if (title == "Data de matrícula") name = text;
-    if (title == "Data de desligamento") name = text;
+    if (title == "Cidade") cidade = text;
+    if (title == "Nacionalidade") nacionalidade = text;
+    if (title == "Naturalidade") naturalidade = text;
+    if (title == "Email") email = text;
+    if (title == "Telefone fixo") grupoUsuario = text;
+    if (title == "Telefone celular") grupoUsuario = text;
+    if (title == "Curso") grupoUsuario = text;
+    if (title == "Data de matrícula") grupoUsuario = text;
+    if (title == "Data de desligamento") grupoUsuario = text;
     if (title == "Está Trabalhando") trabalhando = text;
     if (title == "Quantidade de Moradores") quantiedadeMoradores = text;
     if (title == "Renda Familiar") rendaFamiliar = text;
@@ -214,6 +214,12 @@ class StudentsController extends ChangeNotifier{
         duration: Duration(seconds: 2),
       ));
         Future.delayed(Duration(seconds: 2), () {
+          StudentsController.instance.complemento = "";
+                StudentsController.instance.logradouro = "";
+                StudentsController.instance.bairro = "";
+                StudentsController.instance.cep = "";
+                StudentsController.instance.estado = '';
+                StudentsController.instance.name = "";
          Navigator.popAndPushNamed(context, "/students");
       });
     }
