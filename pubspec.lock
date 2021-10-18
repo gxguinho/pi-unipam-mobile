@@ -123,6 +123,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.0"
+<<<<<<< Updated upstream
   intl:
     dependency: "direct main"
     description:
@@ -130,6 +131,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.17.0"
+=======
+>>>>>>> Stashed changes
   lottie:
     dependency: "direct main"
     description:
@@ -137,6 +140,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.1"
+<<<<<<< Updated upstream
   mask_text_input_formatter:
     dependency: "direct main"
     description:
@@ -144,6 +148,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+=======
+>>>>>>> Stashed changes
   matcher:
     dependency: transitive
     description:
