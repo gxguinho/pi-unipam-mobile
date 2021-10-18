@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:unipam_mobile/modules/app/Academic/students/students_controller.dart';
 
@@ -9,13 +10,15 @@ class InputModalList {
       "error": "Campo Obrigatório",
       "maxLength": 200,
       "type": TextInputType.name,
+      "textFormater": ''
     },
     {
       "title": "CPF",
       "icon": Icons.assessment_outlined,
       "error": "Campo Obrigatório",
-      "maxLength": 11,
+      "maxLength": 0,
       "type": TextInputType.number,
+      "textFormater": '###.###.###-##'
     },
     {
       "title": "RG",
@@ -23,6 +26,7 @@ class InputModalList {
       "error": "Campo Obrigatório",
       "maxLength": 14,
       "type": TextInputType.number,
+      "textFormater": ''
     },
     {
       "title": "Orgão expedidor",
@@ -30,50 +34,58 @@ class InputModalList {
       "error": null,
       "maxLength": 50,
       "type": TextInputType.text,
+      "textFormater": ''
     },
     {
       "title": "Data de nascimento",
       "icon": Icons.date_range,
-      "error": null,
+      "error": "Campo Obrigatório",
       "maxLength": 0,
       "type": TextInputType.datetime,
+      "textFormater": '##/##/####'
     },
     {
       "title": "Estado civil",
-      "icon": Icons.mark_email_read_outlined,
       "error": null,
-      "maxLength": 0,
-      "type": TextInputType.text,
-      "itens": [{"title": "Minas Gerais", "value": "MG"}],
+      "itens": [
+        {"title": "Solteiro", "value": "solteiro"}, 
+        {"title": "Casado", "value": "casado"},
+        {"title": "Separado", "value": "separado"},
+        {"title": "Viúvo", "value": "viúvo"},
+        {"title": "Outro", "value": "outro"}
+      ]
     },
-    {
+     {
       "title": "Sexo",
-      "icon": Icons.date_range,
-      "error": "Campo Obrigatório",
-      "maxLength": 0,
-      "type": TextInputType.text,
-      "itens": [{"title": "Minas Gerais", "value": "MG"}],
+      "error": null,
+      "itens": [
+        {"title": "Masculino", "value": "masculino"}, 
+        {"title": "Feminino", "value": "feminino"},
+      ]
     },
     {
-      "title": "Nome Da Mãe",
+      "title": "Nome Do Mãe",
       "icon": Icons.family_restroom,
-      "error": "Campo Obrigatório",
+      "error": null,
       "maxLength": 200,
       "type": TextInputType.name,
+      "textFormater": ''
     },
-    {
-      "title": "Nome Do Pai",
+     {
+      "title": "Nome Da Pai",
       "icon": Icons.family_restroom,
-      "error": "Campo Obrigatório",
+      "error": null,
       "maxLength": 200,
       "type": TextInputType.name,
+      "textFormater": ''
     },
     {
       "title": "CEP",
       "icon": Icons.door_sliding_outlined,
       "error": "Campo Obrigatório",
-      "maxLength": 8,
+      "maxLength": 0,
       "type": TextInputType.number,
+      "textFormater": "#####-###"
     },
     {
       "title": "Logradouro",
@@ -81,6 +93,7 @@ class InputModalList {
       "error": "Campo Obrigatório",
       "maxLength": 100,
       "type": TextInputType.number,
+      "textFormater": ''
     },
     {
       "title": "Número",
@@ -88,6 +101,7 @@ class InputModalList {
       "error": "Campo Obrigatório",
       "maxLength": 10,
       "type": TextInputType.number,
+      "textFormater": ''
     },
     {
       "title": "Bairro",
@@ -95,6 +109,7 @@ class InputModalList {
       "error": "Campo Obrigatório",
       "maxLength": 75,
       "type": TextInputType.number,
+      "textFormater": ''
     },
     {
       "title": "Complemento",
@@ -102,27 +117,25 @@ class InputModalList {
       "error": "Campo Obrigatório",
       "maxLength": 200,
       "type": TextInputType.text,
+      "textFormater": ''
     },
     {
       "title": "Estado",
       "icon": Icons.people,
-      "error": "Campo Obrigatório",
-      "maxLength": 200,
       "itens": StudentsController.instance.state,
     },
     {
       "title": "Cidade",
       "icon": Icons.location_city,
-      "error": "Campo Obrigatório",
-      "maxLength": 8,
       "itens": StudentsController.instance.city,
     },
     {
       "title": "Nacionalidade",
       "icon": Icons.flag,
-      "error": "Campo Obrigatório",
+      "error": null,
       "maxLength": 75,
       "type": TextInputType.text,
+      "textFormater": ''
     },
     {
       "title": "Naturalidade",
@@ -130,6 +143,7 @@ class InputModalList {
       "error": null,
       "maxLength": 75,
       "type": TextInputType.text,
+      "textFormater": ''
     },
     {
       "title": "Email",
@@ -137,27 +151,30 @@ class InputModalList {
       "error": "Campo Obrigatório",
       "maxLength": 75,
       "type": TextInputType.text,
+      "textFormater": ''
     },
-    {
+     {
       "title": "Telefone fixo",
       "icon": Icons.phone,
-      "error": "Campo Obrigatório",
-      "maxLength": 11,
-      "type": TextInputType.number,
+      "error": null,
+      "maxLength": 0,
+      "type": TextInputType.phone,
+      "textFormater": '(##) ####-####'
     },
     {
       "title": "Telefone celular",
       "icon": Icons.phone_android,
       "error": "Campo Obrigatório",
-      "maxLength": 11,
-      "type": TextInputType.number,
+      "maxLength": 0,
+      "type": TextInputType.phone,
+      "textFormater": '(##) #####-####'
     },
     {
       "title": "Curso",
-      "icon": Icons.people,
-      "error": "Campo Obrigatório",
-      "maxLength": 8,
-      "itens": [{"title": "Minas Gerais", "value": "MG"}],
+      "error": null,
+      "itens": [
+        {"title": "", "value": ""}, 
+      ]
     },
     {
       "title": "Data de matrícula",
@@ -165,6 +182,7 @@ class InputModalList {
       "error": "Campo Obrigatório",
       "maxLength": 0,
       "type": TextInputType.datetime,
+      "textFormater": '##/##/####'
     },
     {
       "title": "Data de desligamento",
@@ -172,13 +190,14 @@ class InputModalList {
       "error": null,
       "maxLength": 0,
       "type": TextInputType.datetime,
+      "textFormater": '##/##/####'
     },
     {
       "title": "Está Trabalhando",
       "icon": Icons.people,
-      "error": "Campo Obrigatório",
-      "maxLength": 8,
-      "itens": [{"title": "Minas Gerais", "value": "MG"}],
+      "itens": [
+        {"title": "Sim", "value": "sim"},
+        {"title": "Não", "value": "nao"}],
     },
     {
       "title": "Local de Trabalho",
@@ -186,6 +205,7 @@ class InputModalList {
       "error": "Campo Obrigatório",
       "maxLength": 100,
       "type": TextInputType.text,
+      "textFormater": ''
     },
     {
       "title": "Renda Familiar",
@@ -193,6 +213,7 @@ class InputModalList {
       "error": "Campo Obrigatório",
       "maxLength": 10,
       "type": TextInputType.number,
+      "textFormater": ''
     },
     {
       "title": "Quantidade de Moradores",
@@ -200,6 +221,7 @@ class InputModalList {
       "error": "Campo Obrigatório",
       "maxLength": 3,
       "type": TextInputType.number,
+      "textFormater": ''
     },
     {
       "title": "Ano Letivo",
@@ -207,6 +229,7 @@ class InputModalList {
       "error": null,
       "maxLength": 4,
       "type": TextInputType.number,
+      "textFormater": ''
     },
     {
       "title": "Média Escolar",
@@ -214,45 +237,31 @@ class InputModalList {
       "error": null,
       "maxLength": 4,
       "type": TextInputType.number,
+      "textFormater": ''
     },
     {
       "title": "Noções de informática",
       "icon": Icons.people,
-      "error": null,
-      "maxLength": 8,
-      "itens": [{"title": "Minas Gerais", "value": "MG"}],
+      "itens": [
+        {"title": "Excel", "value": "excel"},
+        {"title": "Power point,", "value": "powerpoint"},
+        {"title": "Programação", "value": "programação"},
+        {"title": "Word", "value": "word"}
+        ],
     },
     {
       "title": "Opção de Faculdade",
       "icon": Icons.online_prediction,
       "error": null,
       "maxLength": 100,
-      "type": TextInputType.text,
+      "type": TextInputType.number,
+      "textFormater": ''
     },
     {
       "title": "Grupo de usuário",
-      "icon": Icons.email,
-      "error": "Campo Obrigatório",
-      "maxLength": 100,
-      "itens": [{"title": "Minas Gerais", "value": "MG"}],
+      "icon": Icons.people,
+      "itens": [
+        {"title": "", "value": ""}],
     },
   ];
 }
-
-/* celular new MaskTextInputFormatter(
-                mask: '(##) #####-####', filter: {"#": RegExp(r'[0-9]')}) */
-
-                /* 
-                cpf new MaskTextInputFormatter(
-                mask: '###.###.###-##', filter: {"#": RegExp(r'[0-9]')})
-                 */
-
-                /* 
-                  data new MaskTextInputFormatter(
-                mask: '##/##/####', filter: {"#": RegExp(r'[0-9]')})
-                 */
-
-
-                /* 
-                  cep :   mask: '#####-###', filter: {"#": RegExp(r'[0-9]')})
-                 */

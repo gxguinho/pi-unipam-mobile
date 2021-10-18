@@ -6,7 +6,7 @@ import 'package:unipam_mobile/shared/themes/app_text.dart';
 import 'package:unipam_mobile/shared/widgets/modal_create/modal_create.dart';
 
 class StudentsPage extends StatefulWidget {
-  const StudentsPage({Key? key}) : super(key: key);
+  const StudentsPage({ Key? key }) : super(key: key);
 
   @override
   _StudentsPageState createState() => _StudentsPageState();
@@ -19,72 +19,71 @@ class _StudentsPageState extends State<StudentsPage> {
     super.initState();
     StudentsController.instance.getState();
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: StudentsController.instance,
       builder: (context, child) {
         return Scaffold(
-          appBar: AppBar(
-            title: Text("Alunos", style: AppText.barTitle),
-            actions: [
-              IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.search,
-                    size: 30,
-                  )),
-              IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.filter_list,
-                    size: 30,
-                  )),
-              IconButton(
-                  onPressed: () => _openModal(),
-                  icon: Icon(
-                    Icons.add_circle,
-                    size: 32,
-                  )),
-            ],
-          ),
-          body: DataTable(
-            columnSpacing: 30, 
-            dataRowHeight: 60, 
-            columns: [
+           appBar: AppBar(
+                title: Text("Alunos", style: AppText.barTitle),
+                actions: [
+                  IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.search,
+                        size: 30,
+                      )),
+                  IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.filter_list,
+                        size: 30,
+                      )),
+                  IconButton(
+                      onPressed: () => _openModal(),
+                      icon: Icon(
+                        Icons.add_circle,
+                        size: 32,
+                      )),
+                ],
+              ),
+           body: DataTable(
+             columnSpacing: 30, 
+             dataRowHeight: 60,
+             columns: [
               DataColumn(label: Text("Nome")),
               DataColumn(label: Text("Data de criação"), numeric: true),
               DataColumn(label: Text("")),
               DataColumn(label: Text("")),
-            ], 
+             ],
             rows: [
               ...StudentsController.instance.students.map((e) => 
-                DataRow(
-                cells: [
+                DataRow(cells: [
                   DataCell(Text(e['name'])),
-                  DataCell(Text(DateFormat("dd/MM/yyyy").format(e['date']))),
-                  DataCell(IconButton(
-                      onPressed: () {
-                       StudentsController.instance.removeItem(e['name']);
-                      },
-                      icon: Icon(Icons.remove_circle))),
-                  DataCell(IconButton(
-                      onPressed: () {
-                        print("Edit");
-                      },
-                      icon: Icon(Icons.edit)))
-                ],
-              ),
+                  DataCell(
+                    Text(DateFormat("dd/MM/yyyy").format(e['date']))),
+                  DataCell(
+                    IconButton(
+                    onPressed: () => StudentsController.instance.removeItem(e['name']), 
+                    icon: Icon(Icons.remove_circle))),
+                  DataCell(
+                    IconButton(
+                      onPressed: () {}, 
+                      icon: Icon(Icons.edit)
+                    )
+                  ),
+                ])
               )
-            ]
-          ),
+            ],
+           ),
         );
       }
     );
   }
 
-  _openModal() {
+   _openModal() {
     showDialog(
         context: context,
         builder: (context) {

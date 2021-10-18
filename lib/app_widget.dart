@@ -23,6 +23,9 @@ class AppWidget extends StatelessWidget {
       return MaterialApp(
         theme: ThemeData(
           primaryColor: AppController.instance.colorSelected,
+          appBarTheme: AppBarTheme(
+            backgroundColor:  AppController.instance.colorSelected
+          ),
           brightness: AppController.instance.isDarkTheme ? Brightness.light : Brightness.dark,
           fontFamily: GoogleFonts.archivo().toString(),
         ),
