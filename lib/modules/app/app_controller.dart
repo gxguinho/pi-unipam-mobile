@@ -10,7 +10,7 @@ class AppController extends ChangeNotifier {
   bool isDarkTheme = false; 
 
   changeScreen(String pageSelected, context, String route) {
-    Navigator.of(context).pushReplacementNamed(route);
+    Navigator.of(context).pushNamed(route);
     pageSelect = pageSelected;
     notifyListeners();
   }

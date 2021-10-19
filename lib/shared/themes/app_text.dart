@@ -61,4 +61,10 @@ class AppText {
   static final buttonText = GoogleFonts.archivo(
       fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.text
   );
+
+   static final iconNavegation = GoogleFonts.archivo(
+      fontSize: 18, 
+      fontWeight: FontWeight.bold, 
+      color: AppColors.text
+  );
 }
