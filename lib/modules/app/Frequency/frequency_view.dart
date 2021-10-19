@@ -4,6 +4,7 @@ import 'package:unipam_mobile/models/student.dart';
 import 'package:unipam_mobile/shared/themes/app_colors.dart';
 import 'package:unipam_mobile/shared/themes/app_text.dart';
 import 'package:unipam_mobile/shared/widgets/drawer/drawer_widget.dart';
+import 'package:unipam_mobile/shared/widgets/modal_create_frequency/modal_create_frequency.dart';
 import 'package:unipam_mobile/shared/widgets/scrollable/scrollable_widget.dart';
 
 class FrequencyView extends StatefulWidget {
@@ -65,54 +66,9 @@ class _FrequencyViewState extends State<FrequencyView> {
             onPressed: () {},
             icon: Icon(Icons.filter_list, size: 30),
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: IconButton(
-              onPressed: () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        scrollable: true,
-                        title: Text(
-                            'Preencha os campos de acordo com o que se pede'),
-                        content: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Form(
-                            child: Column(
-                              children: <Widget>[
-                                TextFormField(
-                                  decoration: InputDecoration(
-                                    labelText: 'Nome do Aluno',
-                                  ),
-                                ),
-                                TextFormField(
-                                  decoration: InputDecoration(
-                                    labelText: 'Total de Aulas',
-                                  ),
-                                ),
-                                TextFormField(
-                                  decoration: InputDecoration(
-                                    labelText: 'Total de Faltas',
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        actions: [
-                          // ignore: deprecated_member_use
-                          RaisedButton(
-                              child: Text("Submit"),
-                              onPressed: () {
-                                // your code
-                              })
-                        ],
-                      );
-                    });
-              },
-              icon: Icon(Icons.add_circle, size: 30),
-            ),
+          IconButton(
+            onPressed: () => _openModal(),
+            icon: Icon(Icons.add_circle, size: 30),
           ),
         ],
       ),
@@ -178,4 +134,12 @@ class _FrequencyViewState extends State<FrequencyView> {
 
   int compareString(bool ascending, String value1, String value2) =>
       ascending ? value1.compareTo(value2) : value2.compareTo(value1);
+
+  _openModal() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return ModalCreateFrequency();
+        });
+  }
 }

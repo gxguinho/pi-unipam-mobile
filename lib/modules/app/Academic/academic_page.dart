@@ -4,7 +4,7 @@ import 'package:unipam_mobile/shared/themes/app_text.dart';
 import 'package:unipam_mobile/shared/widgets/drawer/drawer_widget.dart';
 
 class AcademicPage extends StatefulWidget {
-  const AcademicPage({ Key? key }) : super(key: key);
+  const AcademicPage({Key? key}) : super(key: key);
 
   @override
   _AcademicPageState createState() => _AcademicPageState();
