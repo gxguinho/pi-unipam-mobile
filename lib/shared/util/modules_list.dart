@@ -15,7 +15,7 @@ class ModulesList {
     {
       "title": "Notas",
       "icon": Icons.analytics_outlined,
-      "route": ""
+      "route": "/notes"
     },
     {
       "title": "Turmas",

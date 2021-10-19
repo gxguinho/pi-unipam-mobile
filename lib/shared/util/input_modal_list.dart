@@ -264,4 +264,23 @@ class InputModalList {
         {"title": "", "value": ""}],
     },
   ];
+  var noteInputs = [
+    {
+      "title": "Nota",
+      "icon": Icons.book,
+      "error": null,
+      "maxLength": 6,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Aluno",
+      "icon": Icons.people,
+      "itens": [
+        {"title": "Gabriel", "value": "Gabriel"},
+        {"title": "Joao", "value": "Joao"}],
+      "isDropdown": true
+    },
+  ];
 }
