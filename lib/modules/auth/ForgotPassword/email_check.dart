@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:unipam_mobile/shared/themes/app_colors.dart';
 import 'package:unipam_mobile/shared/themes/app_text.dart';
 import 'package:unipam_mobile/shared/widgets/label_button_navegation/label_button_navegation.dart';
 
@@ -41,16 +40,14 @@ class _EmailCheckPageState extends State<EmailCheckPage> {
                   textAlign: TextAlign.center,
                   style: AppText.description,
                 ),
-                 const SizedBox(height: 30),
-                 LabelButtonNavegation(
-                   text: "Enviar e-mail de confirmação",
-                   route: "/newpassword",
-                 ),
-                 SizedBox(height: 20),
-                 LabelButtonNavegation(
-                   text: "Pular, confirmar mais tarde",
-                   route: "/"
-                 ),
+                const SizedBox(height: 30),
+                LabelButtonNavegation(
+                  text: "Enviar e-mail de confirmação",
+                  route: "/newpassword",
+                ),
+                SizedBox(height: 20),
+                LabelButtonNavegation(
+                    text: "Pular, confirmar mais tarde", route: "/"),
               ],
             ),
           ),

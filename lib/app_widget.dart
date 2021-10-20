@@ -4,13 +4,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:unipam_mobile/modules/app/Academic/notas/notes_page.dart';
 import 'package:unipam_mobile/modules/app/Academic/students/students_page.dart';
 import 'package:unipam_mobile/modules/auth/Login/login_page.dart';
+import 'modules/app/Academic/Frequency/frequency_page.dart';
 import 'modules/app/app_controller.dart';
 import 'modules/app/Academic/academic_page.dart';
 import 'modules/app/Home/home_page.dart';
 import 'modules/auth/ForgotPassword/email_check.dart';
 import 'modules/auth/ForgotPassword/forgot_password.dart';
 import 'modules/auth/ForgotPassword/new_password.dart';
-
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -40,6 +40,7 @@ class AppWidget extends StatelessWidget {
           "/academic": (context) => AcademicPage(),
           "/students": (context) => StudentsPage(),
           "/notes": (context) => NotesPage(),
+          "/frequency": (context) => FrequencyPage(),
         } 
       );
    });

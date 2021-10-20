@@ -10,7 +10,7 @@ class ModulesList {
     {
       "title": "Frequencia",
       "icon": Icons.analytics_outlined,
-      "route": ""
+      "route": "/frequency"
     },
     {
       "title": "Notas",
