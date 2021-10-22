@@ -12,15 +12,7 @@ class ModulesList {
       "icon": Icons.analytics_outlined,
       "route": "/frequency"
     },
-    {
-      "title": "Notas",
-      "icon": Icons.analytics_outlined,
-      "route": "/notes"
-    },
-    {
-      "title": "Turmas",
-      "icon": Icons.analytics_outlined,
-      "route": ""
-    },
+    {"title": "Notas", "icon": Icons.analytics_outlined, "route": "/notes"},
+    {"title": "Turmas", "icon": Icons.analytics_outlined, "route": "/turmas"},
   ];
 }
