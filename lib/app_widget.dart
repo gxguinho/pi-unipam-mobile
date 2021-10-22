@@ -5,6 +5,7 @@ import 'package:unipam_mobile/modules/app/Academic/notas/notes_page.dart';
 import 'package:unipam_mobile/modules/app/Academic/students/students_page.dart';
 import 'package:unipam_mobile/modules/auth/Login/login_page.dart';
 import 'modules/app/Academic/Frequency/frequency_page.dart';
+import 'modules/app/Academic/horario/horario.dart';
 import 'modules/app/app_controller.dart';
 import 'modules/app/Academic/academic_page.dart';
 import 'modules/app/Home/home_page.dart';
@@ -18,31 +19,31 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-     animation: AppController.instance,
-     builder: (context, child) {
-      return MaterialApp(
-        theme: ThemeData(
-          primaryColor: AppController.instance.colorSelected,
-          appBarTheme: AppBarTheme(
-            backgroundColor:  AppController.instance.colorSelected
-          ),
-          brightness: AppController.instance.isDarkTheme ? Brightness.light : Brightness.dark,
-          fontFamily: GoogleFonts.archivo().toString(),
-        ),
-        title: "Unipam Mobile",
-        initialRoute: '/',
-        routes: {
-          '/': (context) => LoginPage(),
-          '/forgotpassword': (context) => ForgotPasswordPage(),
-          '/emailcheck': (context) => EmailCheckPage(),
-          '/newpassword': (context) => NewPasswordPage(),
-          "/home": (context) => HomePage(),
-          "/academic": (context) => AcademicPage(),
-          "/students": (context) => StudentsPage(),
-          "/notes": (context) => NotesPage(),
-          "/frequency": (context) => FrequencyPage(),
-        } 
-      );
-   });
+        animation: AppController.instance,
+        builder: (context, child) {
+          return MaterialApp(
+              theme: ThemeData(
+                primaryColor: AppController.instance.colorSelected,
+                appBarTheme: AppBarTheme(
+                    backgroundColor: AppController.instance.colorSelected),
+                brightness: AppController.instance.isDarkTheme
+                    ? Brightness.light
+                    : Brightness.dark,
+                fontFamily: GoogleFonts.archivo().toString(),
+              ),
+              title: "Unipam Mobile",
+              initialRoute: '/',
+              routes: {
+                '/': (context) => HorarioPage(),
+                '/forgotpassword': (context) => ForgotPasswordPage(),
+                '/emailcheck': (context) => EmailCheckPage(),
+                '/newpassword': (context) => NewPasswordPage(),
+                "/home": (context) => HomePage(),
+                "/academic": (context) => AcademicPage(),
+                "/students": (context) => StudentsPage(),
+                "/notes": (context) => NotesPage(),
+                "/frequency": (context) => FrequencyPage(),
+              });
+        });
   }
 }
