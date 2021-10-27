@@ -283,5 +283,4 @@ class InputModalList {
       "isDropdown": true
     },
   ];
-  
 }

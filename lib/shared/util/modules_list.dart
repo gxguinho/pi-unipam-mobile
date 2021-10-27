@@ -8,7 +8,7 @@ class ModulesList {
       "route": "/students"
     },
     {
-      "title": "Frequencia",
+      "title": "Frequência",
       "icon": Icons.analytics_outlined,
       "route": "/frequency"
     },
@@ -21,6 +21,11 @@ class ModulesList {
       "title": "Turmas",
       "icon": Icons.analytics_outlined,
       "route": ""
+    },
+    {
+      "title": "Relatórios",
+      "icon": Icons.article,
+      "route": "/reports"
     },
   ];
 }

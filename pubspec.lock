@@ -14,11 +14,7 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
-    version: "2.8.1"
-=======
     version: "2.8.2"
->>>>>>> academic-frequency
   boolean_selector:
     dependency: transitive
     description:
@@ -162,7 +158,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.0"
-<<<<<<< HEAD
   modal_bottom_sheet:
     dependency: "direct main"
     description:
@@ -170,8 +165,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
-=======
->>>>>>> academic-frequency
   path:
     dependency: transitive
     description:
@@ -302,11 +295,7 @@ packages:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
-    version: "0.4.2"
-=======
     version: "0.4.3"
->>>>>>> academic-frequency
   typed_data:
     dependency: transitive
     description:
