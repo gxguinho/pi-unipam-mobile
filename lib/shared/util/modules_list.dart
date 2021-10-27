@@ -22,5 +22,10 @@ class ModulesList {
       "icon": Icons.analytics_outlined,
       "route": ""
     },
+     {
+      "title": "Grupo",
+      "icon": Icons.analytics_outlined,
+      "route": "/group"
+    },
   ];
 }

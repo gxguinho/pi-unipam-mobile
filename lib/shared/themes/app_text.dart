@@ -67,4 +67,10 @@ class AppText {
       fontWeight: FontWeight.bold, 
       color: AppColors.text
   );
+   static final cardPrincipal = GoogleFonts.archivo(
+      fontSize: 16, fontWeight: FontWeight.bold, color: AppColors.white
+  );
+   static final cardSecund = GoogleFonts.archivo(
+      fontSize: 14, fontWeight: FontWeight.w500, color: AppColors.white
+  );
 }

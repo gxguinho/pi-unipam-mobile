@@ -283,5 +283,32 @@ class InputModalList {
       "isDropdown": true
     },
   ];
-  
+  var curseInputs = [
+    {
+      "title": "Nome Curso",
+      "icon": Icons.account_circle_rounded,
+      "error": null,
+      "maxLength": 50,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+     {
+      "title": "Quantidade de Alunos",
+      "icon": Icons.account_circle_rounded,
+      "error": null,
+      "maxLength": 3,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Professores",
+      "icon": Icons.people,
+      "itens": [
+        {"title": "Sandro", "value": "sandro"},
+        {"title": "Juliana", "value": "juliana"}],
+      "isDropdown": true
+    },
+  ];
 }
