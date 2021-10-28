@@ -283,5 +283,44 @@ class InputModalList {
       "isDropdown": true
     },
   ];
+
+  var horarioInputs = [
+    {  
+      "title": "Materia",
+      "icon": Icons.people,
+      "itens": [
+        {"title": "Materia 1", "value": "Materia 1"},
+        {"title": "Materia 2", "value": "Materia 2"},
+        {"title": "Materia 3", "value": "Materia 3"},
+        {"title": "Materia 4", "value": "Materia 4"},
+        ],
+      "isDropdown": true ,
+     
+    },
+     {  
+      "title": "Dia da Semana",
+      "icon": Icons.people,
+      "itens": [
+        {"title": "Segunda", "value": "Segunda"},
+        {"title": "Terça ", "value": "Terça"},
+        {"title": "Quarta", "value": "Quarta"},
+        {"title": "Quinta", "value": "Quinta"},
+        {"title": "Sexta", "value": "Sexta"},
+        ],
+      "isDropdown": true ,
+     
+    },
+    {
+      "title": "Horário",
+      "icon": Icons.people,
+      "itens": [
+        {"title": "18:50-19:40", "value": "18:50-19:40"},
+        {"title": "19:40-20:30", "value": "19:40-20:30"},
+        {"title": "20:40-21:30", "value": "20:40-21:30"},
+        {"title": "21:30-22:20", "value": "21:30-22:20"},
+        ],
+      "isDropdown": true ,
+    },
+  ];
   
 }

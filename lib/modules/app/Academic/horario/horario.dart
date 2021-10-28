@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:unipam_mobile/modules/app/Academic/horario/horario_controller.dart';
+import 'package:unipam_mobile/shared/widgets/modal_create/modal_horario_create.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -17,93 +19,60 @@ class HorarioPage extends StatefulWidget {
 class _HorarioPageState extends State<HorarioPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: Text('Horário')),
+    return AnimatedBuilder(
+      animation: HorarioController.instance,
+      builder: (context, child) { return Scaffold(
+        appBar: AppBar(title: Text('Horário'), actions:[ IconButton(
+                      onPressed: () => _openModal(),
+                      icon: Icon(
+                        Icons.add_circle,
+                        size: 32,
+                      )),]),
         body: Center(
           child: ListView(
             children: [
+
+             ...HorarioController.instance.horariototal.map((e) =>
+
               DataTable(columns: [
-                DataColumn(label: Text('Segunda'))
+                DataColumn(label: Text(e['DiaSemana'])),
+                DataColumn(label: Text(''))
               ], rows: [
                 DataRow(cells: [
-                  DataCell(Text('18:50 - 19:40   Horário 1')),
+                  DataCell(Text(e['Horario1'])),
+                  DataCell(Text(e['Materia1'])),
                 ]),
                 DataRow(cells: [
-                  DataCell(Text('19:40 - 20:30   Horário 2')),
+                  DataCell(Text(e['Horario2'])),
+                  DataCell(Text(e['Materia2'])),
                 ]),
                 DataRow(cells: [
-                  DataCell(Text('20:40 - 21:30   Horário 3')),
+                  DataCell(Text(e['Horario3'])),
+                  DataCell(Text(e['Materia3'])),
                 ]),
                 DataRow(cells: [
-                  DataCell(Text('21:30 - 22:20   Horário 4')),
+                  DataCell(Text(e['Horario4'])),
+                  DataCell(Text(e['Materia4'])),
                 ])
               ]),
-              DataTable(columns: [
-                DataColumn(label: Text('Terça'))
-              ], rows: [
-                DataRow(cells: [
-                  DataCell(Text('18:50 - 19:40   Horário 1')),
-                ]),
-                DataRow(cells: [
-                  DataCell(Text('19:40 - 20:30   Horário 2')),
-                ]),
-                DataRow(cells: [
-                  DataCell(Text('20:40 - 21:30   Horário 3')),
-                ]),
-                DataRow(cells: [
-                  DataCell(Text('21:30 - 22:20   Horário 4')),
-                ]),
-              ]),
-              DataTable(columns: [
-                DataColumn(label: Text('Quarta'))
-              ], rows: [
-                DataRow(cells: [
-                  DataCell(Text('18:50 - 19:40   Horário 1')),
-                ]),
-                DataRow(cells: [
-                  DataCell(Text('19:40 - 20:30   Horário 2')),
-                ]),
-                DataRow(cells: [
-                  DataCell(Text('20:40 - 21:30   Horário 3')),
-                ]),
-                DataRow(cells: [
-                  DataCell(Text('21:30 - 22:20   Horário 4')),
-                ]),
-              ]),
-              DataTable(columns: [
-                DataColumn(label: Text('Quinta'))
-              ], rows: [
-                DataRow(cells: [
-                  DataCell(Text('18:50 - 19:40   Horário 1')),
-                ]),
-                DataRow(cells: [
-                  DataCell(Text('19:40 - 20:30   Horário 2')),
-                ]),
-                DataRow(cells: [
-                  DataCell(Text('20:40 - 21:30   Horário 3')),
-                ]),
-                DataRow(cells: [
-                  DataCell(Text('21:30 - 22:20   Horário 4')),
-                ]),
-              ]),
-              DataTable(columns: [
-                DataColumn(label: Text('Sexta'))
-              ], rows: [
-                DataRow(cells: [
-                  DataCell(Text('18:50 - 19:40   Horário 1')),
-                ]),
-                DataRow(cells: [
-                  DataCell(Text('19:40 - 20:30   Horário 2')),
-                ]),
-                DataRow(cells: [
-                  DataCell(Text('20:40 - 21:30   Horário 3')),
-                ]),
-                DataRow(cells: [
-                  DataCell(Text('21:30 - 22:20   Horário 4')),
-                ]),
-              ])
+             )
+
+
+
             ],
           ),
         ));
+
+
+      } 
+    );
+  }
+
+   _openModal() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return ModalHorarioCreate();
+        });
   }
 }
