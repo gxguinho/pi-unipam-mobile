@@ -6,6 +6,8 @@ import 'package:unipam_mobile/modules/app/Academic/students/students_page.dart';
 import 'package:unipam_mobile/modules/auth/Login/login_page.dart';
 import 'modules/app/Academic/Frequency/frequency_page.dart';
 import 'modules/app/Academic/reportspage/reports_page.dart';
+import 'modules/app/Library/Readers/readers_page.dart';
+import 'modules/app/Library/library_page.dart';
 import 'modules/app/app_controller.dart';
 import 'modules/app/Academic/academic_page.dart';
 import 'modules/app/Home/home_page.dart';
@@ -44,6 +46,8 @@ class AppWidget extends StatelessWidget {
                 "/notes": (context) => NotesPage(),
                 "/frequency": (context) => FrequencyPage(),
                 "/reports": (context) => ReportsPage(),
+                "/library": (context) => LibraryPage(),
+                "/readers": (context) => ReadersPage(),
               });
         });
   }
