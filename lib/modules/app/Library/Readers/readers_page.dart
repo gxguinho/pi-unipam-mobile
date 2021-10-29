@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:unipam_mobile/modules/app/Library/Readers/readers_controller.dart';
 import 'package:unipam_mobile/shared/themes/app_colors.dart';
 import 'package:unipam_mobile/shared/themes/app_text.dart';
@@ -83,13 +84,11 @@ class _ReadersPageState extends State<ReadersPage> {
                 ...ReadersController.instance.readers.map(
                   (e) => DataRow(cells: [
                     DataCell(Text(e['nome'])),
-                    DataCell(Text(e['note'].toString())),
-                    DataCell(IconButton(
-                        onPressed: () =>
-                            ReadersController.instance.removeItem(e['nome']),
-                        icon: Icon(Icons.remove_circle))),
+                    DataCell(Text(e['tipo'])),
+                    DataCell(Text(e['telefone'])),
                     DataCell(
-                        IconButton(onPressed: () {}, icon: Icon(Icons.edit)))
+                      Text(DateFormat("dd/MM/yyyy").format(e['data criação'])),
+                    ),
                   ]),
                 )
               ],

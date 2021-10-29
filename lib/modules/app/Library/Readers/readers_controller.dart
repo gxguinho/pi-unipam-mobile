@@ -6,10 +6,23 @@ class ReadersController extends ChangeNotifier {
   List readers = [];
 
   String nome = "";
+  String tipo = "";
+  String celular = "";
+  String dataCriacao = "";
+
+  changedText(text, title) {
+    if (title == "Nome") nome = text;
+    if (title == "Tipo") tipo = text;
+    if (title == "Celular") celular = text;
+    if (title == "Data Criação") dataCriacao = text;
+  }
 
   registerReaders(context) {
     var readersRegister = {
       "nome": nome,
+      "tipo": tipo,
+      "telefone": celular,
+      "data criação": DateTime.now()
     };
 
     readers.add(readersRegister);
