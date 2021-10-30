@@ -8,19 +8,34 @@ class ModulesList {
       "route": "/students"
     },
     {
-      "title": "Frequencia",
+      "title": "Frequência",
       "icon": Icons.analytics_outlined,
       "route": "/frequency"
     },
     {
-      "title": "Notas",
-      "icon": Icons.analytics_outlined,
+      "title": "Notas", 
+      "icon": Icons.analytics_outlined, 
       "route": "/notes"
     },
     {
-      "title": "Turmas",
+      "title": "Turmas", 
+      "icon": Icons.analytics_outlined, 
+      "route": "/turmas"
+    },
+    {
+      "title": "Horarios", 
+      "icon": Icons.analytics_outlined, 
+      "route": "/schedule"
+    },
+    {
+      "title": "Relatórios",
+      "icon": Icons.article,
+      "route": "/reports"
+    },
+     {
+      "title": "Grupo",
       "icon": Icons.analytics_outlined,
-      "route": ""
+      "route": "/group"
     },
   ];
 }

@@ -13,6 +13,8 @@ class InputTextCreate extends StatelessWidget {
   final Function(String)? onChanged;
   final TextInputType type;
   final String textFormatter;
+  final String? quantAlunos;
+  final String? nomeCurso;
 
   const InputTextCreate({
      Key? key, 
@@ -21,7 +23,7 @@ class InputTextCreate extends StatelessWidget {
      this.onChanged, 
      required this.maxLength, 
      required this.type, 
-     required this.textFormatter }) : super(key: key);
+     required this.textFormatter, this.quantAlunos, this.nomeCurso }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,8 @@ class InputTextCreate extends StatelessWidget {
       child: TextField(
         controller: TextEditingController(text: 
           title == 'Logradouro' ? StudentsController.instance.logradouro : 
-          title == 'Bairro' ? StudentsController.instance.bairro : title == 'Complemento' ? StudentsController.instance.complemento : title == 'CEP' ? StudentsController.instance.cep : null
+          title == 'Bairro' ? StudentsController.instance.bairro : title == 'Complemento' ? StudentsController.instance.complemento : title == 'CEP' ? StudentsController.instance.cep : title == 'Nome Curso' ? nomeCurso : title == "Quantidade de Alunos" ?
+          quantAlunos : null
         ),
         onChanged: (text) => onChanged!(text),
         style: AppText.inputText,

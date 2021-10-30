@@ -48,18 +48,18 @@ class InputModalList {
       "title": "Estado civil",
       "error": null,
       "itens": [
-        {"title": "Solteiro", "value": "solteiro"}, 
+        {"title": "Solteiro", "value": "solteiro"},
         {"title": "Casado", "value": "casado"},
         {"title": "Separado", "value": "separado"},
         {"title": "Viúvo", "value": "viúvo"},
         {"title": "Outro", "value": "outro"}
       ]
     },
-     {
+    {
       "title": "Sexo",
       "error": null,
       "itens": [
-        {"title": "Masculino", "value": "masculino"}, 
+        {"title": "Masculino", "value": "masculino"},
         {"title": "Feminino", "value": "feminino"},
       ]
     },
@@ -71,7 +71,7 @@ class InputModalList {
       "type": TextInputType.name,
       "textFormater": ''
     },
-     {
+    {
       "title": "Nome Da Pai",
       "icon": Icons.family_restroom,
       "error": null,
@@ -153,7 +153,7 @@ class InputModalList {
       "type": TextInputType.text,
       "textFormater": ''
     },
-     {
+    {
       "title": "Telefone fixo",
       "icon": Icons.phone,
       "error": null,
@@ -173,7 +173,7 @@ class InputModalList {
       "title": "Curso",
       "error": null,
       "itens": [
-        {"title": "", "value": ""}, 
+        {"title": "", "value": ""},
       ]
     },
     {
@@ -197,7 +197,8 @@ class InputModalList {
       "icon": Icons.people,
       "itens": [
         {"title": "Sim", "value": "sim"},
-        {"title": "Não", "value": "nao"}],
+        {"title": "Não", "value": "nao"}
+      ],
     },
     {
       "title": "Local de Trabalho",
@@ -247,7 +248,7 @@ class InputModalList {
         {"title": "Power point,", "value": "powerpoint"},
         {"title": "Programação", "value": "programação"},
         {"title": "Word", "value": "word"}
-        ],
+      ],
     },
     {
       "title": "Opção de Faculdade",
@@ -261,7 +262,8 @@ class InputModalList {
       "title": "Grupo de usuário",
       "icon": Icons.people,
       "itens": [
-        {"title": "", "value": ""}],
+        {"title": "", "value": ""}
+      ],
     },
   ];
   var noteInputs = [
@@ -279,9 +281,106 @@ class InputModalList {
       "icon": Icons.people,
       "itens": [
         {"title": "Gabriel", "value": "Gabriel"},
-        {"title": "Joao", "value": "Joao"}],
+        {"title": "Joao", "value": "Joao"}
+      ],
       "isDropdown": true
     },
   ];
+
+  var horarioInputs = [
+    {  
+      "title": "Materia",
+      "icon": Icons.people,
+      "itens": [
+        {"title": "Materia 1", "value": "Materia 1"},
+        {"title": "Materia 2", "value": "Materia 2"},
+        {"title": "Materia 3", "value": "Materia 3"},
+        {"title": "Materia 4", "value": "Materia 4"},
+        ],
+      "isDropdown": true ,
+     
+    },
+     {  
+      "title": "Dia da Semana",
+      "icon": Icons.people,
+      "itens": [
+        {"title": "Segunda", "value": "Segunda"},
+        {"title": "Terça ", "value": "Terça"},
+        {"title": "Quarta", "value": "Quarta"},
+        {"title": "Quinta", "value": "Quinta"},
+        {"title": "Sexta", "value": "Sexta"},
+        ],
+      "isDropdown": true ,
+     
+    },
+    {
+      "title": "Horário",
+      "icon": Icons.people,
+      "itens": [
+        {"title": "18:50-19:40", "value": "18:50-19:40"},
+        {"title": "19:40-20:30", "value": "19:40-20:30"},
+        {"title": "20:40-21:30", "value": "20:40-21:30"},
+        {"title": "21:30-22:20", "value": "21:30-22:20"},
+        ],
+      "isDropdown": true ,
+    },
+  ];
   
+  var curseInputs = [
+    {
+      "title": "Nome Curso",
+      "icon": Icons.account_circle_rounded,
+      "error": null,
+      "maxLength": 50,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+     {
+      "title": "Quantidade de Alunos",
+      "icon": Icons.account_circle_rounded,
+      "error": null,
+      "maxLength": 3,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Professores",
+      "icon": Icons.people,
+      "itens": [
+        {"title": "Sandro", "value": "sandro"},
+        {"title": "Juliana", "value": "juliana"}],
+      "isDropdown": true
+    },
+  ];
+  var leitoresInput = [
+    {
+      "title": "Nome",
+      "icon": Icons.people,
+      "error": null,
+      "maxLength": 6,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Tipo",
+      "icon": Icons.assignment_ind,
+      "error": null,
+      "maxLength": 6,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Celular",
+      "icon": Icons.book,
+      "error": null,
+      "maxLength": 6,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+  ];
 }
