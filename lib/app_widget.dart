@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:unipam_mobile/modules/app/Academic/notas/notes_page.dart';
 import 'package:unipam_mobile/modules/app/Academic/students/students_page.dart';
+import 'package:unipam_mobile/modules/app/Library/loan/loan_page.dart';
 import 'package:unipam_mobile/modules/auth/Login/login_page.dart';
 import 'modules/app/Academic/Frequency/frequency_page.dart';
 import 'modules/app/app_controller.dart';
@@ -32,7 +33,7 @@ class AppWidget extends StatelessWidget {
         title: "Unipam Mobile",
         initialRoute: '/',
         routes: {
-          '/': (context) => LoginPage(),
+          '/': (context) => LoanPage(),
           '/forgotpassword': (context) => ForgotPasswordPage(),
           '/emailcheck': (context) => EmailCheckPage(),
           '/newpassword': (context) => NewPasswordPage(),

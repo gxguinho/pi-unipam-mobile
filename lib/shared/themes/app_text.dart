@@ -67,4 +67,15 @@ class AppText {
       fontWeight: FontWeight.bold, 
       color: AppColors.text
   );
+
+   static final titleBook = GoogleFonts.archivo(
+      fontSize: 20, 
+      fontWeight: FontWeight.w500, 
+      color: AppColors.text
+  );
+   static final subBook = GoogleFonts.archivo(
+      fontSize: 18, 
+      fontWeight: FontWeight.w400, 
+      color: AppColors.text
+  );
 }
