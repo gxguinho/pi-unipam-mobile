@@ -11,6 +11,8 @@ import 'modules/app/Academic/turma/turma.dart';
 import 'modules/app/Academic/turma/turma_aberta.dart';
 import 'modules/app/Academic/turma/turma_fechada.dart';
 import 'modules/app/Academic/reportspage/reports_page.dart';
+import 'modules/app/Library/Readers/readers_page.dart';
+import 'modules/app/Library/library_page.dart';
 import 'modules/app/app_controller.dart';
 import 'modules/app/Academic/academic_page.dart';
 import 'modules/app/Home/home_page.dart';
@@ -53,7 +55,9 @@ class AppWidget extends StatelessWidget {
                 "/turmaaberta": (context) => TurmaAbertaPage(),
                 "/turmafechada": (context) => TurmaFechadaPage(),
                 "/reports": (context) => ReportsPage(),
-                "/group": (context) => ManageCursePage()
+                "/group": (context) => ManageCursePage(),
+                "/library": (context) => LibraryPage(),
+                "/readers": (context) => ReadersPage(),
               });
         });
   }

@@ -57,7 +57,7 @@ class _ModalInsertReportsState extends State<ModalInsertReports> {
                   LabelButtonNavegation(
                     text: "Salvar",
                     onChanged: (context) => ReportsController.instance
-                        .registerNote(context, widget.aluno),
+                        .registerReport(context, widget.aluno),
                   ),
                   SizedBox(height: 30),
                 ],

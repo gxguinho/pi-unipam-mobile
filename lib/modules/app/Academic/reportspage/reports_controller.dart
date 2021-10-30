@@ -14,7 +14,7 @@ class ReportsController extends ChangeNotifier {
 
   String report = "";
 
-  registerNote(context, nomeAluno) {
+  registerReport(context, nomeAluno) {
     List edit = students
         .map((e) => e['aluno'] == nomeAluno
             ? {

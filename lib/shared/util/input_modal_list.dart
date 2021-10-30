@@ -48,18 +48,18 @@ class InputModalList {
       "title": "Estado civil",
       "error": null,
       "itens": [
-        {"title": "Solteiro", "value": "solteiro"}, 
+        {"title": "Solteiro", "value": "solteiro"},
         {"title": "Casado", "value": "casado"},
         {"title": "Separado", "value": "separado"},
         {"title": "Viúvo", "value": "viúvo"},
         {"title": "Outro", "value": "outro"}
       ]
     },
-     {
+    {
       "title": "Sexo",
       "error": null,
       "itens": [
-        {"title": "Masculino", "value": "masculino"}, 
+        {"title": "Masculino", "value": "masculino"},
         {"title": "Feminino", "value": "feminino"},
       ]
     },
@@ -71,7 +71,7 @@ class InputModalList {
       "type": TextInputType.name,
       "textFormater": ''
     },
-     {
+    {
       "title": "Nome Da Pai",
       "icon": Icons.family_restroom,
       "error": null,
@@ -153,7 +153,7 @@ class InputModalList {
       "type": TextInputType.text,
       "textFormater": ''
     },
-     {
+    {
       "title": "Telefone fixo",
       "icon": Icons.phone,
       "error": null,
@@ -173,7 +173,7 @@ class InputModalList {
       "title": "Curso",
       "error": null,
       "itens": [
-        {"title": "", "value": ""}, 
+        {"title": "", "value": ""},
       ]
     },
     {
@@ -197,7 +197,8 @@ class InputModalList {
       "icon": Icons.people,
       "itens": [
         {"title": "Sim", "value": "sim"},
-        {"title": "Não", "value": "nao"}],
+        {"title": "Não", "value": "nao"}
+      ],
     },
     {
       "title": "Local de Trabalho",
@@ -247,7 +248,7 @@ class InputModalList {
         {"title": "Power point,", "value": "powerpoint"},
         {"title": "Programação", "value": "programação"},
         {"title": "Word", "value": "word"}
-        ],
+      ],
     },
     {
       "title": "Opção de Faculdade",
@@ -261,7 +262,8 @@ class InputModalList {
       "title": "Grupo de usuário",
       "icon": Icons.people,
       "itens": [
-        {"title": "", "value": ""}],
+        {"title": "", "value": ""}
+      ],
     },
   ];
   var noteInputs = [
@@ -279,7 +281,8 @@ class InputModalList {
       "icon": Icons.people,
       "itens": [
         {"title": "Gabriel", "value": "Gabriel"},
-        {"title": "Joao", "value": "Joao"}],
+        {"title": "Joao", "value": "Joao"}
+      ],
       "isDropdown": true
     },
   ];
@@ -349,6 +352,35 @@ class InputModalList {
         {"title": "Sandro", "value": "sandro"},
         {"title": "Juliana", "value": "juliana"}],
       "isDropdown": true
+    },
+  ];
+  var leitoresInput = [
+    {
+      "title": "Nome",
+      "icon": Icons.people,
+      "error": null,
+      "maxLength": 6,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Tipo",
+      "icon": Icons.assignment_ind,
+      "error": null,
+      "maxLength": 6,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Celular",
+      "icon": Icons.book,
+      "error": null,
+      "maxLength": 6,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
     },
   ];
 }
