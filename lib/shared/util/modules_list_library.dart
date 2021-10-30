@@ -7,5 +7,10 @@ class ModulesList {
       "icon": Icons.accessible_forward_sharp,
       "route": "/readers"
     },
+    {
+      "title": "Emprestimos",
+      "icon": Icons.accessible_forward_sharp,
+      "route": "/loan"
+    },
   ];
 }
