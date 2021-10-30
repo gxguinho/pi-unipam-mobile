@@ -1,11 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:unipam_mobile/modules/app/Academic/reportspage/reports_controller.dart';
-import 'package:unipam_mobile/modules/app/Academic/students/students_controller.dart';
 import 'package:unipam_mobile/modules/app/Library/Readers/readers_controller.dart';
-import 'package:unipam_mobile/shared/themes/app_colors.dart';
 import 'package:unipam_mobile/shared/themes/app_text.dart';
 import 'package:unipam_mobile/shared/util/input_modal_list.dart';
 import 'package:unipam_mobile/shared/widgets/label_button_navegation/label_button_navegation.dart';
