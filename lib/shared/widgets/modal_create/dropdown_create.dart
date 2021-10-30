@@ -8,7 +8,8 @@ class DropdownCreate extends StatefulWidget {
   final String title;
   final List<Map<dynamic, dynamic>> itemsSelect;
   final Function(String)? onChanged;
-  const DropdownCreate({ Key? key, required this.title, required this.itemsSelect, this.onChanged }) : super(key: key);
+  final String? value;
+  const DropdownCreate({ Key? key, required this.title, required this.itemsSelect, this.onChanged, this.value }) : super(key: key);
 
   @override
   _DropdownCreateState createState() => _DropdownCreateState();
@@ -37,10 +38,10 @@ class _DropdownCreateState extends State<DropdownCreate> {
               color: value == null ? AppController.instance.colorSelected.withOpacity(0.2) :
               AppController.instance.colorSelected,
             ),
-            hint: Text("Selecione..."),
+            hint: widget.value != null ? Text(widget.value.toString().toUpperCase()) : Text("Selecione..."),
             isExpanded: true,
             iconSize: 30,
-            value: value,
+            value: value ,
             onChanged: (value) => {
               setState(() => this.value = value),
               widget.onChanged!(value!)

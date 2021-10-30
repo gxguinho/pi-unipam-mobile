@@ -32,5 +32,10 @@ class ModulesList {
       "icon": Icons.article,
       "route": "/reports"
     },
+     {
+      "title": "Grupo",
+      "icon": Icons.analytics_outlined,
+      "route": "/group"
+    },
   ];
 }
