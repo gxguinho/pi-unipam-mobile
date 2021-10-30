@@ -8,10 +8,9 @@ import 'package:unipam_mobile/shared/themes/app_text.dart';
 
 import '../../app_controller.dart';
 
-class StudentsController extends ChangeNotifier{
-
+class StudentsController extends ChangeNotifier {
   static StudentsController instance = StudentsController();
-  List<Map<dynamic,dynamic>> state = [];
+  List<Map<dynamic, dynamic>> state = [];
   List<Map<dynamic, dynamic>> city = [];
   List students = [];
 
@@ -58,7 +57,7 @@ class StudentsController extends ChangeNotifier{
     if (title == "Sexo") sexo = text;
     if (title == "Nome Da Mãe") nomeMae = text;
     if (title == "Nome Do Pai") nomePai = text;
-    if (title == "CEP")  changeCep(text);
+    if (title == "CEP") changeCep(text);
     if (title == "Logradouro") logradouro = text;
     if (title == "Número") numero = text;
     if (title == "Bairro") bairro = text;
@@ -84,12 +83,12 @@ class StudentsController extends ChangeNotifier{
 
   changeCep(text) async {
     cep = text;
-    if(cep.length == 9) {
+    if (cep.length == 9) {
       var url = Uri.parse('https://viacep.com.br/ws/$text/json/');
       var response = await http.get(url);
-      Map<String,dynamic> json = jsonDecode(response.body);
-      
-      if(json['erro'] == true){
+      Map<String, dynamic> json = jsonDecode(response.body);
+
+      if (json['erro'] == true) {
         logradouro = "";
         bairro = "";
         complemento = "";
@@ -109,7 +108,8 @@ class StudentsController extends ChangeNotifier{
   }
 
   Future<void> getCity(text) async {
-    var url = Uri.parse('https://www.fieam.com.br/senaiapi/api/Cidades?uf=$text');
+    var url =
+        Uri.parse('https://www.fieam.com.br/senaiapi/api/Cidades?uf=$text');
     var response = await http.get(url);
     var json = jsonDecode(response.body) as List;
     List<Map<dynamic, dynamic>> cityParsed = [];
@@ -117,7 +117,7 @@ class StudentsController extends ChangeNotifier{
     json.forEach((element) {
       cityParsed.add({'title': element['nome'], 'value': element['nome']});
     });
-    
+
     city = cityParsed.toList();
     notifyListeners();
   }
@@ -131,7 +131,7 @@ class StudentsController extends ChangeNotifier{
     json.forEach((element) {
       stateParsed.add({'title': element['nome'], 'value': element['uf']});
     });
-    
+
     state = stateParsed.toList();
     notifyListeners();
   }
@@ -177,22 +177,21 @@ class StudentsController extends ChangeNotifier{
       "date": DateTime.now(),
     };
 
-    if(nome == "") {
+    if (nome == "") {
       alertDismiss(context);
     } else {
       students.add(studentsRegister);
       alertConfirm(context);
-       Future.delayed(Duration(seconds: 2), () {
-         cleanInputs();
-         //Navigator.popAndPushNamed(context, "/students");
-         Navigator.pop(context);
-       }
-      );
+      Future.delayed(Duration(seconds: 2), () {
+        cleanInputs();
+        //Navigator.popAndPushNamed(context, "/students");
+        Navigator.pop(context);
+      });
     }
     notifyListeners();
   }
 
-   void removeItem(value) {
+  void removeItem(value) {
     students.removeWhere((element) => value == element['name']);
     notifyListeners();
   }

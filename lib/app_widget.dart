@@ -9,6 +9,7 @@ import 'modules/app/Academic/Frequency/frequency_page.dart';
 import 'modules/app/Academic/turma/turma.dart';
 import 'modules/app/Academic/turma/turma_aberta.dart';
 import 'modules/app/Academic/turma/turma_fechada.dart';
+import 'modules/app/Academic/reportspage/reports_page.dart';
 import 'modules/app/app_controller.dart';
 import 'modules/app/Academic/academic_page.dart';
 import 'modules/app/Home/home_page.dart';
@@ -50,6 +51,7 @@ class AppWidget extends StatelessWidget {
                 "/schedule": (context) => HorarioPage(),
                 "/turmaaberta": (context) => TurmaAbertaPage(),
                 "/turmafechada": (context) => TurmaFechadaPage(),
+                "/reports": (context) => ReportsPage(),
               });
         });
   }
