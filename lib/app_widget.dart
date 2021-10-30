@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:unipam_mobile/modules/app/Academic/horario/horario.dart';
 import 'package:unipam_mobile/modules/app/Academic/notas/notes_page.dart';
 import 'package:unipam_mobile/modules/app/Academic/students/students_page.dart';
 import 'package:unipam_mobile/modules/auth/Login/login_page.dart';
@@ -46,6 +47,7 @@ class AppWidget extends StatelessWidget {
                 "/notes": (context) => NotesPage(),
                 "/frequency": (context) => FrequencyPage(),
                 "/turmas": (context) => TurmaPage(),
+                "/schedule": (context) => HorarioPage(),
                 "/turmaaberta": (context) => TurmaAbertaPage(),
                 "/turmafechada": (context) => TurmaFechadaPage(),
               });
