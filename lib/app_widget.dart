@@ -14,6 +14,7 @@ import 'modules/app/Academic/turma/turma_fechada.dart';
 import 'modules/app/Academic/reportspage/reports_page.dart';
 import 'modules/app/Library/Readers/readers_page.dart';
 import 'modules/app/Library/categoria/categoria.dart';
+import 'modules/app/Library/editoras/editoras_page.dart';
 import 'modules/app/Library/idiomas/idiomas.dart';
 import 'modules/app/Library/library_page.dart';
 import 'modules/app/app_controller.dart';
@@ -64,6 +65,7 @@ class AppWidget extends StatelessWidget {
                 "/loan": (context) => LoanPage(),
                 "/categoria": (context) => CategoriaPage(),
                 "/idiomas": (context) => IdiomasPage(),
+                "/editoras": (context) => EditorasPage(),
               });
         });
   }

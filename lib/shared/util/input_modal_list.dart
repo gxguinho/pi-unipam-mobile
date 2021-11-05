@@ -404,4 +404,15 @@ class InputModalList {
       "isDropdown": false
     },
   ];
+  var editorasInput = [
+    {
+      "title": "Nome",
+      "icon": Icons.people,
+      "error": null,
+      "maxLength": 100,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+  ];
 }
