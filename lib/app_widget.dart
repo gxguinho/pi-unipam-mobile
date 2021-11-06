@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:unipam_mobile/modules/app/Academic/notas/notes_page.dart';
 import 'package:unipam_mobile/modules/app/Academic/students/students_page.dart';
+import 'package:unipam_mobile/modules/app/Library/Authors/authors_page.dart';
 import 'package:unipam_mobile/modules/auth/Login/login_page.dart';
 import 'modules/app/Academic/Frequency/frequency_page.dart';
 import 'modules/app/Academic/reportspage/reports_page.dart';
@@ -48,6 +49,7 @@ class AppWidget extends StatelessWidget {
                 "/reports": (context) => ReportsPage(),
                 "/library": (context) => LibraryPage(),
                 "/readers": (context) => ReadersPage(),
+                "/authors": (context) => AuthorsPage(),
               });
         });
   }
