@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-class ModulesList {
+class ModulesListLibrary {
   var academicModules = [
+    {"title": "Leitores", "icon": Icons.people, "route": "/readers"},
     {
-      "title": "Leitores",
-      "icon": Icons.accessible_forward_sharp,
-      "route": "/readers"
+      "title": "Autores",
+      "icon": Icons.collections_bookmark,
+      "route": "/authors"
     },
     {
       "title": "Emprestimos",

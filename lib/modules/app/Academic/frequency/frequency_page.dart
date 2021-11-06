@@ -64,6 +64,7 @@ class _FrequencyPageState extends State<FrequencyPage> {
             body: ScrollableWidget(
               child: DataTable(
                 columns: [
+                  DataColumn(label: Text("Nomes")),
                   DataColumn(label: Text("Aulas")),
                   DataColumn(label: Text("Presenças")),
                   DataColumn(label: Text("Faltas")),
@@ -72,6 +73,7 @@ class _FrequencyPageState extends State<FrequencyPage> {
                 rows: [
                   ...FrequencyController.instance.frequencyFillter
                       .map((e) => DataRow(cells: [
+                        DataCell(Text(e['aluno'].toString())),
                             DataCell(Text(e['aula'].toString())),
                             DataCell(Text(e['presenca'].toString())),
                             DataCell(Text(e['faltas'].toString())),

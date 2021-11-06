@@ -509,6 +509,19 @@ class InputModalList {
       "icon": Icons.people,
       "error": null,
       "maxLength": 100,
+      "maxLength": 150,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+  ];
+  var autoresInput = [
+    {
+      "title": "Nome",
+      "icon": Icons.people,
+      "error": null,
+      "maxLength": 100,
+      "maxLength": 150,
       "type": TextInputType.text,
       "textFormater": '',
       "isDropdown": false

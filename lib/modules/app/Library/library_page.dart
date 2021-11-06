@@ -28,7 +28,7 @@ class _LibraryPageState extends State<LibraryPage> {
             child: GridView.count(
               crossAxisCount: 2,
               children: [
-                ...ModulesList().academicModules.map(
+                ...ModulesListLibrary().academicModules.map(
                       (e) => IconNavegationButton(
                         title: e['title'] as String,
                         icon: e['icon'] as IconData,
