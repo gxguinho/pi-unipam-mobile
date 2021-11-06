@@ -383,4 +383,123 @@ class InputModalList {
       "isDropdown": false
     },
   ];
+  var booksInput = [
+    {
+      "title": "Código",
+      "icon": Icons.code,
+      "error": null,
+      "maxLength": 20,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Título",
+      "icon": Icons.code,
+      "error": null,
+      "maxLength": 200,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Autores",
+      "itens": [
+        {"title": " Saramago ", "value": "Saramago "},
+        {"title": "Edgar", "value": "Edgar"}],
+      "isDropdown": true
+    },
+     {
+      "title": "Edição",
+      "icon": Icons.code,
+      "error": null,
+      "maxLength": 10,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+     {
+      "title": "Volume",
+      "icon": Icons.code,
+      "error": null,
+      "maxLength": 10,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+     {
+      "title": "Ano",
+      "icon": Icons.code,
+      "error": null,
+      "maxLength": 4,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+     {
+      "title": "Editora",
+      "itens": [
+        {"title": "012BK", "value": "012BK"},
+        {"title": "Robert B.K", "value": " Robert B.K"}],
+      "isDropdown": true
+    },
+     {
+      "title": "Idioma",
+      "itens": [
+        {"title": "Portugues", "value": "Portugues"},
+        {"title": "Ingles", "value": "Ingles"}],
+      "isDropdown": true
+    },
+     {
+      "title": "Categoria",
+      "itens": [
+        {"title": "Tecnologia", "value": "Tecnologia"},
+        {"title": "Ficção", "value": "Ficção"}],
+      "isDropdown": true
+    },
+    {
+      "title": "Quantidade de exemplares",
+      "icon": Icons.code,
+      "error": null,
+      "maxLength": 5,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Quantidade de exemplares disponíveis",
+      "icon": Icons.code,
+      "error": null,
+      "maxLength": 5,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Localização",
+      "icon": Icons.code,
+      "error": null,
+      "maxLength": 75,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+  ];
+  var ReservationInputs = [
+    {
+      "title": "Pessoa",
+      "itens": [
+        {"title": "Roberto", "value": "Roberto"},
+        {"title": "Sandro", "value": "Sandro"}],
+      "isDropdown": true
+    },
+    {
+      "title": "Livro",
+      "itens": [
+        {"title": "Herry Poter", "value": "Herry Poter"},
+        {"title": "Programação", "value": "Programação"}],
+      "isDropdown": true
+    },
+  ];
+
 }

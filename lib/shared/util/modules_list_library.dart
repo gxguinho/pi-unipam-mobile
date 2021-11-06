@@ -12,5 +12,15 @@ class ModulesList {
       "icon": Icons.accessible_forward_sharp,
       "route": "/loan"
     },
+     {
+      "title": "Livros",
+      "icon": Icons.accessible_forward_sharp,
+      "route": "/books"
+    },
+    {
+      "title": "Reservas",
+      "icon": Icons.accessible_forward_sharp,
+      "route": "/reservations"
+    },
   ];
 }

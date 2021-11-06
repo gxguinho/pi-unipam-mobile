@@ -5,6 +5,7 @@ import 'package:unipam_mobile/modules/app/Academic/horario/horario.dart';
 import 'package:unipam_mobile/modules/app/Academic/manage_curse/manage_curse_page.dart';
 import 'package:unipam_mobile/modules/app/Academic/notas/notes_page.dart';
 import 'package:unipam_mobile/modules/app/Academic/students/students_page.dart';
+import 'package:unipam_mobile/modules/app/Library/books/books_page.dart';
 import 'package:unipam_mobile/modules/app/Library/loan/loan_page.dart';
 import 'package:unipam_mobile/modules/auth/Login/login_page.dart';
 import 'modules/app/Academic/Frequency/frequency_page.dart';
@@ -14,6 +15,7 @@ import 'modules/app/Academic/turma/turma_fechada.dart';
 import 'modules/app/Academic/reportspage/reports_page.dart';
 import 'modules/app/Library/Readers/readers_page.dart';
 import 'modules/app/Library/library_page.dart';
+import 'modules/app/Library/reservations/reservations_page.dart';
 import 'modules/app/app_controller.dart';
 import 'modules/app/Academic/academic_page.dart';
 import 'modules/app/Home/home_page.dart';
@@ -60,6 +62,8 @@ class AppWidget extends StatelessWidget {
                 "/library": (context) => LibraryPage(),
                 "/readers": (context) => ReadersPage(),
                 "/loan": (context) => LoanPage(),
+                "/books": (context) => BooksPage(),
+                "/reservations": (context) => ReservationsPage(),
               });
         });
   }
