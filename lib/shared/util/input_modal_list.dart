@@ -288,7 +288,7 @@ class InputModalList {
   ];
 
   var horarioInputs = [
-    {  
+    {
       "title": "Materia",
       "icon": Icons.people,
       "itens": [
@@ -296,11 +296,10 @@ class InputModalList {
         {"title": "Materia 2", "value": "Materia 2"},
         {"title": "Materia 3", "value": "Materia 3"},
         {"title": "Materia 4", "value": "Materia 4"},
-        ],
-      "isDropdown": true ,
-     
+      ],
+      "isDropdown": true,
     },
-     {  
+    {
       "title": "Dia da Semana",
       "icon": Icons.people,
       "itens": [
@@ -309,9 +308,8 @@ class InputModalList {
         {"title": "Quarta", "value": "Quarta"},
         {"title": "Quinta", "value": "Quinta"},
         {"title": "Sexta", "value": "Sexta"},
-        ],
-      "isDropdown": true ,
-     
+      ],
+      "isDropdown": true,
     },
     {
       "title": "Horário",
@@ -321,11 +319,11 @@ class InputModalList {
         {"title": "19:40-20:30", "value": "19:40-20:30"},
         {"title": "20:40-21:30", "value": "20:40-21:30"},
         {"title": "21:30-22:20", "value": "21:30-22:20"},
-        ],
-      "isDropdown": true ,
+      ],
+      "isDropdown": true,
     },
   ];
-  
+
   var curseInputs = [
     {
       "title": "Nome Curso",
@@ -336,7 +334,7 @@ class InputModalList {
       "textFormater": '',
       "isDropdown": false
     },
-     {
+    {
       "title": "Quantidade de Alunos",
       "icon": Icons.account_circle_rounded,
       "error": null,
@@ -350,7 +348,8 @@ class InputModalList {
       "icon": Icons.people,
       "itens": [
         {"title": "Sandro", "value": "sandro"},
-        {"title": "Juliana", "value": "juliana"}],
+        {"title": "Juliana", "value": "juliana"}
+      ],
       "isDropdown": true
     },
   ];
@@ -481,6 +480,36 @@ class InputModalList {
       "error": null,
       "maxLength": 75,
       "type": TextInputType.number,
+    }];
+  var categoriaInput = [
+    {
+      "title": "Categoria",
+      "icon": Icons.book,
+      "error": null,
+      "maxLength": 75,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+  ];
+  var idiomaInput = [
+    {
+      "title": "Idioma",
+      "icon": Icons.flag_outlined,
+      "error": null,
+      "maxLength": 75,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+  ];
+  var editorasInput = [
+    {
+      "title": "Nome",
+      "icon": Icons.people,
+      "error": null,
+      "maxLength": 100,
+      "type": TextInputType.text,
       "textFormater": '',
       "isDropdown": false
     },
