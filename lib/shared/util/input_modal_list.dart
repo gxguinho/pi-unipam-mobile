@@ -288,7 +288,7 @@ class InputModalList {
   ];
 
   var horarioInputs = [
-    {  
+    {
       "title": "Materia",
       "icon": Icons.people,
       "itens": [
@@ -296,11 +296,10 @@ class InputModalList {
         {"title": "Materia 2", "value": "Materia 2"},
         {"title": "Materia 3", "value": "Materia 3"},
         {"title": "Materia 4", "value": "Materia 4"},
-        ],
-      "isDropdown": true ,
-     
+      ],
+      "isDropdown": true,
     },
-     {  
+    {
       "title": "Dia da Semana",
       "icon": Icons.people,
       "itens": [
@@ -309,9 +308,8 @@ class InputModalList {
         {"title": "Quarta", "value": "Quarta"},
         {"title": "Quinta", "value": "Quinta"},
         {"title": "Sexta", "value": "Sexta"},
-        ],
-      "isDropdown": true ,
-     
+      ],
+      "isDropdown": true,
     },
     {
       "title": "Horário",
@@ -321,11 +319,11 @@ class InputModalList {
         {"title": "19:40-20:30", "value": "19:40-20:30"},
         {"title": "20:40-21:30", "value": "20:40-21:30"},
         {"title": "21:30-22:20", "value": "21:30-22:20"},
-        ],
-      "isDropdown": true ,
+      ],
+      "isDropdown": true,
     },
   ];
-  
+
   var curseInputs = [
     {
       "title": "Nome Curso",
@@ -336,7 +334,7 @@ class InputModalList {
       "textFormater": '',
       "isDropdown": false
     },
-     {
+    {
       "title": "Quantidade de Alunos",
       "icon": Icons.account_circle_rounded,
       "error": null,
@@ -350,7 +348,8 @@ class InputModalList {
       "icon": Icons.people,
       "itens": [
         {"title": "Sandro", "value": "sandro"},
-        {"title": "Juliana", "value": "juliana"}],
+        {"title": "Juliana", "value": "juliana"}
+      ],
       "isDropdown": true
     },
   ];
@@ -383,4 +382,166 @@ class InputModalList {
       "isDropdown": false
     },
   ];
+  var booksInput = [
+    {
+      "title": "Código",
+      "icon": Icons.code,
+      "error": null,
+      "maxLength": 20,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Título",
+      "icon": Icons.code,
+      "error": null,
+      "maxLength": 200,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Autores",
+      "itens": [
+        {"title": " Saramago ", "value": "Saramago "},
+        {"title": "Edgar", "value": "Edgar"}],
+      "isDropdown": true
+    },
+     {
+      "title": "Edição",
+      "icon": Icons.code,
+      "error": null,
+      "maxLength": 10,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+     {
+      "title": "Volume",
+      "icon": Icons.code,
+      "error": null,
+      "maxLength": 10,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+     {
+      "title": "Ano",
+      "icon": Icons.code,
+      "error": null,
+      "maxLength": 4,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+     {
+      "title": "Editora",
+      "itens": [
+        {"title": "012BK", "value": "012BK"},
+        {"title": "Robert B.K", "value": " Robert B.K"}],
+      "isDropdown": true
+    },
+     {
+      "title": "Idioma",
+      "itens": [
+        {"title": "Portugues", "value": "Portugues"},
+        {"title": "Ingles", "value": "Ingles"}],
+      "isDropdown": true
+    },
+     {
+      "title": "Categoria",
+      "itens": [
+        {"title": "Tecnologia", "value": "Tecnologia"},
+        {"title": "Ficção", "value": "Ficção"}],
+      "isDropdown": true
+    },
+    {
+      "title": "Quantidade de exemplares",
+      "icon": Icons.code,
+      "error": null,
+      "maxLength": 5,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Quantidade de exemplares disponíveis",
+      "icon": Icons.code,
+      "error": null,
+      "maxLength": 5,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Localização",
+      "icon": Icons.code,
+      "error": null,
+      "maxLength": 75,
+      "type": TextInputType.number,
+    }];
+  var categoriaInput = [
+    {
+      "title": "Categoria",
+      "icon": Icons.book,
+      "error": null,
+      "maxLength": 75,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+  ];
+  var idiomaInput = [
+    {
+      "title": "Idioma",
+      "icon": Icons.flag_outlined,
+      "error": null,
+      "maxLength": 75,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+  ];
+  var editorasInput = [
+    {
+      "title": "Nome",
+      "icon": Icons.people,
+      "error": null,
+      "maxLength": 100,
+      "maxLength": 150,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+  ];
+  var autoresInput = [
+    {
+      "title": "Nome",
+      "icon": Icons.people,
+      "error": null,
+      "maxLength": 100,
+      "maxLength": 150,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+  ];
+  var ReservationInputs = [
+    {
+      "title": "Pessoa",
+      "itens": [
+        {"title": "Roberto", "value": "Roberto"},
+        {"title": "Sandro", "value": "Sandro"}],
+      "isDropdown": true
+    },
+    {
+      "title": "Livro",
+      "itens": [
+        {"title": "Herry Poter", "value": "Herry Poter"},
+        {"title": "Programação", "value": "Programação"}],
+      "isDropdown": true
+    },
+  ];
+
 }

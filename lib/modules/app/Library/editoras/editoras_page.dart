@@ -1,47 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'readers_controller.dart';
+import 'package:unipam_mobile/modules/app/Library/editoras/editoras_controller.dart';
 import 'package:unipam_mobile/shared/themes/app_colors.dart';
 import 'package:unipam_mobile/shared/themes/app_text.dart';
-import 'package:unipam_mobile/shared/widgets/modal_create/modal_readers_create.dart';
-import 'package:unipam_mobile/shared/widgets/scrollable/scrollable_widget.dart';
+import 'package:unipam_mobile/shared/widgets/modal_create/modal_editoras_create.dart';
 
-class ReadersPage extends StatefulWidget {
-  const ReadersPage({Key? key}) : super(key: key);
+class EditorasPage extends StatefulWidget {
+  const EditorasPage({Key? key}) : super(key: key);
 
   @override
-  _ReadersPageState createState() => _ReadersPageState();
+  _EditorasPageState createState() => _EditorasPageState();
 }
 
-class _ReadersPageState extends State<ReadersPage> {
+class _EditorasPageState extends State<EditorasPage> {
   bool isSearching = false;
   bool isAscending = false;
 
   @override
   void initState() {
     super.initState();
-    ReadersController.instance.onChangedText("");
+    EditorasController.instance.onChangedText("");
   }
 
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-        animation: ReadersController.instance,
+        animation: EditorasController.instance,
         builder: (context, child) {
           return Scaffold(
             appBar: AppBar(
               title: !isSearching
-                  ? Text("Leitores", style: AppText.barTitle)
+                  ? Text("Editoras", style: AppText.barTitle)
                   : TextField(
                       onChanged: (text) =>
-                          ReadersController.instance.onChangedText(text),
+                          EditorasController.instance.onChangedText(text),
                       decoration: InputDecoration(
                         icon: Icon(
                           Icons.search,
                           size: 30,
                           color: AppColors.white,
                         ),
-                        hintText: "Procure leitor",
+                        hintText: "Procura Editoras",
                       ),
                     ),
               actions: [
@@ -74,35 +73,21 @@ class _ReadersPageState extends State<ReadersPage> {
                     )),
               ],
             ),
-            body: ScrollableWidget(
-              child: DataTable(
-                columns: [
-                  DataColumn(label: Text("Nome")),
-                  DataColumn(label: Text("Tipo")),
-                  DataColumn(label: Text("Celular"), numeric: true),
-                  DataColumn(label: Text("Data Criação")),
-                  DataColumn(label: Text("")),
-                  DataColumn(label: Text("")),
-                ],
-                rows: [
-                  ...ReadersController.instance.readers.map(
-                    (e) => DataRow(cells: [
-                      DataCell(Text(e['nome'].toString())),
-                      DataCell(Text(e['tipo'])),
-                      DataCell(Text(e['telefone'])),
-                      DataCell(
-                        Text(DateFormat("dd/MM/yyyy").format(e['data criação'])),
-                      ),
-                      DataCell(IconButton(
-                          onPressed: () =>
-                              ReadersController.instance.removeItem(e['nome']),
-                          icon: Icon(Icons.remove_circle))),
-                      DataCell(
-                          IconButton(onPressed: () {}, icon: Icon(Icons.edit))),
-                    ]),
-                  )
-                ],
-              ),
+            body: DataTable(
+              columns: [
+                DataColumn(label: Text("Nome")),
+                DataColumn(label: Text("Data Criação")),
+              ],
+              rows: [
+                ...EditorasController.instance.editoras.map(
+                  (e) => DataRow(cells: [
+                    DataCell(Text(e['nome'])),
+                    DataCell(
+                      Text(DateFormat("dd/MM/yyyy").format(e['data criação'])),
+                    ),
+                  ]),
+                )
+              ],
             ),
           );
         });
@@ -112,7 +97,7 @@ class _ReadersPageState extends State<ReadersPage> {
     showDialog(
         context: context,
         builder: (context) {
-          return ModalInsertReaders();
+          return ModalInsertEditoras();
         });
   }
 }

@@ -25,10 +25,10 @@ class ReadersController extends ChangeNotifier {
       "data criação": DateTime.now()
     };
 
+    notifyListeners();
     readers.add(readersRegister);
     cleanInputs();
     Navigator.pop(context);
-    notifyListeners();
   }
 
   void cleanInputs() {
@@ -36,18 +36,18 @@ class ReadersController extends ChangeNotifier {
   }
 
   void removeItem(value) {
-    readers.removeWhere((element) => value == element['name']);
+    readers.removeWhere((element) => value == element['nome']);
     notifyListeners();
   }
 
-  List studentsFillter = [];
+  List readersFillter = [];
 
   String filter = "";
 
   onChangedText(text) {
     filter = text;
 
-    studentsFillter = filter == ""
+    readersFillter = filter == ""
         ? readers
         : readers.where((element) => filter == element['nome']).toList();
     notifyListeners();
