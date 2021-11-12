@@ -405,10 +405,11 @@ class InputModalList {
       "title": "Autores",
       "itens": [
         {"title": " Saramago ", "value": "Saramago "},
-        {"title": "Edgar", "value": "Edgar"}],
+        {"title": "Edgar", "value": "Edgar"}
+      ],
       "isDropdown": true
     },
-     {
+    {
       "title": "Edição",
       "icon": Icons.code,
       "error": null,
@@ -417,7 +418,7 @@ class InputModalList {
       "textFormater": '',
       "isDropdown": false
     },
-     {
+    {
       "title": "Volume",
       "icon": Icons.code,
       "error": null,
@@ -426,7 +427,7 @@ class InputModalList {
       "textFormater": '',
       "isDropdown": false
     },
-     {
+    {
       "title": "Ano",
       "icon": Icons.code,
       "error": null,
@@ -435,25 +436,28 @@ class InputModalList {
       "textFormater": '',
       "isDropdown": false
     },
-     {
+    {
       "title": "Editora",
       "itens": [
         {"title": "012BK", "value": "012BK"},
-        {"title": "Robert B.K", "value": " Robert B.K"}],
+        {"title": "Robert B.K", "value": " Robert B.K"}
+      ],
       "isDropdown": true
     },
-     {
+    {
       "title": "Idioma",
       "itens": [
         {"title": "Portugues", "value": "Portugues"},
-        {"title": "Ingles", "value": "Ingles"}],
+        {"title": "Ingles", "value": "Ingles"}
+      ],
       "isDropdown": true
     },
-     {
+    {
       "title": "Categoria",
       "itens": [
         {"title": "Tecnologia", "value": "Tecnologia"},
-        {"title": "Ficção", "value": "Ficção"}],
+        {"title": "Ficção", "value": "Ficção"}
+      ],
       "isDropdown": true
     },
     {
@@ -480,7 +484,8 @@ class InputModalList {
       "error": null,
       "maxLength": 75,
       "type": TextInputType.number,
-    }];
+    }
+  ];
   var categoriaInput = [
     {
       "title": "Categoria",
@@ -532,16 +537,82 @@ class InputModalList {
       "title": "Pessoa",
       "itens": [
         {"title": "Roberto", "value": "Roberto"},
-        {"title": "Sandro", "value": "Sandro"}],
+        {"title": "Sandro", "value": "Sandro"}
+      ],
       "isDropdown": true
     },
     {
       "title": "Livro",
       "itens": [
         {"title": "Herry Poter", "value": "Herry Poter"},
-        {"title": "Programação", "value": "Programação"}],
+        {"title": "Programação", "value": "Programação"}
+      ],
       "isDropdown": true
     },
   ];
-
+  var loan = [
+    {
+      "title": "Tipo de Relatório",
+      "icon": Icons.people,
+      "itens": [
+        {
+          "title": "livros emprestados por mês",
+          "value": "livros emprestados por mês"
+        },
+        {
+          "title": "livros emprestados por ano",
+          "value": "livros emprestados por ano"
+        },
+        {
+          "title": "livros mais emprestados por mês",
+          "value": "livros mais emprestados por mês"
+        },
+        {
+          "title": "livros mais emprestados por ano",
+          "value": "livros mais emprestados por ano"
+        },
+        {
+          "title": "leitores que mais pegam livros por mês",
+          "value": "leitores que mais pegam livros por mês"
+        },
+        {
+          "title": "leitores que mais pegam livros por ano",
+          "value": "leitores que mais pegam livros por ano"
+        },
+      ],
+      "isDropdown": true
+    },
+    {
+      "title": "Ano",
+      "icon": Icons.people,
+      "itens": [
+        {"title": "2020", "value": "2020"},
+        {"title": "2021", "value": "2021"},
+        {"title": "2022", "value": "2022"},
+        {"title": "2023", "value": "2023"},
+        {"title": "2024", "value": "2024"},
+        {"title": "2025", "value": "2025"},
+      ],
+      "isDropdown": true
+    },
+    {
+      "title": "Mês",
+      "icon": Icons.people,
+      "itens": [
+        {"title": "Janeiro", "value": "Janeiro"},
+        {"title": "Fevereiro", "value": "Fevereiro"},
+        {"title": "Março", "value": "Março"},
+        {"title": "Abril", "value": "Abril"},
+        {"title": "Maio", "value": "Maio"},
+        {"title": "Junho", "value": "Junho"},
+        {"title": "Julho", "value": "Julho"},
+        {"title": "Agosto", "value": "Agosto"},
+        {"title": "Setembro", "value": "Setembro"},
+        {"title": "Outubro", "value": "Outubro"},
+        {"title": "Novembro", "value": "Novembro"},
+        {"title": "Dezembro", "value": "Dezembro"},
+      ],
+      "isDropdown": true
+    },
+  ];
 }

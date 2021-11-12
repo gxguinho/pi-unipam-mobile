@@ -13,10 +13,12 @@ class FrequencyController extends ChangeNotifier {
 
   String filter = "";
 
-  onChangedText(filter) {
-    filter = filter;
+  onChangedText(text) {
+    filter = text;
 
-   frequencyFillter = frequency.where((element) => filter == element['aluno']).toList();
-   notifyListeners();
+    frequencyFillter = filter == ""
+        ? frequency
+        : frequency.where((element) => filter == element['aluno']).toList();
+    notifyListeners();
   }
 }
