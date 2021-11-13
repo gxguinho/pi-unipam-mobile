@@ -14,7 +14,7 @@ import 'modules/app/Academic/turma/turma.dart';
 import 'modules/app/Academic/turma/turma_aberta.dart';
 import 'modules/app/Academic/turma/turma_fechada.dart';
 import 'modules/app/Academic/reportspage/reports_page.dart';
-import 'modules/app/Library/Readers/readers_page.dart';
+import 'modules/app/Library/readers/readers_page.dart';
 import 'modules/app/Library/categoria/categoria.dart';
 import 'modules/app/Library/editoras/editoras_page.dart';
 import 'modules/app/Library/idiomas/idiomas.dart';

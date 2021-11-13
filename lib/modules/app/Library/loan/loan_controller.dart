@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../app_controller.dart';
 
 class LoanController extends ChangeNotifier {
   static LoanController instance = LoanController();
