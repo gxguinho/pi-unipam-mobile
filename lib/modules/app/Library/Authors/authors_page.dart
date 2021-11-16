@@ -1,117 +1,89 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:unipam_mobile/shared/widgets/modal_create/modal_authors_create.dart';
-import 'authors_controller.dart';
-import 'package:unipam_mobile/shared/themes/app_colors.dart';
-import 'package:unipam_mobile/shared/themes/app_text.dart';
+import 'package:unipam_mobile/modules/app/library/authors/authors_controller.dart';
+import 'package:unipam_mobile/shared/util/input_modal_list.dart';
+import 'package:unipam_mobile/shared/widgets/modal_create/modal_create.dart';
 import 'package:unipam_mobile/shared/widgets/scrollable/scrollable_widget.dart';
+import 'package:unipam_mobile/shared/widgets/table_page/table_page.dart';
 
 class AuthorsPage extends StatefulWidget {
-  const AuthorsPage({Key? key}) : super(key: key);
+  const AuthorsPage({ Key? key }) : super(key: key);
 
   @override
   _AuthorsPageState createState() => _AuthorsPageState();
 }
 
 class _AuthorsPageState extends State<AuthorsPage> {
-  bool isSearching = false;
-  bool isAscending = false;
-
   @override
   void initState() {
     super.initState();
-    AuthorsController.instance.onChangedText("");
+    AuthorsController.instance.getAuthors();
   }
-
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: AuthorsController.instance,
+      animation: AuthorsController.instance, 
       builder: (context, child) {
-        return Scaffold(
-          appBar: AppBar(
-            title: !isSearching
-                ? Text("Autores", style: AppText.barTitle)
-                : TextField(
-                    onChanged: (text) =>
-                        AuthorsController.instance.onChangedText(text),
-                    decoration: InputDecoration(
-                      icon: Icon(
-                        Icons.search,
-                        size: 30,
-                        color: AppColors.white,
-                      ),
-                      hintText: "Procure autor",
-                    ),
-                  ),
-            actions: [
-              isSearching
-                  ? IconButton(
-                      onPressed: () {
-                        setState(() {
-                          this.isSearching = !this.isSearching;
-                        });
-                      },
-                      icon: Icon(Icons.cancel, size: 30),
-                    )
-                  : IconButton(
-                      onPressed: () {
-                        setState(() {
-                          this.isSearching = !this.isSearching;
-                        });
-                      },
-                      icon: Icon(Icons.search, size: 30),
-                    ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.filter_list, size: 30),
-              ),
-              IconButton(
-                  onPressed: () => _openModal(),
-                  icon: Icon(
-                    Icons.add_circle,
-                    size: 32,
-                  )),
-            ],
-          ),
-          body: ScrollableWidget(
+        return TablePage(
+          title: "Autores",
+          modalTitle: "Autor",
+          hasSearch: true,
+          hasAdd: true,
+          animation: AuthorsController.instance,
+          errors: AuthorsController.instance.errors,
+          inputs: LibraryInputs().authorsInput,
+          onChangedText: (text, title) => AuthorsController.instance.onChangedText(text, title),
+          register: (context) => AuthorsController.instance.registerAuthors(context),
+          cleanInputs: () => AuthorsController.instance.cleanInputs(),
+          child: ScrollableWidget(
             child: DataTable(
-              columnSpacing: 30,
-              dataRowHeight: 60,
               columns: [
                 DataColumn(label: Text("Nome")),
                 DataColumn(label: Text("Data Criação")),
                 DataColumn(label: Text("")),
                 DataColumn(label: Text("")),
-              ],
-              rows: [
-                ...AuthorsController.instance.authors.map(
-                  (e) => DataRow(cells: [
-                    DataCell(Text(e['nome'].toString())),
+              ], rows: [
+                ...AuthorsController.instance.authors.map((e) => 
+                DataRow(
+                  cells: [
+                    DataCell(Text(e['name'])),
+                    DataCell(Text(DateFormat("dd/MM/yyyy").format(DateTime.parse(e['date'])))),
                     DataCell(
-                      Text(DateFormat("dd/MM/yyyy").format(e['data criação'])),
+                      IconButton(
+                        onPressed: () => _openModal(),
+                        icon: Icon(Icons.edit)
+                      )
                     ),
-                    DataCell(IconButton(
-                        onPressed: () =>
-                            AuthorsController.instance.removeItem(e['nome']),
-                        icon: Icon(Icons.remove_circle))),
                     DataCell(
-                        IconButton(onPressed: () {}, icon: Icon(Icons.edit))),
-                  ]),
-                ),
+                      IconButton(
+                        onPressed: () => AuthorsController.instance.deleteAuthor(e['id']), 
+                        icon: Icon(Icons.remove_circle)
+                      )
+                    ),
+                  ]
+                ))
               ],
-            ),
+            )
           ),
         );
-      },
+      }
     );
   }
-
-  _openModal() {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return ModalInsertAuthors();
-        });
-  }
+      _openModal() {
+        showDialog(
+          context: context,
+          builder: (context) {
+            return ModalCreate(
+              modalTitle: "Autor",
+              inputs: LibraryInputs().authorsInput,
+              register: (text) {},
+              onChangedText: (text, title) => {},
+              errors: [],
+              cleanInputs: () {}, 
+              animation: AuthorsController.instance, 
+              title: 'Autores', 
+            );
+      });
+    }
 }

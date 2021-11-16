@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:unipam_mobile/shared/themes/app_text.dart';
 import 'package:unipam_mobile/shared/util/modules_list.dart';
-import 'package:unipam_mobile/shared/widgets/drawer/drawer_widget.dart';
-import 'package:unipam_mobile/shared/widgets/icon_navegation/icon_navegation_button.dart';
+import 'package:unipam_mobile/shared/widgets/module_page/module_page.dart';
 
 class AcademicPage extends StatefulWidget {
-  const AcademicPage({Key? key}) : super(key: key);
+  const AcademicPage({ Key? key }) : super(key: key);
 
   @override
   _AcademicPageState createState() => _AcademicPageState();
@@ -15,30 +12,9 @@ class AcademicPage extends StatefulWidget {
 class _AcademicPageState extends State<AcademicPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: DrawerWidget(),
-      appBar: AppBar(
-        title: Text("Academico", style: AppText.barTitle),
-      ),
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
-          child: GridView.count(
-            crossAxisCount: 2,
-            children: [
-              ...ModulesList().academicModules.map((e) => 
-                IconNavegationButton(
-                  title: e['title'] as String,
-                  icon: e['icon'] as IconData,
-                  route: e['route'] as String,
-                )
-              )
-            ],
-          ),
-        )
-      ),
+    return ModulePage(
+      title: 'Academico', 
+      pages: ModulesListAcademic().academicModules,
     );
   }
 }

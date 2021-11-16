@@ -1,81 +1,90 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:unipam_mobile/modules/app/Academic/students/students_controller.dart';
+import 'package:unipam_mobile/modules/app/library/authors/authors_controller.dart';
+import 'package:unipam_mobile/modules/app/library/readers/readers_controller.dart';
 import 'package:unipam_mobile/shared/themes/app_text.dart';
-import 'package:unipam_mobile/shared/util/input_modal_list.dart';
 import 'package:unipam_mobile/shared/widgets/label_button_navegation/label_button_navegation.dart';
 import 'package:unipam_mobile/shared/widgets/modal_create/dropdown_create.dart';
-import 'package:unipam_mobile/shared/widgets/modal_create/input_text_create.dart';
 
-class ModalCreate extends StatefulWidget {
-  const ModalCreate({Key? key}) : super(key: key);
+import 'input_text_create.dart';
 
-  @override
-  _ModalCreateState createState() => _ModalCreateState();
-}
+class ModalCreate extends StatelessWidget {
+  const ModalCreate({ 
+    Key? key, 
+    required this.title, 
+    required this.inputs, 
+    required this.modalTitle, 
+    required this.onChangedText, 
+    required this.register, 
+    required this.errors, required this.cleanInputs, 
+    required this.animation, this.controller 
+    }) : super(key: key);
 
-class _ModalCreateState extends State<ModalCreate> {
+  final String title;
+  final List inputs;
+  final String modalTitle;
+  final Function(String, String) onChangedText;
+  final Function(BuildContext context) register;
+  final Function() cleanInputs;
+  final List errors;
+  final Listenable animation;
+  final String? controller;
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-        animation: StudentsController.instance,
-        builder: (context, child) {
-          return Container(
+        return AnimatedBuilder(
+          animation: ReadersController.instance,
+          builder: (context, child) {
+            return Container(
               padding: EdgeInsets.only(top: 80),
               child: Scaffold(
-                resizeToAvoidBottomInset: false,
                 appBar: AppBar(
-                  title: Text("Novo Aluno", style: AppText.barTitle),
+                  title: Text("Novo ${modalTitle}", style: AppText.barTitle),
                   leading: IconButton(
-                      onPressed: () => {
-                            Navigator.pop(context),
-                            StudentsController.instance.cleanInputs()
-                          },
-                      icon: Icon(Icons.close)),
-                ),
-                body: Container(
-                  child: ListView(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 30, horizontal: 25),
-                    children: [
-                      ...InputModalList().studentsInputs.map(
-                            (e) => e['title'] != "Estado civil" &&
-                                    e['title'] != "Sexo" &&
-                                    e['title'] != "Estado" &&
-                                    e['title'] != "Cidade" &&
-                                    e['title'] != "Curso" &&
-                                    e['title'] != "Está Trabalhando" &&
-                                    e['title'] != "Noções de informática" &&
-                                    e['title'] != "Grupo de usuário"
-                                ? InputTextCreate(
-                                    title: e['title'] as String,
-                                    icon: e['icon'] as IconData,
-                                    maxLength: e['maxLength'] as int,
-                                    type: e['type'] as TextInputType,
-                                    textFormatter: e['textFormater'] as String,
-                                    onChanged: (text) => StudentsController
-                                        .instance
-                                        .changeText(text, e['title'] as String),
-                                  )
-                                : DropdownCreate(
-                                    title: e['title'] as String,
-                                    itemsSelect: e["itens"]
-                                        as List<Map<dynamic, dynamic>>,
-                                    onChanged: (text) => StudentsController
-                                        .instance
-                                        .changeText(text, e['title'] as String),
-                                  ),
-                          ),
-                      LabelButtonNavegation(
-                        text: "Cadastrar",
-                        onChanged: (context) => StudentsController.instance
-                            .registerStudents(context),
-                      ),
-                      SizedBox(height: 10),
-                    ],
+                    onPressed: () {
+                      Navigator.pop(context);
+                      cleanInputs();
+                    }, 
+                    icon: Icon(Icons.close)
                   ),
                 ),
-              ));
-        });
-  }
+                body: Container(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 25),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          ...inputs.map((e) => 
+                            e['isDropdown'] == false ? 
+                            InputTextCreate(
+                              title: e['title'] as String,
+                              icon: e['icon'] as IconData,
+                              maxLength: e['maxLength'] as int,
+                              type: e['type'] as TextInputType,
+                              textFormatter: e['textFormater'] as String,
+                              error: "",
+                              isError: errors.map((element) => element['title'] == e['element']).toList(),
+                              onChangedText: (text) => onChangedText(text, e['title']),
+                              animation: animation,
+                              controller: e['controller'],
+                            ) : DropdownCreate(
+                              title: e['title'] as String, 
+                              itemsSelect: e['itens'] as List<Map<dynamic, dynamic>>,
+                              onChanged: (text) => onChangedText(text, e['title']),
+                            )
+                          ),
+                          LabelButtonNavegation(
+                            text: "Cadastrar",
+                            onChanged: (context) => register(context),
+                          ),
+                          SizedBox(height: 10),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            );
+          }
+        );
+      }
 }

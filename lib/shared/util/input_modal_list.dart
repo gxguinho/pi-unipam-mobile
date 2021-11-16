@@ -1,24 +1,39 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:unipam_mobile/modules/app/Academic/students/students_controller.dart';
+import 'package:unipam_mobile/modules/app/library/readers/readers_controller.dart';
 
-class InputModalList {
-  var studentsInputs = [
+class LibraryInputs {
+  List authorsInput = [
     {
       "title": "Nome",
       "icon": Icons.people,
-      "error": "Campo Obrigatório",
-      "maxLength": 200,
-      "type": TextInputType.name,
-      "textFormater": ''
+      "error": "campo obrigatório",
+      "maxLength": 150,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
     },
-    {
+  ];
+  List readersInput = [
+     {
+      "title": "Nome",
+      "icon": Icons.people,
+      "error": "campo obrigatório",
+      "maxLength": 150,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false,
+      "controller": ReadersController.instance.nome
+    },
+     {
       "title": "CPF",
       "icon": Icons.assessment_outlined,
       "error": "Campo Obrigatório",
       "maxLength": 0,
       "type": TextInputType.number,
-      "textFormater": '###.###.###-##'
+      "textFormater": '###.###.###-##',
+      "isDropdown": false,
+      "controller": ReadersController.instance.cpf
     },
     {
       "title": "RG",
@@ -26,124 +41,9 @@ class InputModalList {
       "error": "Campo Obrigatório",
       "maxLength": 14,
       "type": TextInputType.number,
-      "textFormater": ''
-    },
-    {
-      "title": "Orgão expedidor",
-      "icon": Icons.corporate_fare_sharp,
-      "error": null,
-      "maxLength": 50,
-      "type": TextInputType.text,
-      "textFormater": ''
-    },
-    {
-      "title": "Data de nascimento",
-      "icon": Icons.date_range,
-      "error": "Campo Obrigatório",
-      "maxLength": 0,
-      "type": TextInputType.datetime,
-      "textFormater": '##/##/####'
-    },
-    {
-      "title": "Estado civil",
-      "error": null,
-      "itens": [
-        {"title": "Solteiro", "value": "solteiro"},
-        {"title": "Casado", "value": "casado"},
-        {"title": "Separado", "value": "separado"},
-        {"title": "Viúvo", "value": "viúvo"},
-        {"title": "Outro", "value": "outro"}
-      ]
-    },
-    {
-      "title": "Sexo",
-      "error": null,
-      "itens": [
-        {"title": "Masculino", "value": "masculino"},
-        {"title": "Feminino", "value": "feminino"},
-      ]
-    },
-    {
-      "title": "Nome Do Mãe",
-      "icon": Icons.family_restroom,
-      "error": null,
-      "maxLength": 200,
-      "type": TextInputType.name,
-      "textFormater": ''
-    },
-    {
-      "title": "Nome Da Pai",
-      "icon": Icons.family_restroom,
-      "error": null,
-      "maxLength": 200,
-      "type": TextInputType.name,
-      "textFormater": ''
-    },
-    {
-      "title": "CEP",
-      "icon": Icons.door_sliding_outlined,
-      "error": "Campo Obrigatório",
-      "maxLength": 0,
-      "type": TextInputType.number,
-      "textFormater": "#####-###"
-    },
-    {
-      "title": "Logradouro",
-      "icon": Icons.add_road,
-      "error": "Campo Obrigatório",
-      "maxLength": 100,
-      "type": TextInputType.number,
-      "textFormater": ''
-    },
-    {
-      "title": "Número",
-      "icon": Icons.format_list_numbered,
-      "error": "Campo Obrigatório",
-      "maxLength": 10,
-      "type": TextInputType.number,
-      "textFormater": ''
-    },
-    {
-      "title": "Bairro",
-      "icon": Icons.edit_road_outlined,
-      "error": "Campo Obrigatório",
-      "maxLength": 75,
-      "type": TextInputType.number,
-      "textFormater": ''
-    },
-    {
-      "title": "Complemento",
-      "icon": Icons.edit_rounded,
-      "error": "Campo Obrigatório",
-      "maxLength": 200,
-      "type": TextInputType.text,
-      "textFormater": ''
-    },
-    {
-      "title": "Estado",
-      "icon": Icons.people,
-      "itens": StudentsController.instance.state,
-    },
-    {
-      "title": "Cidade",
-      "icon": Icons.location_city,
-      "itens": StudentsController.instance.city,
-    },
-    {
-      "title": "Nacionalidade",
-      "icon": Icons.flag,
-      "error": null,
-      "maxLength": 75,
-      "type": TextInputType.text,
-      "textFormater": ''
-    },
-    {
-      "title": "Naturalidade",
-      "icon": Icons.outlined_flag_sharp,
-      "error": null,
-      "maxLength": 75,
-      "type": TextInputType.text,
-      "textFormater": ''
+      "textFormater": '',
+       "isDropdown": false,
+       "controller": ReadersController.instance.rg
     },
     {
       "title": "Email",
@@ -151,15 +51,19 @@ class InputModalList {
       "error": "Campo Obrigatório",
       "maxLength": 75,
       "type": TextInputType.text,
-      "textFormater": ''
+      "textFormater": '',
+      "isDropdown": false,
+      "controller": ReadersController.instance.email
     },
-    {
+   {
       "title": "Telefone fixo",
       "icon": Icons.phone,
       "error": null,
       "maxLength": 0,
       "type": TextInputType.phone,
-      "textFormater": '(##) ####-####'
+      "textFormater": '(##) ####-####',
+      "isDropdown": false,
+      "controller": ReadersController.instance.telefoneFixo
     },
     {
       "title": "Telefone celular",
@@ -167,219 +71,109 @@ class InputModalList {
       "error": "Campo Obrigatório",
       "maxLength": 0,
       "type": TextInputType.phone,
-      "textFormater": '(##) #####-####'
+      "textFormater": '(##) #####-####',
+      "isDropdown": false,
+      "controller": ReadersController.instance.telefoneCelular
     },
     {
-      "title": "Curso",
-      "error": null,
-      "itens": [
-        {"title": "", "value": ""},
-      ]
-    },
-    {
-      "title": "Data de matrícula",
-      "icon": Icons.date_range,
+      "title": "CEP",
+      "icon": Icons.door_sliding_outlined,
       "error": "Campo Obrigatório",
       "maxLength": 0,
-      "type": TextInputType.datetime,
-      "textFormater": '##/##/####'
+      "type": TextInputType.number,
+      "textFormater": "#####-###",
+      "isDropdown": false,
+      "controller": ReadersController.instance.cep
     },
     {
-      "title": "Data de desligamento",
-      "icon": Icons.date_range,
-      "error": null,
-      "maxLength": 0,
-      "type": TextInputType.datetime,
-      "textFormater": '##/##/####'
-    },
-    {
-      "title": "Está Trabalhando",
-      "icon": Icons.people,
-      "itens": [
-        {"title": "Sim", "value": "sim"},
-        {"title": "Não", "value": "nao"}
-      ],
-    },
-    {
-      "title": "Local de Trabalho",
-      "icon": Icons.work,
+      "title": "Logradouro",
+      "icon": Icons.add_road,
       "error": "Campo Obrigatório",
       "maxLength": 100,
-      "type": TextInputType.text,
-      "textFormater": ''
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false,
+      "controller": ReadersController.instance.logradouro
     },
     {
-      "title": "Renda Familiar",
-      "icon": Icons.attach_money_outlined,
+      "title": "Número",
+      "icon": Icons.format_list_numbered,
       "error": "Campo Obrigatório",
       "maxLength": 10,
       "type": TextInputType.number,
-      "textFormater": ''
+      "textFormater": '',
+      "isDropdown": false,
+      "controller": ReadersController.instance.numero
     },
     {
-      "title": "Quantidade de Moradores",
-      "icon": Icons.format_list_numbered_sharp,
+      "title": "Bairro",
+      "icon": Icons.edit_road_outlined,
       "error": "Campo Obrigatório",
-      "maxLength": 3,
-      "type": TextInputType.number,
-      "textFormater": ''
+      "maxLength": 75,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false,
+      "controller": ReadersController.instance.bairro
     },
     {
-      "title": "Ano Letivo",
-      "icon": Icons.yard_rounded,
+      "title": "Complemento",
+      "icon": Icons.edgesensor_low_rounded,
       "error": null,
-      "maxLength": 4,
-      "type": TextInputType.number,
-      "textFormater": ''
+      "maxLength": 200,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false,
+      "controller": ReadersController.instance.complemento
     },
+    
+  ];
+  List categoryInput = [
     {
-      "title": "Média Escolar",
-      "icon": Icons.school,
-      "error": null,
-      "maxLength": 4,
-      "type": TextInputType.number,
-      "textFormater": ''
-    },
-    {
-      "title": "Noções de informática",
+      "title": "Categoria",
       "icon": Icons.people,
-      "itens": [
-        {"title": "Excel", "value": "excel"},
-        {"title": "Power point,", "value": "powerpoint"},
-        {"title": "Programação", "value": "programação"},
-        {"title": "Word", "value": "word"}
-      ],
+      "error": "campo obrigatório",
+      "maxLength": 75,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
     },
+  ];
+  List languageInput = [
     {
-      "title": "Opção de Faculdade",
-      "icon": Icons.online_prediction,
-      "error": null,
+      "title": "Idioma",
+      "icon": Icons.people,
+      "error": "campo obrigatório",
+      "maxLength": 75,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+  ];
+  List publisherInputs = [
+    {
+      "title": "Nome da editora",
+      "icon": Icons.people,
+      "error": "campo obrigatório",
       "maxLength": 100,
-      "type": TextInputType.number,
-      "textFormater": ''
-    },
-    {
-      "title": "Grupo de usuário",
-      "icon": Icons.people,
-      "itens": [
-        {"title": "", "value": ""}
-      ],
-    },
-  ];
-  var noteInputs = [
-    {
-      "title": "Nota",
-      "icon": Icons.book,
-      "error": null,
-      "maxLength": 6,
-      "type": TextInputType.number,
+      "type": TextInputType.text,
       "textFormater": '',
       "isDropdown": false
     },
+  ];
+  var reservationInputs = [
     {
-      "title": "Aluno",
-      "icon": Icons.people,
+      "title": "Pessoa",
       "itens": [
-        {"title": "Gabriel", "value": "Gabriel"},
-        {"title": "Joao", "value": "Joao"}
-      ],
+        {"title": "Roberto", "value": "Roberto"},
+        {"title": "Sandro", "value": "Sandro"}],
       "isDropdown": true
     },
-  ];
-
-  var horarioInputs = [
     {
-      "title": "Materia",
-      "icon": Icons.people,
+      "title": "Livro",
       "itens": [
-        {"title": "Materia 1", "value": "Materia 1"},
-        {"title": "Materia 2", "value": "Materia 2"},
-        {"title": "Materia 3", "value": "Materia 3"},
-        {"title": "Materia 4", "value": "Materia 4"},
-      ],
-      "isDropdown": true,
-    },
-    {
-      "title": "Dia da Semana",
-      "icon": Icons.people,
-      "itens": [
-        {"title": "Segunda", "value": "Segunda"},
-        {"title": "Terça ", "value": "Terça"},
-        {"title": "Quarta", "value": "Quarta"},
-        {"title": "Quinta", "value": "Quinta"},
-        {"title": "Sexta", "value": "Sexta"},
-      ],
-      "isDropdown": true,
-    },
-    {
-      "title": "Horário",
-      "icon": Icons.people,
-      "itens": [
-        {"title": "18:50-19:40", "value": "18:50-19:40"},
-        {"title": "19:40-20:30", "value": "19:40-20:30"},
-        {"title": "20:40-21:30", "value": "20:40-21:30"},
-        {"title": "21:30-22:20", "value": "21:30-22:20"},
-      ],
-      "isDropdown": true,
-    },
-  ];
-
-  var curseInputs = [
-    {
-      "title": "Nome Curso",
-      "icon": Icons.account_circle_rounded,
-      "error": null,
-      "maxLength": 50,
-      "type": TextInputType.text,
-      "textFormater": '',
-      "isDropdown": false
-    },
-    {
-      "title": "Quantidade de Alunos",
-      "icon": Icons.account_circle_rounded,
-      "error": null,
-      "maxLength": 3,
-      "type": TextInputType.number,
-      "textFormater": '',
-      "isDropdown": false
-    },
-    {
-      "title": "Professores",
-      "icon": Icons.people,
-      "itens": [
-        {"title": "Sandro", "value": "sandro"},
-        {"title": "Juliana", "value": "juliana"}
-      ],
+        {"title": "Herry Poter", "value": "Herry Poter"},
+        {"title": "Programação", "value": "Programação"}],
       "isDropdown": true
-    },
-  ];
-  var leitoresInput = [
-    {
-      "title": "Nome",
-      "icon": Icons.people,
-      "error": null,
-      "maxLength": 6,
-      "type": TextInputType.text,
-      "textFormater": '',
-      "isDropdown": false
-    },
-    {
-      "title": "Tipo",
-      "icon": Icons.assignment_ind,
-      "error": null,
-      "maxLength": 6,
-      "type": TextInputType.text,
-      "textFormater": '',
-      "isDropdown": false
-    },
-    {
-      "title": "Celular",
-      "icon": Icons.book,
-      "error": null,
-      "maxLength": 6,
-      "type": TextInputType.number,
-      "textFormater": '',
-      "isDropdown": false
     },
   ];
   var booksInput = [
@@ -394,7 +188,7 @@ class InputModalList {
     },
     {
       "title": "Título",
-      "icon": Icons.code,
+      "icon": Icons.title,
       "error": null,
       "maxLength": 200,
       "type": TextInputType.number,
@@ -410,7 +204,7 @@ class InputModalList {
     },
      {
       "title": "Edição",
-      "icon": Icons.code,
+      "icon": Icons.edit_location_alt_outlined,
       "error": null,
       "maxLength": 10,
       "type": TextInputType.number,
@@ -419,7 +213,7 @@ class InputModalList {
     },
      {
       "title": "Volume",
-      "icon": Icons.code,
+      "icon": Icons.volume_down,
       "error": null,
       "maxLength": 10,
       "type": TextInputType.number,
@@ -428,7 +222,7 @@ class InputModalList {
     },
      {
       "title": "Ano",
-      "icon": Icons.code,
+      "icon": Icons.date_range,
       "error": null,
       "maxLength": 4,
       "type": TextInputType.number,
@@ -458,7 +252,7 @@ class InputModalList {
     },
     {
       "title": "Quantidade de exemplares",
-      "icon": Icons.code,
+      "icon": Icons.auto_awesome_outlined,
       "error": null,
       "maxLength": 5,
       "type": TextInputType.number,
@@ -467,81 +261,21 @@ class InputModalList {
     },
     {
       "title": "Quantidade de exemplares disponíveis",
-      "icon": Icons.code,
+      "icon": Icons.auto_awesome_outlined,
       "error": null,
       "maxLength": 5,
       "type": TextInputType.number,
       "textFormater": '',
-      "isDropdown": false
+      "isDropdown": false,
+      "controller": ReadersController.instance
     },
     {
       "title": "Localização",
-      "icon": Icons.code,
+      "icon": Icons.location_city,
       "error": null,
       "maxLength": 75,
       "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false,
     }];
-  var categoriaInput = [
-    {
-      "title": "Categoria",
-      "icon": Icons.book,
-      "error": null,
-      "maxLength": 75,
-      "type": TextInputType.text,
-      "textFormater": '',
-      "isDropdown": false
-    },
-  ];
-  var idiomaInput = [
-    {
-      "title": "Idioma",
-      "icon": Icons.flag_outlined,
-      "error": null,
-      "maxLength": 75,
-      "type": TextInputType.text,
-      "textFormater": '',
-      "isDropdown": false
-    },
-  ];
-  var editorasInput = [
-    {
-      "title": "Nome",
-      "icon": Icons.people,
-      "error": null,
-      "maxLength": 100,
-      "maxLength": 150,
-      "type": TextInputType.text,
-      "textFormater": '',
-      "isDropdown": false
-    },
-  ];
-  var autoresInput = [
-    {
-      "title": "Nome",
-      "icon": Icons.people,
-      "error": null,
-      "maxLength": 100,
-      "maxLength": 150,
-      "type": TextInputType.text,
-      "textFormater": '',
-      "isDropdown": false
-    },
-  ];
-  var ReservationInputs = [
-    {
-      "title": "Pessoa",
-      "itens": [
-        {"title": "Roberto", "value": "Roberto"},
-        {"title": "Sandro", "value": "Sandro"}],
-      "isDropdown": true
-    },
-    {
-      "title": "Livro",
-      "itens": [
-        {"title": "Herry Poter", "value": "Herry Poter"},
-        {"title": "Programação", "value": "Programação"}],
-      "isDropdown": true
-    },
-  ];
-
 }

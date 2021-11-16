@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:unipam_mobile/modules/app/Academic/students/students_controller.dart';
 import 'package:unipam_mobile/modules/app/app_controller.dart';
+import 'package:unipam_mobile/modules/app/library/authors/authors_controller.dart';
+import 'package:unipam_mobile/modules/app/library/readers/readers_controller.dart';
 import 'package:unipam_mobile/shared/themes/app_colors.dart';
 import 'package:unipam_mobile/shared/themes/app_text.dart';
 
@@ -10,57 +11,78 @@ class InputTextCreate extends StatelessWidget {
   final String title;
   final IconData icon;
   final int maxLength;
-  final Function(String)? onChanged;
   final TextInputType type;
   final String textFormatter;
   final String? quantAlunos;
   final String? nomeCurso;
-
+  final Function(String)? onChangedText;
+  final String error;
+  final List isError; 
+  final Listenable animation;
+  final dynamic? controller;
+   
   const InputTextCreate({
      Key? key, 
      required this.title, 
      required this.icon,
-     this.onChanged, 
+     this.onChangedText, 
      required this.maxLength, 
      required this.type, 
-     required this.textFormatter, this.quantAlunos, this.nomeCurso }) : super(key: key);
-
+     required this.textFormatter, 
+     this.quantAlunos, 
+     this.nomeCurso, 
+     required this.error, 
+     required this.isError, 
+     required this.animation, 
+     this.controller }) : super(key: key);
+     
   @override
   Widget build(BuildContext context) {
-     return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: TextField(
-        controller: TextEditingController(text: 
-          title == 'Logradouro' ? StudentsController.instance.logradouro : 
-          title == 'Bairro' ? StudentsController.instance.bairro : title == 'Complemento' ? StudentsController.instance.complemento : title == 'CEP' ? StudentsController.instance.cep : title == 'Nome Curso' ? nomeCurso : title == "Quantidade de Alunos" ?
-          quantAlunos : null
-        ),
-        onChanged: (text) => onChanged!(text),
-        style: AppText.inputText,
-        keyboardType: type,
-        maxLength: maxLength == 0 ? null : maxLength,
-        inputFormatters: [
-          new MaskTextInputFormatter(mask:  textFormatter, filter: {"#": RegExp(r'[0-9]')})
-        ],
-        decoration: InputDecoration(
-            labelText: title,
-            labelStyle: AppText.input,
-            //errorText: "campo de texto obrigatório",
-            prefixIcon: Icon(
-              icon,
-              color: AppController.instance.isDarkTheme ? AppColors.shape : AppColors.white,
-            ),
-            focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                    color: AppController.instance.colorSelected, width: 2)),
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(
-                  color: AppController.instance.colorSelected.withOpacity(0.4),
-                  width: 2
+
+        final _controller = TextEditingController();
+
+         return AnimatedBuilder(
+           animation: ReadersController.instance,
+           builder: (context, child) {
+             return Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: TextField(
+                onChanged: (text) => onChangedText!(text),
+                style: AppText.inputText,
+                keyboardType: type,
+                maxLength: maxLength == 0 ? null : maxLength,
+                inputFormatters: [
+                  new MaskTextInputFormatter(mask:  textFormatter, filter: {"#": RegExp(r'[0-9]')})
+                ],
+                controller: TextEditingController(text: 
+                  title == 'Logradouro' ? controller == "ReadersController" ? ReadersController.instance.logradouro : null : 
+                  title == 'Bairro' ? controller == "ReadersController" ? ReadersController.instance.bairro : null : 
+                  title == 'Complemento' ? controller == "ReadersController" ? ReadersController.instance.complemento : null : 
+                  title == 'CEP' ? controller == "ReadersController" ? ReadersController.instance.cep : null  
+                  : null,
+                ),
+                decoration: InputDecoration(
+                    errorText: isError == true ? error : null,
+                    labelText: title,
+                    labelStyle: AppText.input,
+                    //errorText: "campo de texto obrigatório",
+                    prefixIcon: Icon(
+                      icon,
+                      color: AppController.instance.isDarkTheme ? AppColors.shape : AppColors.white,
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: AppController.instance.colorSelected, width: 2)),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppController.instance.colorSelected.withOpacity(0.4),
+                          width: 2
+                      ),
+                    ),
+                  )
               ),
-            ),
-          )
-      ),
-    );
-  }
+             );
+           }
+         );
+       }
 }

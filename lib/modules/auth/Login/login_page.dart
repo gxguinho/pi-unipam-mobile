@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:unipam_mobile/modules/auth/Login/login_controller.dart';
 import 'package:unipam_mobile/shared/themes/app_text.dart';
 import 'package:unipam_mobile/shared/widgets/label_button_navegation/label_button_navegation.dart';
 import 'package:unipam_mobile/shared/widgets/text_input_auth/text_input_auth.dart';
@@ -15,9 +16,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
-  String email = '';
-  String passaword = '';
 
   @override
   Widget build(BuildContext context) {
@@ -43,17 +41,17 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(height: 40),
                   TextInputAuth(
                     type: "Email", 
-                    onChanged: (text) => email = text
+                    onChanged: (text) => LoginController.instance.email = text
                   ),
                   SizedBox(height: 20),
                   TextInputAuth(
                     type: "Senha",
-                    onChanged: (text) => passaword = text
+                    onChanged: (text) => LoginController.instance.password = text
                   ),
                   SizedBox(height: 25,),
                   LabelButtonNavegation(
                      text: "Entrar", 
-                     route: '/home'
+                     onChanged: (context) => LoginController.instance.login(context),
                   ),
                   SizedBox(height: 25),
                   Center(

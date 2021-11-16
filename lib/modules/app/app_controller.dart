@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:unipam_mobile/shared/themes/app_colors.dart';
 class AppController extends ChangeNotifier {
 
@@ -8,6 +11,17 @@ class AppController extends ChangeNotifier {
   String pageSelect = 'Modulos';
   Color colorSelected = AppColors.purple;
   bool isDarkTheme = false; 
+
+  String name = "";
+  String email = "";
+  String user = "";
+  String? token = "";
+
+  Future decodeUser() async {
+
+    
+
+  }
 
   changeScreen(String pageSelected, context, String route) {
     Navigator.of(context).pushNamed(route);

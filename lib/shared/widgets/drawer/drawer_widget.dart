@@ -24,11 +24,11 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           children: [
              UserAccountsDrawerHeader(
                 accountName: Text(
-                  "Gabriel",
+                  AppController.instance.name,
                   style: AppText.NameUser
                 ), 
                 accountEmail: Text(
-                  "gabriel@gmail.com",
+                  AppController.instance.email,
                    style: AppText.EmailUser 
                 ),
                 currentAccountPicture: ClipRRect(

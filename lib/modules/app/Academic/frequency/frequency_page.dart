@@ -1,88 +1,41 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:unipam_mobile/modules/app/Academic/Frequency/frequency_controller.dart';
-import 'package:unipam_mobile/shared/themes/app_colors.dart';
-import 'package:unipam_mobile/shared/themes/app_text.dart';
 import 'package:unipam_mobile/shared/widgets/scrollable/scrollable_widget.dart';
+import 'package:unipam_mobile/shared/widgets/table_page/table_page.dart';
 
-class FrequencyPage extends StatefulWidget {
-  const FrequencyPage({Key? key}) : super(key: key);
+import 'frequency_controller.dart';
 
-  @override
-  _FrequencyPageState createState() => _FrequencyPageState();
-}
-
-class _FrequencyPageState extends State<FrequencyPage> {
-  int? sortColumnIndex;
-  bool isSearching = false;
-  bool isAscending = false;
+class FrequencyPage extends StatelessWidget {
+  const FrequencyPage({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-        animation: FrequencyController.instance,
-        builder: (context, child) {
-          return Scaffold(
-            appBar: AppBar(
-              title: !isSearching
-                  ? Text("Frequência", style: AppText.barTitle)
-                  : TextField(
-                      onChanged: (text) =>
-                          FrequencyController.instance.onChangedText(text),
-                      decoration: InputDecoration(
-                        icon: Icon(
-                          Icons.search,
-                          size: 30,
-                          color: AppColors.white,
-                        ),
-                        hintText: "Procure aluno",
-                      ),
-                    ),
-              actions: [
-                isSearching
-                    ? IconButton(
-                        onPressed: () {
-                          setState(() {
-                            this.isSearching = !this.isSearching;
-                          });
-                        },
-                        icon: Icon(Icons.cancel, size: 30),
-                      )
-                    : IconButton(
-                        onPressed: () {
-                          setState(() {
-                            this.isSearching = !this.isSearching;
-                          });
-                        },
-                        icon: Icon(Icons.search, size: 30),
-                      ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.filter_list, size: 30),
-                ),
-              ],
-            ),
-            body: ScrollableWidget(
-              child: DataTable(
-                columns: [
-                  DataColumn(label: Text("Nomes")),
-                  DataColumn(label: Text("Aulas")),
-                  DataColumn(label: Text("Presenças")),
-                  DataColumn(label: Text("Faltas")),
-                  DataColumn(label: Text("Frequência")),
-                ],
-                rows: [
-                  ...FrequencyController.instance.frequencyFillter
-                      .map((e) => DataRow(cells: [
-                        DataCell(Text(e['aluno'].toString())),
-                            DataCell(Text(e['aula'].toString())),
-                            DataCell(Text(e['presenca'].toString())),
-                            DataCell(Text(e['faltas'].toString())),
-                            DataCell(Text("")),
-                          ]))
-                ],
-              ),
-            ),
-          );
-        });
+      animation: FrequencyController.instance, 
+      builder: (context, child) {
+        return TablePage(
+          title: "Frequencias", 
+          modalTitle: "Frequencia", 
+          inputs: [],
+          hasAdd: true,
+          onChangedText: (text, title) => FrequencyController.instance.onChangedText(text, title), 
+          register: (context) => FrequencyController.instance.registerFrequency(context), 
+          errors: [], 
+          cleanInputs: () => FrequencyController.instance.cleanInputs(), 
+          animation: FrequencyController.instance,
+          child: ScrollableWidget(
+            child: DataTable(
+              columns: [
+                DataColumn(label: Text("Total de aulas")),
+                DataColumn(label: Text("Total de presenças")),
+                DataColumn(label: Text("Total de faltas")),
+                DataColumn(label: Text("Frequência (%)")),
+              ], 
+              rows: [],
+            )
+          ), 
+        );
+      }
+    );
   }
 }

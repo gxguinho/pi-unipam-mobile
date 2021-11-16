@@ -1,39 +1,45 @@
-
 import 'package:flutter/cupertino.dart';
 
 class ReservationsController extends ChangeNotifier {
-  static ReservationsController instance = ReservationsController();
+  static ReservationsController instance = new ReservationsController();
 
-  var book = [{"title": "Programação", "cod": "3232"}, {"title": "Herry Poter", "cod": "123"}];
-  var reservation = [];
+  List reservations = [];
+  List book = [{"title": "Programação", "cod": "3232"}, {"title": "Herry Poter", "cod": "123"}];
 
-  String cod = "";
-  String titleLivro = "";
   String pessoa = "";
+  String codigo = "";
+  String titleLivro = "";
 
-  changedText(text, title) {
+  onChangedText(text, title) {
     if (title == "Pessoa") pessoa = text;
     if (title == "Livro") {
        var bookFormated = book.where((element) => element["title"] == text).toList();
-       cod = bookFormated[0]["cod"].toString();
+       codigo = bookFormated[0]["cod"].toString();
        titleLivro = bookFormated[0]["title"].toString();
     }
+   }
+
+  cleanInputs() {
+    pessoa = "";
+    titleLivro = "";
+    codigo = "";
   }
 
-  registerBook(context) {
-
-    var status = false;
-
-    var bookRegister = {
-      "cod": cod,
-      "title": titleLivro,
+  registerReservation(context) {
+    var date = new DateTime.now();
+    var dateLimit = new DateTime(date.year, date.month, date.day + 7);
+    var reservationFormatted = {
       "pessoa": pessoa,
-      "status": status,
+      "status": false,
+      "titleLivro": titleLivro,
+      "codigo": codigo,
+      "dateInicio": date.toString(),
+      "dateFim": dateLimit.toString()
     };
-
-    reservation.add(bookRegister);
-    Navigator.pop(context);
+    
+    reservations.add(reservationFormatted);
     notifyListeners();
+    cleanInputs();
+    Navigator.pop(context);
   }
-
 }
