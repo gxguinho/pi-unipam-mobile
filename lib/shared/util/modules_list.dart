@@ -49,22 +49,22 @@ class ModulesListLibrary {
     },
     {
       "title": "Autores",
-      "icon": Icons.collections_bookmark,
+      "icon": Icons.bookmark,
       "route": "/authors"
     },
     {
       "title": "Emprestimos",
-      "icon": Icons.accessible_forward_sharp,
+      "icon": Icons.collections_bookmark_sharp,
       "route": "/loan"
     },
     {
       "title": "Livros",
-      "icon": Icons.accessible_forward_sharp,
+      "icon": Icons.book,
       "route": "/books"
     },
     {
       "title": "Reservas",
-      "icon": Icons.accessible_forward_sharp,
+      "icon": Icons.inbox,
       "route": "/reservations"
     },
     {
@@ -84,4 +84,15 @@ class ModulesListLibrary {
     },
   ];
 }
+class ModulesListFinancial {
+  List financialModules = [
+    {
+      "title": "Contas a Pagar", 
+      "icon": Icons.attach_money, 
+      "route": "/billsToPay"
+    },
+  ];
+}
+
+
 

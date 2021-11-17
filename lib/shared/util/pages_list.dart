@@ -5,5 +5,6 @@ class PagesList {
     {'title': "Modulos", 'icon': Icons.view_module, 'route': '/home'},
     {'title': "Academico", 'icon': Icons.school, 'route': '/academic'},
     {'title': "Biblioteca", 'icon': Icons.book, 'route': '/library'},
+    {'title': "Financeiro", 'icon': Icons.attach_money, 'route': '/financial'},
   ];
 }

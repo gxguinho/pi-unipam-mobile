@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:unipam_mobile/modules/app/Financial/billsToPay/bills_to_pay_controller.dart';
 import 'package:unipam_mobile/modules/app/library/readers/readers_controller.dart';
 
 class LibraryInputs {
@@ -15,7 +16,7 @@ class LibraryInputs {
     },
   ];
   List readersInput = [
-     {
+    {
       "title": "Nome",
       "icon": Icons.people,
       "error": "campo obrigatório",
@@ -25,7 +26,7 @@ class LibraryInputs {
       "isDropdown": false,
       "controller": ReadersController.instance.nome
     },
-     {
+    {
       "title": "CPF",
       "icon": Icons.assessment_outlined,
       "error": "Campo Obrigatório",
@@ -42,8 +43,8 @@ class LibraryInputs {
       "maxLength": 14,
       "type": TextInputType.number,
       "textFormater": '',
-       "isDropdown": false,
-       "controller": ReadersController.instance.rg
+      "isDropdown": false,
+      "controller": ReadersController.instance.rg
     },
     {
       "title": "Email",
@@ -55,7 +56,7 @@ class LibraryInputs {
       "isDropdown": false,
       "controller": ReadersController.instance.email
     },
-   {
+    {
       "title": "Telefone fixo",
       "icon": Icons.phone,
       "error": null,
@@ -125,7 +126,6 @@ class LibraryInputs {
       "isDropdown": false,
       "controller": ReadersController.instance.complemento
     },
-    
   ];
   List categoryInput = [
     {
@@ -165,14 +165,16 @@ class LibraryInputs {
       "title": "Pessoa",
       "itens": [
         {"title": "Roberto", "value": "Roberto"},
-        {"title": "Sandro", "value": "Sandro"}],
+        {"title": "Sandro", "value": "Sandro"}
+      ],
       "isDropdown": true
     },
     {
       "title": "Livro",
       "itens": [
         {"title": "Herry Poter", "value": "Herry Poter"},
-        {"title": "Programação", "value": "Programação"}],
+        {"title": "Programação", "value": "Programação"}
+      ],
       "isDropdown": true
     },
   ];
@@ -199,10 +201,11 @@ class LibraryInputs {
       "title": "Autores",
       "itens": [
         {"title": " Saramago ", "value": "Saramago "},
-        {"title": "Edgar", "value": "Edgar"}],
+        {"title": "Edgar", "value": "Edgar"}
+      ],
       "isDropdown": true
     },
-     {
+    {
       "title": "Edição",
       "icon": Icons.edit_location_alt_outlined,
       "error": null,
@@ -211,7 +214,7 @@ class LibraryInputs {
       "textFormater": '',
       "isDropdown": false
     },
-     {
+    {
       "title": "Volume",
       "icon": Icons.volume_down,
       "error": null,
@@ -220,7 +223,7 @@ class LibraryInputs {
       "textFormater": '',
       "isDropdown": false
     },
-     {
+    {
       "title": "Ano",
       "icon": Icons.date_range,
       "error": null,
@@ -229,25 +232,28 @@ class LibraryInputs {
       "textFormater": '',
       "isDropdown": false
     },
-     {
+    {
       "title": "Editora",
       "itens": [
         {"title": "012BK", "value": "012BK"},
-        {"title": "Robert B.K", "value": " Robert B.K"}],
+        {"title": "Robert B.K", "value": " Robert B.K"}
+      ],
       "isDropdown": true
     },
-     {
+    {
       "title": "Idioma",
       "itens": [
         {"title": "Portugues", "value": "Portugues"},
-        {"title": "Ingles", "value": "Ingles"}],
+        {"title": "Ingles", "value": "Ingles"}
+      ],
       "isDropdown": true
     },
-     {
+    {
       "title": "Categoria",
       "itens": [
         {"title": "Tecnologia", "value": "Tecnologia"},
-        {"title": "Ficção", "value": "Ficção"}],
+        {"title": "Ficção", "value": "Ficção"}
+      ],
       "isDropdown": true
     },
     {
@@ -277,5 +283,89 @@ class LibraryInputs {
       "type": TextInputType.number,
       "textFormater": '',
       "isDropdown": false,
-    }];
+    }
+  ];
+}
+
+class FonancialInputs {
+  List billsToPayInput = [
+    {
+      "title": "Número do Título",
+      "icon": Icons.assessment_outlined,
+      "error": "campo obrigatório",
+      "maxLength": 50,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false,
+      "controller": BillsToPayController.instance.numtitulo
+    },
+    {
+      "title": "Data de cadastro",
+      "icon": Icons.assessment_outlined,
+      "error": "Campo Obrigatório",
+      "maxLength": 0,
+      "type": TextInputType.number,
+      "textFormater": '##/##/####',
+      "isDropdown": false,
+      "controller": BillsToPayController.instance.dataCadastro
+    },
+    {
+      "title": "Tipo de cobrança",
+      "itens": [
+        {"title": "boleto bancário", "value": "boleto bancário"},
+        {"title": "dinheiro", "value": "dinheiro"}
+      ],
+      "isDropdown": true
+    },
+    {
+      "title": "Descrição",
+      "icon": Icons.assessment_outlined,
+      "error": "Campo Obrigatório",
+      "maxLength": 200,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false,
+      "controller": BillsToPayController.instance.descricao
+    },
+    {
+      "title": "Data da emissão",
+      "icon": Icons.assessment_outlined,
+      "error": "Campo Obrigatório",
+      "maxLength": 0,
+      "type": TextInputType.number,
+      "textFormater": '##/##/####',
+      "isDropdown": false,
+      "controller": BillsToPayController.instance.dataEmissao
+    },
+    {
+      "title": "Vencimento",
+      "icon": Icons.assessment_outlined,
+      "error": "Campo Obrigatório",
+      "maxLength": 0,
+      "type": TextInputType.number,
+      "textFormater": '##/##/####',
+      "isDropdown": false,
+      "controller": BillsToPayController.instance.vencimento
+    },
+    {
+      "title": "Valor do título",
+      "icon": Icons.assessment_outlined,
+      "error": "campo obrigatório",
+      "maxLength": 10,
+      "type": TextInputType.number,
+      "textFormater": '########.##',
+      "isDropdown": false,
+      "controller": BillsToPayController.instance.valorTitulo
+    },
+    {
+      "title": "Fornecedor",
+      "icon": Icons.assessment_outlined,
+      "error": "Campo Obrigatório",
+      "maxLength": 200,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false,
+      "controller": BillsToPayController.instance.fornecedor
+    },
+  ];
 }
