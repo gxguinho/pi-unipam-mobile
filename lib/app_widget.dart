@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:unipam_mobile/modules/app/Events/CategoryEvents/Category_events.dart';
+import 'package:unipam_mobile/modules/app/Events/Events.dart';
+import 'package:unipam_mobile/modules/app/Events/GerenciaEvents/Gerenciar_events.dart';
 import 'package:unipam_mobile/modules/app/academic/courses/courses_page.dart';
 import 'package:unipam_mobile/modules/app/academic/frequency/frequency_page.dart';
 import 'package:unipam_mobile/modules/app/library/book/book_page.dart';
@@ -59,7 +62,10 @@ class AppWidget extends StatelessWidget {
                 "/books": (context) => BookPage(),
                 "/frequency": (context) => FrequencyPage(),
                 "/students": (context) => StudentsPage(),
-                "/courses": (context) => CoursesPage()
+                "/courses": (context) => CoursesPage(),
+                "/events": (context) => EventsPage(),
+                "/categoryevents": (context) => CategoryEventsPage(),
+                "/gerenciarevents": (context) => GerenciarEventsPage(),
               });
         });
   }
