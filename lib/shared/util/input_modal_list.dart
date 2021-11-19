@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:unipam_mobile/modules/app/Financial/billsToPay/bills_to_pay_controller.dart';
+import 'package:unipam_mobile/modules/app/Financial/billsToReceive/bills_to_receive_controller.dart';
 import 'package:unipam_mobile/modules/app/library/readers/readers_controller.dart';
 
 class LibraryInputs {
@@ -366,6 +367,173 @@ class FonancialInputs {
       "textFormater": '',
       "isDropdown": false,
       "controller": BillsToPayController.instance.fornecedor
+    },
+  ];
+}
+
+class ReceiveInputs {
+  List billsToReceive = [
+    {
+      "title": "Lançamento",
+      "icon": Icons.code,
+      "error": null,
+      "maxLength": 50,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Data de Emissão",
+      "icon": Icons.title,
+      "error": null,
+      "maxLength": 10,
+      "type": TextInputType.datetime,
+      "textFormater": '##/##/##',
+      "isDropdown": false
+    },
+    {
+      "title": "Vencimento",
+      "icon": Icons.title,
+      "error": null,
+      "maxLength": 10,
+      "type": TextInputType.datetime,
+      "textFormater": '##/##/##',
+      "isDropdown": false
+    },
+    {
+      "title": "Data do ultimo recebimento",
+      "icon": Icons.edit_location_alt_outlined,
+      "error": null,
+      "maxLength": 10,
+      "type": TextInputType.number,
+      "textFormater": '##/##/####',
+      "isDropdown": false
+    },
+    {
+      "title": "Portador",
+      "icon": Icons.volume_down,
+      "error": null,
+      "maxLength": 200,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Cliente",
+      "icon": Icons.date_range,
+      "error": null,
+      "maxLength": 50,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Nome Cliente",
+      "icon": Icons.volume_down,
+      "error": null,
+      "maxLength": 200,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Parcela",
+      "icon": Icons.volume_down,
+      "error": null,
+      "maxLength": 10,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Referente",
+      "icon": Icons.volume_down,
+      "error": null,
+      "maxLength": 200,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Valor Parcela",
+      "icon": Icons.volume_down,
+      "error": null,
+      "maxLength": 50,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Valor Pago",
+      "icon": Icons.volume_down,
+      "error": null,
+      "maxLength": 50,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Acréscimo",
+      "icon": Icons.volume_down,
+      "error": null,
+      "maxLength": 50,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Descontos",
+      "icon": Icons.volume_down,
+      "error": null,
+      "maxLength": 50,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Valor a Receber",
+      "icon": Icons.volume_down,
+      "error": null,
+      "maxLength": 50,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Vendedor",
+      "icon": Icons.volume_down,
+      "error": null,
+      "maxLength": 50,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Nome do Vendedor",
+      "icon": Icons.volume_down,
+      "error": null,
+      "maxLength": 200,
+      "type": TextInputType.text,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Comissão",
+      "icon": Icons.volume_down,
+      "error": null,
+      "maxLength": 50,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+    {
+      "title": "Valor da Comissão",
+      "icon": Icons.volume_down,
+      "error": null,
+      "maxLength": 50,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
     },
   ];
 }

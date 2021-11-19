@@ -4,33 +4,33 @@ import 'package:unipam_mobile/shared/util/input_modal_list.dart';
 import 'package:unipam_mobile/shared/widgets/scrollable/scrollable_widget.dart';
 import 'package:unipam_mobile/shared/widgets/table_page/table_page.dart';
 
-import 'bills_to_pay_controller.dart';
+import 'bills_to_receive_controller.dart';
 
-class BillsToPayPage extends StatefulWidget {
-  const BillsToPayPage({Key? key}) : super(key: key);
+class BillsToReceivePage extends StatefulWidget {
+  const BillsToReceivePage({Key? key}) : super(key: key);
 
   @override
-  _BillsToPayPageState createState() => _BillsToPayPageState();
+  _BillsToReceivePageState createState() => _BillsToReceivePageState();
 }
 
-class _BillsToPayPageState extends State<BillsToPayPage> {
+class _BillsToReceivePageState extends State<BillsToReceivePage> {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-        animation: BillsToPayController.instance,
+        animation: BillsToReceiveController.instance,
         builder: (context, child) {
           return TablePage(
-              title: "Contas a Pagar",
+              title: "Contas a Receber",
               modalTitle: "Cobrança",
               hasAdd: true,
-              inputs: FonancialInputs().billsToPayInput,
+              inputs: ReceiveInputs().billsToReceive,
               onChangedText: (text, title) =>
-                  BillsToPayController.instance.onChangedText(text, title),
+                  BillsToReceiveController.instance.onChangedText(text, title),
               register: (context) =>
-                  BillsToPayController.instance.registerbillsToPay(context),
+                  BillsToReceiveController.instance.registerReceive(context),
               errors: [],
-              cleanInputs: () => BillsToPayController.instance.cleanInput(),
-              animation: BillsToPayController.instance,
+              cleanInputs: () => BillsToReceiveController.instance.cleanInput(),
+              animation: BillsToReceiveController.instance,
               child: ScrollableWidget(
                 child: DataTable(
                   columnSpacing: 30,
@@ -46,14 +46,14 @@ class _BillsToPayPageState extends State<BillsToPayPage> {
                     DataColumn(label: Text("")),
                   ],
                   rows: [
-                    ...BillsToPayController.instance.billsToPay
+                    ...BillsToReceiveController.instance.billsToReceive
                         .map((e) => DataRow(cells: [
-                              DataCell(Text(e['title_number'])),
-                              DataCell(Text("Cliente")),
-                              DataCell(Text(e['due_date'])),
-                              DataCell(Text(e['description'])),
-                              DataCell(Text(e['emission_date'])),
-                              DataCell(Text(e['title_value'])),
+                              DataCell(Text(e['cliente'])),
+                              DataCell(Text(e["nome_cliente"])),
+                              DataCell(Text(e['vencimento'])),
+                              DataCell(Text(e['valor_a_receber'])),
+                              DataCell(Text(e['valor_parcela'])),
+                              DataCell(Text(e['valor_pago'])),
                               DataCell(IconButton(
                                   onPressed: () {}, icon: Icon(Icons.edit))),
                               DataCell(IconButton(
