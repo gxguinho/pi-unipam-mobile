@@ -20,7 +20,7 @@ class ModulesListAcademic {
     {
       "title": "Turmas", 
       "icon": Icons.analytics_outlined, 
-      "route": "/turmas"
+      "route": "/classes"
     },
     {
       "title": "Horarios", 
@@ -36,6 +36,11 @@ class ModulesListAcademic {
       "title": "Cursos",
       "icon": Icons.analytics_outlined,
       "route": "/courses"
+    },
+    {
+      "title": "Módulos",
+      "icon": Icons.mobile_friendly,
+      "route": "/modules"
     },
   ];
 }

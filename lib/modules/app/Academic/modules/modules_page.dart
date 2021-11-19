@@ -1,39 +1,35 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:unipam_mobile/modules/app/library/publishers/publishers_controller.dart';
 import 'package:unipam_mobile/shared/util/input_modal_list.dart';
 import 'package:unipam_mobile/shared/widgets/scrollable/scrollable_widget.dart';
 import 'package:unipam_mobile/shared/widgets/table_page/table_page.dart';
 
-class PublishersPage extends StatefulWidget {
-  const PublishersPage({ Key? key }) : super(key: key);
+import 'modules_controller.dart';
+
+class ModulesPage extends StatefulWidget {
+  const ModulesPage({ Key? key }) : super(key: key);
 
   @override
-  State<PublishersPage> createState() => _PublishersPageState();
+  _ModulesPageState createState() => _ModulesPageState();
 }
 
-class _PublishersPageState extends State<PublishersPage> {
-   @override
-  void initState() {
-    super.initState();
-    PublishersController.instance.getPublishers();
-  }
+class _ModulesPageState extends State<ModulesPage> {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: PublishersController.instance, 
+       animation: ModulesController.instance, 
       builder: (context, child) {
         return TablePage(
-          title: "Editoras", 
-          modalTitle: "Editor",
+          title: "Módulos", 
+          modalTitle: "Módulo",
           hasAdd: true,
-          inputs: LibraryInputs().publisherInputs, 
-          onChangedText: (text, title) => PublishersController.instance.onChangedText(text, title), 
-          register: (context) => PublishersController.instance.registerPublisher(context), 
+          inputs: AcademicInputs().modulesInput,
+          onChangedText: (text, title) =>  ModulesController.instance.onChangedText(text, title), 
+          register: (context) => ModulesController.instance.registerModule(context), 
           errors: [], 
-          cleanInputs: () => PublishersController.instance.cleanInputs(), 
-          animation: PublishersController.instance,
+          cleanInputs: () => ModulesController.instance.cleanInputs(), 
+          animation: ModulesController.instance,
           child: ScrollableWidget(
             child: DataTable(
               columns: [
@@ -41,12 +37,13 @@ class _PublishersPageState extends State<PublishersPage> {
                 DataColumn(label: Text("Data de criação")),
                 DataColumn(label: Text("")),
                 DataColumn(label: Text("")),
-              ], rows: [
-                ...PublishersController.instance.publishers.map((e) => 
+              ], 
+              rows: [
+                ...ModulesController.instance.modules.map((e) => 
                   DataRow(
                     cells: [
                       DataCell(Text(e['name'])),
-                      DataCell(Text(DateFormat("dd/MM/yyyy").format(DateTime.parse(e['date'])))),
+                      DataCell(Text(DateFormat("dd/MM/yyyy").format(e['date']))),
                       DataCell(
                         IconButton(
                           onPressed: () {}, 
@@ -55,7 +52,7 @@ class _PublishersPageState extends State<PublishersPage> {
                       ),
                       DataCell(
                         IconButton(
-                          onPressed: () => PublishersController.instance.deleteAuthor(e['id']), 
+                          onPressed: () => ModulesController.instance.deleteModule(e['id']), 
                           icon: Icon(Icons.remove_circle)
                         )
                       ),

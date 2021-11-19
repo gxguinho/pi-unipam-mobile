@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:unipam_mobile/shared/widgets/modal_create/modal_create.dart';
+
 
 class AuthorsController extends ChangeNotifier {
   static AuthorsController instance = new AuthorsController();
@@ -12,7 +12,7 @@ class AuthorsController extends ChangeNotifier {
   String nome = "";
 
    var url = Uri.parse("https://unipamapi.devjhon.com/authors");
-String token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkOWYyYmEyLWQ1OTYtNGUzYy04N2RhLTA3NTg2YWYzMjhmNCIsImVtYWlsIjoiYWRtaW5AdW5pcGFtYXBpLmNvbS5iciIsImlhdCI6MTYzNjY3NTIwNywiZXhwIjoxNjM2NzYxNjA3fQ.wjSCIGI0ZbwcAJ6x5r2Rd5mrqdzKXBvOAJrvMlRrwXM';
+  String token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkOWYyYmEyLWQ1OTYtNGUzYy04N2RhLTA3NTg2YWYzMjhmNCIsImVtYWlsIjoiYWRtaW5AdW5pcGFtYXBpLmNvbS5iciIsImlhdCI6MTYzNjY3NTIwNywiZXhwIjoxNjM2NzYxNjA3fQ.wjSCIGI0ZbwcAJ6x5r2Rd5mrqdzKXBvOAJrvMlRrwXM';
   List errors = [
     {"title": "Nome", "error": true}
   ];
