@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 
 class GerenciarEventsController extends ChangeNotifier {
@@ -15,6 +17,10 @@ class GerenciarEventsController extends ChangeNotifier {
   String datatermino = "";
   String datainscricao = "";
   String horarioevento = "";
+
+  var url = Uri.parse("https://unipamapi.devjhon.com/events");
+  String token =
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkOWYyYmEyLWQ1OTYtNGUzYy04N2RhLTA3NTg2YWYzMjhmNCIsImVtYWlsIjoiYWRtaW5AdW5pcGFtYXBpLmNvbS5iciIsImlhdCI6MTYzNzM2MzYyMSwiZXhwIjoxNjM3NDUwMDIxfQ.yQIQ6XUydhgIbPiIMMny5bp0QF2yt7Rs5YDeUOL0sQI";
 
   onChangedText(text, title) {
     if (title == "Nome do Evento") nome = text;
@@ -42,22 +48,51 @@ class GerenciarEventsController extends ChangeNotifier {
     horarioevento = "";
   }
 
-  registerManege(context) {
+  Future<void> getManageEvents() async {
+    var response = await http.get(url, headers: {'Authorization': token});
+    var json = jsonDecode(response.body) as List;
+    List<Map<dynamic, dynamic>> manegeEventsParsed = [];
+
+    json.forEach((element) {
+      manegeEventsParsed.add({
+        'name': element['name'],
+        'date': element['created_at'],
+        'id': element['id']
+      });
+    });
+
+    manage = manegeEventsParsed.toList();
+    notifyListeners();
+  }
+
+  Future<void> deleteEvent(id) async {
+    var urlDelete = Uri.parse('https://unipamapi.devjhon.com/events/$id');
+
+    var response =
+        await http.delete(urlDelete, headers: {'Authorization': token});
+    notifyListeners();
+    await getManageEvents();
+  }
+
+  registerManege(context) async {
     var manageRegister = {
-      "nome": nome,
-      "descricao": descricao,
-      "endereco": endereco,
-      "tipo": tipo,
-      "categoria": categoria,
-      "vagas": vagas,
-      "data de inicio": datainicio,
-      "data de termino": datatermino,
-      "data de inscricao": datainscricao,
-      "horario do evento": horarioevento,
+      "name": nome,
+      "description": descricao,
+      "address": endereco,
+      "category": categoria,
+      "vacancies_number": "2",
+      "start_date": datainicio,
+      "end_date": datatermino,
+      "subscription_date": datainscricao,
+      "event_time": horarioevento,
     };
 
-    manage.add(manageRegister);
-    Navigator.pop(context);
+    var response = await http
+        .post(url, body: manageRegister, headers: {'Authorization': token});
+
+    await getManageEvents();
     notifyListeners();
+    cleanInputs();
+    Navigator.pop(context);
   }
 }

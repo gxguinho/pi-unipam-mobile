@@ -14,6 +14,12 @@ class GerenciarEventsPage extends StatefulWidget {
 
 class _GerenciarEventsPageState extends State<GerenciarEventsPage> {
   @override
+  void initState() {
+    super.initState();
+    GerenciarEventsController.instance.getManageEvents();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
         animation: GerenciarEventsController.instance,
@@ -35,30 +41,21 @@ class _GerenciarEventsPageState extends State<GerenciarEventsPage> {
                 child: DataTable(
                   columns: [
                     DataColumn(label: Text("Nome")),
-                    DataColumn(label: Text("Descrição do Evento")),
-                    DataColumn(label: Text("Endereço Do Evento")),
-                    DataColumn(label: Text("Tipo Do Evento")),
-                    DataColumn(label: Text("Categoria")),
-                    DataColumn(label: Text("Numero De Vagas")),
-                    DataColumn(label: Text("Data De Inicio")),
-                    DataColumn(label: Text("Data De Termino")),
-                    DataColumn(label: Text("Data De Inscrição")),
-                    DataColumn(label: Text("Horário do Evento")),
+                    DataColumn(label: Text("Data de criação")),
+                    DataColumn(label: Text("")),
                   ],
                   rows: [
                     ...GerenciarEventsController.instance.manage
                         .map((e) => DataRow(
                               cells: [
-                                DataCell(Text(e['nome'])),
-                                DataCell(Text(e['descricao'])),
-                                DataCell(Text(e['endereco'])),
-                                DataCell(Text(e['tipo'])),
-                                DataCell(Text(e['categoria'])),
-                                DataCell(Text(e['vagas'])),
-                                DataCell(Text(e['data de inicio'])),
-                                DataCell(Text(e['data de termino'])),
-                                DataCell(Text(e['data de inscricao'])),
-                                DataCell(Text(e['horario do evento'])),
+                                DataCell(Text(e['name'])),
+                                DataCell(Text(DateFormat("dd/MM/yyyy")
+                                    .format(DateTime.parse(e['date'])))),
+                                DataCell(IconButton(
+                                    onPressed: () => GerenciarEventsController
+                                        .instance
+                                        .deleteEvent(e['id']),
+                                    icon: Icon(Icons.remove_circle))),
                               ],
                             )),
                   ],
