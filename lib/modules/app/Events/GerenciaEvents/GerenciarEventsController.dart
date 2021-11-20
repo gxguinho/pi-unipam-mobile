@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
+import 'package:dio/dio.dart';
 
 class GerenciarEventsController extends ChangeNotifier {
   static GerenciarEventsController instance = new GerenciarEventsController();
@@ -75,20 +76,30 @@ class GerenciarEventsController extends ChangeNotifier {
   }
 
   registerManege(context) async {
-    var manageRegister = {
+     var manageRegister = {
       "name": nome,
       "description": descricao,
       "address": endereco,
       "category": categoria,
-      "vacancies_number": "2",
+      "vacancies_number": int.parse(vagas),
       "start_date": datainicio,
       "end_date": datatermino,
       "subscription_date": datainscricao,
       "event_time": horarioevento,
+      "event_image": horarioevento,
     };
 
-    var response = await http
-        .post(url, body: manageRegister, headers: {'Authorization': token});
+    var dio = Dio();
+    try {
+      var response = await dio.post("https://unipamapi.devjhon.com/events", 
+      data: manageRegister, options: Options(
+      headers: {
+        'Authorization': token
+      }
+      ));
+    } catch (e) {
+      print(e);
+    }
 
     await getManageEvents();
     notifyListeners();
