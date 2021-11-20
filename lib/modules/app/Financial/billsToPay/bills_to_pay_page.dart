@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:unipam_mobile/shared/util/input_modal_list.dart';
 import 'package:unipam_mobile/shared/widgets/scrollable/scrollable_widget.dart';
 import 'package:unipam_mobile/shared/widgets/table_page/table_page.dart';
@@ -15,6 +16,11 @@ class BillsToPayPage extends StatefulWidget {
 
 class _BillsToPayPageState extends State<BillsToPayPage> {
   @override
+   @override
+  void initState() {
+    super.initState();
+    BillsToPayController.instance.getbillsToPay();
+  }
   Widget build(BuildContext context) {
     return AnimatedBuilder(
         animation: BillsToPayController.instance,
@@ -49,15 +55,15 @@ class _BillsToPayPageState extends State<BillsToPayPage> {
                     ...BillsToPayController.instance.billsToPay
                         .map((e) => DataRow(cells: [
                               DataCell(Text(e['title_number'])),
-                              DataCell(Text("Cliente")),
-                              DataCell(Text(e['due_date'])),
+                              DataCell(Text("provider")),
+                              DataCell(Text(DateFormat("dd/MM/yyyy").format(DateTime.parse(e['due_date'])))),
                               DataCell(Text(e['description'])),
-                              DataCell(Text(e['emission_date'])),
+                              DataCell(Text(DateFormat("dd/MM/yyyy").format(DateTime.parse(e['issue_date'])))),
                               DataCell(Text(e['title_value'])),
                               DataCell(IconButton(
                                   onPressed: () {}, icon: Icon(Icons.edit))),
                               DataCell(IconButton(
-                                  onPressed: () => {},
+                                  onPressed: () => BillsToPayController.instance.deletebillsToPay(e['id']) ,
                                   icon: Icon(Icons.remove_circle))),
                             ]))
                   ],
