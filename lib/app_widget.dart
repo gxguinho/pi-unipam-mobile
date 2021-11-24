@@ -1,12 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:unipam_mobile/modules/app/academic/classes/closedClass_page.dart';
+import 'package:unipam_mobile/modules/app/academic/classes/openClass_page.dart';
+import 'package:unipam_mobile/modules/app/Events/CategoryEvents/Category_events.dart';
+import 'package:unipam_mobile/modules/app/Events/Events.dart';
+import 'package:unipam_mobile/modules/app/Events/GerenciaEvents/Gerenciar_events.dart';
+import 'package:unipam_mobile/modules/app/Financial/billsToPay/bills_to_pay_page.dart';
+import 'package:unipam_mobile/modules/app/Financial/billsToReceive/bills_to_receive_page.dart';
+import 'package:unipam_mobile/modules/app/Financial/financial_page.dart';
 import 'package:unipam_mobile/modules/app/academic/courses/courses_page.dart';
-import 'package:unipam_mobile/modules/app/academic/frequency/frequency_page.dart';
+import 'package:unipam_mobile/modules/app/academic/modules/modules_page.dart';
+import 'package:unipam_mobile/modules/app/academic/notes/notes_page.dart';
+import 'package:unipam_mobile/modules/app/academic/students/frequency/frequency_page.dart';
 import 'package:unipam_mobile/modules/app/library/book/book_page.dart';
 import 'package:unipam_mobile/modules/auth/Login/login_page.dart';
 import 'package:unipam_mobile/modules/splashScreen/splashScreen_page.dart';
 import 'modules/app/academic/academic_page.dart';
+import 'modules/app/academic/classes/classes_page.dart';
 import 'modules/app/academic/students/students_page.dart';
 import 'modules/app/app_controller.dart';
 import 'modules/app/Home/home_page.dart';
@@ -57,9 +68,20 @@ class AppWidget extends StatelessWidget {
                 "/publishers": (context) => PublishersPage(),
                 "/reservations": (context) => ReservationsPage(),
                 "/books": (context) => BookPage(),
-                "/frequency": (context) => FrequencyPage(),
                 "/students": (context) => StudentsPage(),
-                "/courses": (context) => CoursesPage()
+                "/courses": (context) => CoursesPage(),
+                "/classes": (context) => ClassesPage(),
+                "/openClass": (context) => OpenClass(),
+                "/closedClass": (context) => ClosedClass(),
+                "/frequency": (context) => FrequencyPage(),
+                "/notes": (context) => NotesPage(),
+                "/modules": (context) => ModulesPage(),
+                "/events": (context) => EventsPage(),
+                "/categoryevents": (context) => CategoryEventsPage(),
+                "/gerenciarevents": (context) => GerenciarEventsPage(),
+                "/financial": (context) => FinancialPage(),
+                "/billsToPay": (context) => BillsToPayPage(),
+                "/billsToReceive": (context) => BillsToReceivePage()
               });
         });
   }

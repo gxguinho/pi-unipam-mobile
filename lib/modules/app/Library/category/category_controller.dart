@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-class CategoryController  extends ChangeNotifier {
-
+class CategoryController extends ChangeNotifier {
   static CategoryController instance = new CategoryController();
 
   List categories = [];
@@ -11,16 +10,13 @@ class CategoryController  extends ChangeNotifier {
     category = "";
   }
 
-   onChangedText(text, title) {
+  onChangedText(text, title) {
     category = text;
   }
 
   registerCategory(context) {
-     var categoryFormatted = {
-      "category": category,
-      "date": DateTime.now()
-    };
-    
+    var categoryFormatted = {"category": category, "date": DateTime.now()};
+
     categories.add(categoryFormatted);
     notifyListeners();
     cleanInputs();

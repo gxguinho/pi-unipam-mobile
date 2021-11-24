@@ -31,7 +31,7 @@ class LoginController extends ChangeNotifier {
 
         var token = jsonDecode(response.body) as dynamic;
         SharedPreferences prefs = await SharedPreferences.getInstance();
-        await prefs.setString('@unipamMobile_user', token['user'].toString());
+        await prefs.setString('@unipamMobile_user', jsonEncode(token['user']));
         await prefs.setString('@unipamMobile_token', token['token']);
         
         AppController.instance.token =  token['token'];

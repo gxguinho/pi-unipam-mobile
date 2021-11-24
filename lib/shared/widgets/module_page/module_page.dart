@@ -13,7 +13,7 @@ class ModulePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerWidget(),
+      drawer: title == "Detalhees" ? DrawerWidget() : null,
       appBar: AppBar(
         title: Text(title, style: AppText.barTitle),
       ),

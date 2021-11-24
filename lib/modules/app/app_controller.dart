@@ -19,8 +19,11 @@ class AppController extends ChangeNotifier {
 
   Future decodeUser() async {
 
-    
-
+    var json = jsonDecode(user);
+    /* json.forEach((element) { 
+        name = element['name'];
+        email = element['created_at'];
+    }); */
   }
 
   changeScreen(String pageSelected, context, String route) {
@@ -39,7 +42,11 @@ class AppController extends ChangeNotifier {
     notifyListeners();
   }
 
-  logout(context) {
+  logout(context) async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove('@unipamMobile_user');
+    await prefs.remove('@unipamMobile_token');
     Navigator.of(context).pushReplacementNamed('/');
+
   }
 }
