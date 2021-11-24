@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
+import 'package:unipam_mobile/modules/app/app_controller.dart';
 
 class LanguageController extends ChangeNotifier {
   static LanguageController instance = new LanguageController();
@@ -10,7 +11,7 @@ class LanguageController extends ChangeNotifier {
   List languages = [];
   String language = "";
 
-  String token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkOWYyYmEyLWQ1OTYtNGUzYy04N2RhLTA3NTg2YWYzMjhmNCIsImVtYWlsIjoiYWRtaW5AdW5pcGFtYXBpLmNvbS5iciIsImlhdCI6MTYzNjY3NTIwNywiZXhwIjoxNjM2NzYxNjA3fQ.wjSCIGI0ZbwcAJ6x5r2Rd5mrqdzKXBvOAJrvMlRrwXM';
+  String token = AppController.instance.token!;
   var url = Uri.parse("https://unipamapi.devjhon.com/languages");
 
   onChangedText(text, title) {

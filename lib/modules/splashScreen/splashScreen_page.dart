@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -40,8 +41,9 @@ class _SplashScreenState extends State<SplashScreen> {
     final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var obtainedToken = await sharedPreferences.getString("@unipamMobile_token");
     var obtainedUser = await sharedPreferences.getString("@unipamMobile_user");
+    var token = obtainedToken!.substring(1, obtainedToken.length-1);
     setState(() {
-      AppController.instance.token = 'Bearer $obtainedToken';
+      AppController.instance.token = 'Bearer $token';
       AppController.instance.user = obtainedUser.toString();
     });
   }
