@@ -42,7 +42,7 @@ class LibraryInputs {
       "title": "RG",
       "icon": Icons.assignment_ind,
       "error": "Campo Obrigatório",
-      "maxLength": 14,
+      "maxLength": 8,
       "type": TextInputType.number,
       "textFormater": '',
       "isDropdown": false,
@@ -670,7 +670,7 @@ class AcademicInputs {
       "title": "RG",
       "icon": Icons.assignment_ind,
       "error": "Campo Obrigatório",
-      "maxLength": 14,
+      "maxLength": 8,
       "type": TextInputType.number,
       "textFormater": '',
       "isDropdown": false

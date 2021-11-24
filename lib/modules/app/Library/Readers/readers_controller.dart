@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 
@@ -97,29 +98,33 @@ class ReadersController extends ChangeNotifier {
   registerReader(context) async {
     var registerReader = {
       "name": nome,
-      "cpf": cpf,
+      "cpf": cpf.replaceAll(".","").replaceAll("-",""),
       "rg": rg,
       "email": email,
-      "land_line": telefoneFixo,
-      "phone_number": telefoneCelular,
-      "cep": cep,
+      "land_line": int.parse(telefoneFixo.replaceAll("(", "").replaceAll(")", "").replaceAll("-","").replaceAll(" ", "")),
+      "phone_number": int.parse(telefoneCelular.replaceAll("(", "").replaceAll(")", "").replaceAll("-","").replaceAll(" ", "")),
+      "cep": cep.replaceAll("-",""),
       "street": logradouro,
-      "home_number": numero,
+      "home_number": int.parse(numero),
       "district": bairro,
       "complement": complemento,
     };
+    var dio = Dio();
+    try {
+      var response = await dio.post("https://unipamapi.devjhon.com/readers",
+          data: registerReader,
+          options: Options(headers: {'Authorization': token
+      }));
 
-    var response = await http.post(url, 
-      body: registerReader,
-      headers: {
-        'Authorization': token
-      }
-    );
+      await getReaders();
+      notifyListeners();
+      cleanInput();
+      Navigator.pop(context);
+    } catch (e) {
+      print(e);
+    }
 
-    await getReaders();
-    notifyListeners();
-    cleanInput();
-    Navigator.pop(context);
+    
   }
 
   changeCep(text) async {
