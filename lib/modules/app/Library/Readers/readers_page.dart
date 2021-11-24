@@ -15,7 +15,11 @@ class ReadersPage extends StatefulWidget {
 
 class _ReadersPageState extends State<ReadersPage> {
 
-   @override
+  @override
+  void initState() {
+    super.initState();
+    ReadersController.instance.getReaders();
+  }
   
 
   @override
@@ -60,7 +64,7 @@ class _ReadersPageState extends State<ReadersPage> {
                       ),
                       DataCell(
                         IconButton(
-                          onPressed: () => {}, 
+                          onPressed: () => ReadersController.instance.deleteReaders(e['id']), 
                           icon: Icon(Icons.remove_circle)
                         )
                       ),

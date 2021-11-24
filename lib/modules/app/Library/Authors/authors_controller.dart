@@ -12,7 +12,7 @@ class AuthorsController extends ChangeNotifier {
   String nome = "";
 
    var url = Uri.parse("https://unipamapi.devjhon.com/authors");
-  String token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkOWYyYmEyLWQ1OTYtNGUzYy04N2RhLTA3NTg2YWYzMjhmNCIsImVtYWlsIjoiYWRtaW5AdW5pcGFtYXBpLmNvbS5iciIsImlhdCI6MTYzNjY3NTIwNywiZXhwIjoxNjM2NzYxNjA3fQ.wjSCIGI0ZbwcAJ6x5r2Rd5mrqdzKXBvOAJrvMlRrwXM';
+  String token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkOWYyYmEyLWQ1OTYtNGUzYy04N2RhLTA3NTg2YWYzMjhmNCIsImVtYWlsIjoiYWRtaW5AdW5pcGFtYXBpLmNvbS5iciIsImlhdCI6MTYzNzcxNTIyNSwiZXhwIjoxNjM3ODAxNjI1fQ.cByvm3jlMfZyryd6me7_HeceraJcPWhZNCLmJGWrbns';
   List errors = [
     {"title": "Nome", "error": true}
   ];

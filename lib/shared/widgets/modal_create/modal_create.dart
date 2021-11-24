@@ -31,9 +31,6 @@ class ModalCreate extends StatelessWidget {
   final String? controller;
   @override
   Widget build(BuildContext context) {
-        return AnimatedBuilder(
-          animation: ReadersController.instance,
-          builder: (context, child) {
             return Container(
               padding: EdgeInsets.only(top: 80),
               child: Scaffold(
@@ -85,6 +82,4 @@ class ModalCreate extends StatelessWidget {
               ),
             );
           }
-        );
-      }
 }

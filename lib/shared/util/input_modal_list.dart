@@ -26,7 +26,7 @@ class LibraryInputs {
       "type": TextInputType.text,
       "textFormater": '',
       "isDropdown": false,
-      "controller": ReadersController.instance.nome
+      "controller": "ReadersController"
     },
     {
       "title": "CPF",
@@ -36,7 +36,7 @@ class LibraryInputs {
       "type": TextInputType.number,
       "textFormater": '###.###.###-##',
       "isDropdown": false,
-      "controller": ReadersController.instance.cpf
+      "controller": "ReadersController"
     },
     {
       "title": "RG",
@@ -46,7 +46,7 @@ class LibraryInputs {
       "type": TextInputType.number,
       "textFormater": '',
       "isDropdown": false,
-      "controller": ReadersController.instance.rg
+      "controller": "ReadersController"
     },
     {
       "title": "Email",
@@ -56,7 +56,7 @@ class LibraryInputs {
       "type": TextInputType.text,
       "textFormater": '',
       "isDropdown": false,
-      "controller": ReadersController.instance.email
+      "controller": "ReadersController"
     },
     {
       "title": "Telefone fixo",
@@ -66,7 +66,7 @@ class LibraryInputs {
       "type": TextInputType.phone,
       "textFormater": '(##) ####-####',
       "isDropdown": false,
-      "controller": ReadersController.instance.telefoneFixo
+      "controller": "ReadersController"
     },
     {
       "title": "Telefone celular",
@@ -76,7 +76,7 @@ class LibraryInputs {
       "type": TextInputType.phone,
       "textFormater": '(##) #####-####',
       "isDropdown": false,
-      "controller": ReadersController.instance.telefoneCelular
+      "controller": "ReadersController"
     },
     {
       "title": "CEP",
@@ -86,7 +86,7 @@ class LibraryInputs {
       "type": TextInputType.number,
       "textFormater": "#####-###",
       "isDropdown": false,
-      "controller": ReadersController.instance.cep
+      "controller": "ReadersController"
     },
     {
       "title": "Logradouro",
@@ -96,7 +96,7 @@ class LibraryInputs {
       "type": TextInputType.number,
       "textFormater": '',
       "isDropdown": false,
-      "controller": ReadersController.instance.logradouro
+      "controller": "ReadersController"
     },
     {
       "title": "Número",
@@ -106,7 +106,7 @@ class LibraryInputs {
       "type": TextInputType.number,
       "textFormater": '',
       "isDropdown": false,
-      "controller": ReadersController.instance.numero
+      "controller": "ReadersController"
     },
     {
       "title": "Bairro",
@@ -116,7 +116,7 @@ class LibraryInputs {
       "type": TextInputType.text,
       "textFormater": '',
       "isDropdown": false,
-      "controller": ReadersController.instance.bairro
+      "controller": "ReadersController"
     },
     {
       "title": "Complemento",
@@ -126,7 +126,7 @@ class LibraryInputs {
       "type": TextInputType.text,
       "textFormater": '',
       "isDropdown": false,
-      "controller": ReadersController.instance.complemento
+      "controller": "ReadersController"
     },
   ];
   List categoryInput = [

@@ -55,10 +55,17 @@ class InputTextCreate extends StatelessWidget {
                   new MaskTextInputFormatter(mask:  textFormatter, filter: {"#": RegExp(r'[0-9]')})
                 ],
                 controller: TextEditingController(text: 
+                  title == 'Nome' ? controller == "ReadersController" ? ReadersController.instance.nome : null : 
+                  title == 'CPF' ? controller == "ReadersController" ? ReadersController.instance.cpf : null : 
+                  title == 'RG' ? controller == "ReadersController" ? ReadersController.instance.rg : null : 
+                  title == 'Email' ? controller == "ReadersController" ? ReadersController.instance.email : null : 
+                  title == 'Telefone fixo' ? controller == "ReadersController" ? ReadersController.instance.telefoneFixo : null : 
+                  title == 'Telefone celular' ? controller == "ReadersController" ? ReadersController.instance.telefoneCelular : null : 
+                  title == 'CEP' ? controller == "ReadersController" ? ReadersController.instance.cep : null :
                   title == 'Logradouro' ? controller == "ReadersController" ? ReadersController.instance.logradouro : null : 
+                  title == 'Número' ? controller == "ReadersController" ? ReadersController.instance.numero : null : 
                   title == 'Bairro' ? controller == "ReadersController" ? ReadersController.instance.bairro : null : 
-                  title == 'Complemento' ? controller == "ReadersController" ? ReadersController.instance.complemento : null : 
-                  title == 'CEP' ? controller == "ReadersController" ? ReadersController.instance.cep : null  
+                  title == 'Complemento' ? controller == "ReadersController" ? ReadersController.instance.complemento : null 
                   : null,
                 ),
                 decoration: InputDecoration(
