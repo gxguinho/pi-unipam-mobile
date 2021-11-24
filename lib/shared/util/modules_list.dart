@@ -12,6 +12,8 @@ class ModulesListAcademic {
       "icon": Icons.analytics_outlined,
       "route": "/frequency"
     },
+    {"title": "Notas", "icon": Icons.analytics_outlined, "route": "/notes"},
+    {"title": "Turmas", "icon": Icons.analytics_outlined, "route": "/turmas"},
     {
       "title": "Notas", 
       "icon": Icons.analytics_outlined, 
@@ -34,24 +36,23 @@ class ModulesListAcademic {
     },
      {
       "title": "Cursos",
+      "title": "Horarios",
       "icon": Icons.analytics_outlined,
-      "route": "/courses"
+      "route": "/schedule"
     },
     {
       "title": "Módulos",
       "icon": Icons.mobile_friendly,
       "route": "/modules"
     },
+    {"title": "Relatórios", "icon": Icons.article, "route": "/reports"},
+    {"title": "Cursos", "icon": Icons.analytics_outlined, "route": "/courses"},
   ];
 }
 
 class ModulesListLibrary {
   List libraryModules = [
-    {
-      "title": "Leitores", 
-      "icon": Icons.people, 
-      "route": "/readers"
-    },
+    {"title": "Leitores", "icon": Icons.people, "route": "/readers"},
     {
       "title": "Autores",
       "icon": Icons.collections_bookmark,
@@ -72,21 +73,19 @@ class ModulesListLibrary {
       "icon": Icons.accessible_forward_sharp,
       "route": "/reservations"
     },
-    {
-      "title": "Categoria", 
-      "icon": Icons.book_outlined, 
-      "route": "/category"
-    },
-    {
-      "title": "Idiomas", 
-      "icon": Icons.flag_outlined, 
-      "route": "/language"
-    },
-    {
-      "title": "Editoras", 
-      "icon": Icons.people, 
-      "route": "/publishers"
-    },
+    {"title": "Categoria", "icon": Icons.book_outlined, "route": "/category"},
+    {"title": "Idiomas", "icon": Icons.flag_outlined, "route": "/language"},
+    {"title": "Editoras", "icon": Icons.people, "route": "/publishers"},
   ];
 }
 
+class ModulesListEvents {
+  var eventsModules = [
+    {"title": "Categorias", "icon": Icons.people, "route": "/categoryevents"},
+    {
+      "title": "Gerenciar Eventos",
+      "icon": Icons.people,
+      "route": "/gerenciarevents"
+    },
+  ];
+}
