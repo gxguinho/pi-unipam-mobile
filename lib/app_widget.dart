@@ -6,6 +6,9 @@ import 'package:unipam_mobile/modules/app/academic/classes/openClass_page.dart';
 import 'package:unipam_mobile/modules/app/Events/CategoryEvents/Category_events.dart';
 import 'package:unipam_mobile/modules/app/Events/Events.dart';
 import 'package:unipam_mobile/modules/app/Events/GerenciaEvents/Gerenciar_events.dart';
+import 'package:unipam_mobile/modules/app/Financial/billsToPay/bills_to_pay_page.dart';
+import 'package:unipam_mobile/modules/app/Financial/billsToReceive/bills_to_receive_page.dart';
+import 'package:unipam_mobile/modules/app/Financial/financial_page.dart';
 import 'package:unipam_mobile/modules/app/academic/courses/courses_page.dart';
 import 'package:unipam_mobile/modules/app/academic/modules/modules_page.dart';
 import 'package:unipam_mobile/modules/app/academic/notes/notes_page.dart';
@@ -76,6 +79,9 @@ class AppWidget extends StatelessWidget {
                 "/events": (context) => EventsPage(),
                 "/categoryevents": (context) => CategoryEventsPage(),
                 "/gerenciarevents": (context) => GerenciarEventsPage(),
+                "/financial": (context) => FinancialPage(),
+                "/billsToPay": (context) => BillsToPayPage(),
+                "/billsToReceive": (context) => BillsToReceivePage()
               });
         });
   }

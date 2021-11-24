@@ -79,6 +79,21 @@ class ModulesListLibrary {
   ];
 }
 
+class ModulesListFinancial {
+  List financialModules = [
+    {
+      "title": "Contas a Pagar",
+      "icon": Icons.attach_money,
+      "route": "/billsToPay"
+    },
+    {
+      "title": "Contas a Receber",
+      "icon": Icons.attach_money,
+      "route": "/billsToReceive"
+    },
+  ];
+}
+
 class ModulesListEvents {
   var eventsModules = [
     {"title": "Categorias", "icon": Icons.people, "route": "/categoryevents"},

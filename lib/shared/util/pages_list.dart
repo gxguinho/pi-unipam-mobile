@@ -6,5 +6,6 @@ class PagesList {
     {'title': "Academico", 'icon': Icons.school, 'route': '/academic'},
     {'title': "Biblioteca", 'icon': Icons.book, 'route': '/library'},
     {'title': "Eventos", 'icon': Icons.flag, 'route': '/events'},
+    {'title': "Financeiro", 'icon': Icons.attach_money, 'route': '/financial'},
   ];
 }
