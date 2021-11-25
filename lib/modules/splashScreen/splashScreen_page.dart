@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
        Timer(Duration(seconds: 2), () {
          Navigator.push(context, 
           MaterialPageRoute(builder: (context) => 
-            AppController.instance.token == "Bearer null" ? LoginPage() : HomePage())
+            AppController.instance.token == "" ? LoginPage() : HomePage())
          );
        }
        );

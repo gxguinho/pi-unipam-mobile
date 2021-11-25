@@ -1,14 +1,31 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:unipam_mobile/modules/app/library/book/book_controller.dart';
+import 'package:unipam_mobile/modules/app/library/readers/readers_controller.dart';
 import 'package:unipam_mobile/modules/app/library/reservations/reservations_controller.dart';
 import 'package:unipam_mobile/shared/util/input_modal_list.dart';
 import 'package:unipam_mobile/shared/widgets/scrollable/scrollable_widget.dart';
 import 'package:unipam_mobile/shared/widgets/table_page/table_page.dart';
 
-class ReservationsPage extends StatelessWidget {
+class ReservationsPage extends StatefulWidget {
   const ReservationsPage({ Key? key }) : super(key: key);
 
   @override
+  State<ReservationsPage> createState() => _ReservationsPageState();
+}
+
+class _ReservationsPageState extends State<ReservationsPage> {
+  
+  @override
+  void initState() {
+    super.initState();
+    ReadersController.instance.getReaders();
+    ReservationsController.instance.getReservations();
+    BookController.instance.getBooks();
+  }
+
+  @override
+
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: ReservationsController.instance, 
@@ -34,14 +51,14 @@ class ReservationsPage extends StatelessWidget {
                 ...ReservationsController.instance.reservations.map((e) => 
                    DataRow(
                     cells: [
-                      DataCell(Text(e['pessoa'])),
-                      DataCell(Text(e['codigo'])),
-                      DataCell(Text(e['titleLivro'])),
+                      DataCell(Text(e['reader'])),
+                      DataCell(Text(e['code'].toString())),
+                      DataCell(Text(e['book'])),
                       DataCell(
                         Icon(Icons.circle, 
-                        color: DateTime.parse(e['dateInicio'])
-                        .isAfter(DateTime.parse(e['dateFim'])) != 
-                        false ? Colors.red : Colors.green)
+                        color: DateTime.now().isAfter(DateTime.parse(e['return_deadline'])) != 
+                        false ? Colors.red : Colors.green 
+                        )
                       )
                   ]
                 ))

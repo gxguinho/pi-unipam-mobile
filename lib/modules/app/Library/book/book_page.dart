@@ -5,10 +5,20 @@ import 'package:unipam_mobile/shared/util/input_modal_list.dart';
 import 'package:unipam_mobile/shared/widgets/scrollable/scrollable_widget.dart';
 import 'package:unipam_mobile/shared/widgets/table_page/table_page.dart';
 
-class BookPage extends StatelessWidget {
+class BookPage extends StatefulWidget {
   const BookPage({ Key? key }) : super(key: key);
 
   @override
+  State<BookPage> createState() => _BookPageState();
+}
+
+class _BookPageState extends State<BookPage> {
+  @override
+
+  void initState() {
+    super.initState();
+    BookController.instance.getBooks();
+  }
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: BookController.instance, 
@@ -39,12 +49,12 @@ class BookPage extends StatelessWidget {
                 ...BookController.instance.books.map((e) => 
                   DataRow(
                   cells: [
-                    DataCell(Text(e['codigo'])),
-                    DataCell(Text(e["titulo"])),
-                    DataCell(Text(e["autores"])),
-                    DataCell(Text(e["ano"])),
-                    DataCell(Text(e["localizacao"])),
-                    DataCell(Text(e["quantidadeExeplaresDisponiveis"])),
+                    DataCell(Text(e['code'])),
+                    DataCell(Text(e["title"])),
+                    DataCell(Text(e["edition"])),
+                    DataCell(Text(e["year"].toString())),
+                    DataCell(Text(e["location"])),
+                    DataCell(Text(e["copies_number_available"].toString())),
                     DataCell(
                       IconButton(
                         onPressed: () {}, 

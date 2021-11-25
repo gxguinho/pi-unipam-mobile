@@ -1,5 +1,8 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
+import 'package:http/http.dart' as http;
+import 'package:unipam_mobile/modules/app/app_controller.dart';
 class BookController extends ChangeNotifier {
   static BookController instance = new BookController();
 
@@ -17,6 +20,9 @@ class BookController extends ChangeNotifier {
   String quantidadeExeplares = "";
   String quantidadeExeplaresDisponiveis = "";
   String localizacao = "";
+
+  String token = AppController.instance.token!;
+  var url = Uri.parse("https://unipamapi.devjhon.com/books");
 
    onChangedText(text, title) {
     if (title == "Código") codigo = text;
@@ -46,6 +52,37 @@ class BookController extends ChangeNotifier {
     quantidadeExeplares = "";
     quantidadeExeplaresDisponiveis = "";
     localizacao = "";
+  }
+
+  getBooks() async{
+     var response = await http.get(url, 
+      headers: {
+        'Authorization': token!
+      }
+    );
+
+    var json = jsonDecode(response.body) as List;
+    List<Map<dynamic, dynamic>> booksParsed = [];
+
+    json.forEach((element) { 
+      booksParsed.add({
+        'title': element['title'], 
+        'code': element['code'],
+        'edition': element['edition'],
+        'volume': element['volume'],
+        'year': element['year'],
+        'publishing_company_id': element['publishing_company_id'],
+        'language_id': element['language_id'],
+        'category': element['category'],
+        'copies_number': element['copies_number'],
+        'copies_number_available': element['copies_number_available'],
+        'location': element['location'],
+        'created_at': element['created_at'],
+        'id': element['id']});
+    });
+
+    books = booksParsed.toList();
+    notifyListeners();
   }
 
   registerBook(context) {

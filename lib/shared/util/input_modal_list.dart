@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:unipam_mobile/modules/app/academic/students/students_controller.dart';
 import 'package:unipam_mobile/modules/app/Events/CategoryEvents/CategoryEventsController.dart';
 import 'package:unipam_mobile/modules/app/Financial/billsToPay/bills_to_pay_controller.dart';
+import 'package:unipam_mobile/modules/app/app_controller.dart';
+import 'package:unipam_mobile/modules/app/library/book/book_controller.dart';
 import 'package:unipam_mobile/modules/app/library/readers/readers_controller.dart';
+import 'package:unipam_mobile/modules/app/library/reservations/reservations_controller.dart';
 
 class LibraryInputs {
   List authorsInput = [
@@ -165,18 +168,20 @@ class LibraryInputs {
   var reservationInputs = [
     {
       "title": "Pessoa",
-      "itens": [
-        {"title": "Roberto", "value": "Roberto"},
-        {"title": "Sandro", "value": "Sandro"}
-      ],
+      "itens": ReadersController.instance.readers.map((e) => {
+          "title": e['name'],
+          "value": e['id']
+      }).toList(),
       "isDropdown": true
     },
     {
       "title": "Livro",
-      "itens": [
-        {"title": "Herry Poter", "value": "Herry Poter"},
-        {"title": "Programação", "value": "Programação"}
-      ],
+      "itens": 
+        BookController.instance.books.map((e) => {
+          "title": e['title'],
+          "value": e['id']
+        }).toList()
+      ,
       "isDropdown": true
     },
   ];
