@@ -240,3 +240,15 @@ class  StudentsController extends ChangeNotifier {
     notifyListeners();
   }
 }
+
+
+/* 
+Students:
+grupo 
+estaTrabalhando
+matricula
+cidade
+estado
+studentsPhoto
+
+ */

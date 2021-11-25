@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 import 'package:dio/dio.dart';
+import 'package:unipam_mobile/modules/app/app_controller.dart';
 
 class GerenciarEventsController extends ChangeNotifier {
   static GerenciarEventsController instance = new GerenciarEventsController();
@@ -20,8 +21,8 @@ class GerenciarEventsController extends ChangeNotifier {
   String horarioevento = "";
 
   var url = Uri.parse("https://unipamapi.devjhon.com/events");
-  String token =
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkOWYyYmEyLWQ1OTYtNGUzYy04N2RhLTA3NTg2YWYzMjhmNCIsImVtYWlsIjoiYWRtaW5AdW5pcGFtYXBpLmNvbS5iciIsImlhdCI6MTYzNzM2MzYyMSwiZXhwIjoxNjM3NDUwMDIxfQ.yQIQ6XUydhgIbPiIMMny5bp0QF2yt7Rs5YDeUOL0sQI";
+  String token = AppController.instance.token!;
+      
 
   onChangedText(text, title) {
     if (title == "Nome do Evento") nome = text;
@@ -86,7 +87,7 @@ class GerenciarEventsController extends ChangeNotifier {
       "end_date": datatermino,
       "subscription_date": datainscricao,
       "event_time": horarioevento,
-      "event_image": horarioevento,
+      "event_image": "",
     };
 
     var dio = Dio();

@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:unipam_mobile/modules/app/Library/Authors/authors_controller.dart';
+import 'package:unipam_mobile/modules/app/Library/language/language_controller.dart';
+import 'package:unipam_mobile/modules/app/Library/publishers/publishers_controller.dart';
 import 'package:unipam_mobile/modules/app/academic/students/students_controller.dart';
 import 'package:unipam_mobile/modules/app/Events/CategoryEvents/CategoryEventsController.dart';
 import 'package:unipam_mobile/modules/app/Financial/billsToPay/bills_to_pay_controller.dart';
@@ -200,16 +203,16 @@ class LibraryInputs {
       "icon": Icons.title,
       "error": null,
       "maxLength": 200,
-      "type": TextInputType.number,
+      "type": TextInputType.text,
       "textFormater": '',
       "isDropdown": false
     },
     {
       "title": "Autores",
-      "itens": [
-        {"title": " Saramago ", "value": "Saramago "},
-        {"title": "Edgar", "value": "Edgar"}
-      ],
+      "itens": AuthorsController.instance.authors.map((e) => {
+          "title": e['name'],
+          "value": e['id']
+        }).toList(),
       "isDropdown": true
     },
     {
@@ -241,18 +244,18 @@ class LibraryInputs {
     },
     {
       "title": "Editora",
-      "itens": [
-        {"title": "012BK", "value": "012BK"},
-        {"title": "Robert B.K", "value": " Robert B.K"}
-      ],
+      "itens": PublishersController.instance.publishers.map((e) => {
+          "title": e['name'],
+          "value": e['id']
+        }).toList(),
       "isDropdown": true
     },
     {
       "title": "Idioma",
-      "itens": [
-        {"title": "Portugues", "value": "Portugues"},
-        {"title": "Ingles", "value": "Ingles"}
-      ],
+      "itens": LanguageController.instance.languages.map((e) => {
+          "title": e['name'],
+          "value": e['id']
+      }).toList(),
       "isDropdown": true
     },
     {
@@ -271,16 +274,6 @@ class LibraryInputs {
       "type": TextInputType.number,
       "textFormater": '',
       "isDropdown": false
-    },
-    {
-      "title": "Quantidade de exemplares disponíveis",
-      "icon": Icons.auto_awesome_outlined,
-      "error": null,
-      "maxLength": 5,
-      "type": TextInputType.number,
-      "textFormater": '',
-      "isDropdown": false,
-      "controller": ReadersController.instance
     },
     {
       "title": "Localização",
@@ -660,7 +653,8 @@ class AcademicInputs {
       "maxLength": 200,
       "type": TextInputType.name,
       "textFormater": '',
-      "isDropdown": false
+      "isDropdown": false,
+      "controller": "StudentsController"
     },
     {
       "title": "CPF",
@@ -669,7 +663,8 @@ class AcademicInputs {
       "maxLength": 0,
       "type": TextInputType.number,
       "textFormater": '###.###.###-##',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "RG",
@@ -678,7 +673,8 @@ class AcademicInputs {
       "maxLength": 8,
       "type": TextInputType.number,
       "textFormater": '',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Orgão expedidor",
@@ -687,7 +683,8 @@ class AcademicInputs {
       "maxLength": 50,
       "type": TextInputType.text,
       "textFormater": ''
-      ,"isDropdown": false
+      ,"isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Data de nascimento",
@@ -696,7 +693,8 @@ class AcademicInputs {
       "maxLength": 0,
       "type": TextInputType.datetime,
       "textFormater": '##/##/####',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Estado civil",
@@ -726,7 +724,8 @@ class AcademicInputs {
       "maxLength": 200,
       "type": TextInputType.name,
       "textFormater": '',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Nome Da Pai",
@@ -735,7 +734,8 @@ class AcademicInputs {
       "maxLength": 200,
       "type": TextInputType.name,
       "textFormater": '',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "CEP",
@@ -744,7 +744,8 @@ class AcademicInputs {
       "maxLength": 0,
       "type": TextInputType.number,
       "textFormater": "#####-###",
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Logradouro",
@@ -753,7 +754,8 @@ class AcademicInputs {
       "maxLength": 100,
       "type": TextInputType.number,
       "textFormater": '',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Número",
@@ -762,7 +764,8 @@ class AcademicInputs {
       "maxLength": 10,
       "type": TextInputType.number,
       "textFormater": '',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Bairro",
@@ -771,7 +774,8 @@ class AcademicInputs {
       "maxLength": 75,
       "type": TextInputType.number,
       "textFormater": '',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Complemento",
@@ -780,7 +784,8 @@ class AcademicInputs {
       "maxLength": 200,
       "type": TextInputType.text,
       "textFormater": '',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Estado",
@@ -801,7 +806,8 @@ class AcademicInputs {
       "maxLength": 75,
       "type": TextInputType.text,
       "textFormater": '',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Naturalidade",
@@ -810,7 +816,8 @@ class AcademicInputs {
       "maxLength": 75,
       "type": TextInputType.text,
       "textFormater": '',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Email",
@@ -819,7 +826,8 @@ class AcademicInputs {
       "maxLength": 75,
       "type": TextInputType.text,
       "textFormater": '',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Telefone fixo",
@@ -828,7 +836,8 @@ class AcademicInputs {
       "maxLength": 0,
       "type": TextInputType.phone,
       "textFormater": '(##) ####-####',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Telefone celular",
@@ -837,7 +846,8 @@ class AcademicInputs {
       "maxLength": 0,
       "type": TextInputType.phone,
       "textFormater": '(##) #####-####',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Curso",
@@ -854,7 +864,8 @@ class AcademicInputs {
       "maxLength": 0,
       "type": TextInputType.datetime,
       "textFormater": '##/##/####',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Data de desligamento",
@@ -863,7 +874,8 @@ class AcademicInputs {
       "maxLength": 0,
       "type": TextInputType.datetime,
       "textFormater": '##/##/####',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Está Trabalhando",
@@ -881,7 +893,8 @@ class AcademicInputs {
       "maxLength": 100,
       "type": TextInputType.text,
       "textFormater": '',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Renda Familiar",
@@ -890,7 +903,8 @@ class AcademicInputs {
       "maxLength": 10,
       "type": TextInputType.number,
       "textFormater": '',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Quantidade de Moradores",
@@ -899,7 +913,8 @@ class AcademicInputs {
       "maxLength": 3,
       "type": TextInputType.number,
       "textFormater": '',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Ano Letivo",
@@ -908,7 +923,8 @@ class AcademicInputs {
       "maxLength": 4,
       "type": TextInputType.number,
       "textFormater": '',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Média Escolar",
@@ -917,7 +933,8 @@ class AcademicInputs {
       "maxLength": 4,
       "type": TextInputType.number,
       "textFormater": '',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Noções de informática",
@@ -937,7 +954,8 @@ class AcademicInputs {
       "maxLength": 100,
       "type": TextInputType.number,
       "textFormater": '',
-      "isDropdown": false
+      "isDropdown": false,
+       "controller": "StudentsController"
     },
     {
       "title": "Grupo de usuário",
@@ -956,7 +974,8 @@ class AcademicInputs {
         "maxLength": 200,
         "type": TextInputType.text,
         "textFormater": '',
-        "isDropdown": false
+        "isDropdown": false,
+       "controller": "StudentsController"
       },
       {
         "title": "Curso",
@@ -972,7 +991,8 @@ class AcademicInputs {
         "maxLength": 10,
         "type": TextInputType.number,
         "textFormater": '',
-        "isDropdown": false
+        "isDropdown": false,
+       "controller": "StudentsController"
       },
        {
         "title": "Ano Atual",
@@ -981,7 +1001,8 @@ class AcademicInputs {
         "maxLength": 4,
         "type": TextInputType.number,
         "textFormater": '',
-        "isDropdown": false
+        "isDropdown": false,
+       "controller": "StudentsController"
       },
       {
         "title": "Previsão de início",
@@ -990,7 +1011,8 @@ class AcademicInputs {
         "maxLength": 200,
         "type": TextInputType.text,
         "textFormater": '##/##/####',
-        "isDropdown": false
+        "isDropdown": false,
+       "controller": "StudentsController"
       },
       {
         "title": "Previsão de término",
@@ -999,7 +1021,8 @@ class AcademicInputs {
         "maxLength": 200,
         "type": TextInputType.text,
         "textFormater": '##/##/####',
-        "isDropdown": false
+        "isDropdown": false,
+        "controller": "StudentsController"
       },
       {
         "title": "Alunos",

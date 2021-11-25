@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:unipam_mobile/modules/app/Library/Authors/authors_controller.dart';
+import 'package:unipam_mobile/modules/app/Library/language/language_controller.dart';
+import 'package:unipam_mobile/modules/app/Library/publishers/publishers_controller.dart';
 import 'package:unipam_mobile/modules/app/library/book/book_controller.dart';
 import 'package:unipam_mobile/shared/util/input_modal_list.dart';
 import 'package:unipam_mobile/shared/widgets/scrollable/scrollable_widget.dart';
@@ -18,6 +21,9 @@ class _BookPageState extends State<BookPage> {
   void initState() {
     super.initState();
     BookController.instance.getBooks();
+    AuthorsController.instance.getAuthors();
+    PublishersController.instance.getPublishers();
+    LanguageController.instance.getLanguage();
   }
   Widget build(BuildContext context) {
     return AnimatedBuilder(
@@ -51,7 +57,7 @@ class _BookPageState extends State<BookPage> {
                   cells: [
                     DataCell(Text(e['code'])),
                     DataCell(Text(e["title"])),
-                    DataCell(Text(e["edition"])),
+                    DataCell(Text(e["author"])),
                     DataCell(Text(e["year"].toString())),
                     DataCell(Text(e["location"])),
                     DataCell(Text(e["copies_number_available"].toString())),
@@ -63,7 +69,7 @@ class _BookPageState extends State<BookPage> {
                     ),
                     DataCell(
                       IconButton(
-                        onPressed: () {}, 
+                        onPressed: () => BookController.instance.deleteBook(e['id']), 
                         icon: Icon(Icons.remove_circle)
                       )
                     ),

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:unipam_mobile/modules/app/app_controller.dart';
@@ -18,7 +19,6 @@ class BookController extends ChangeNotifier {
   String idioma = "";
   String categoria = "";
   String quantidadeExeplares = "";
-  String quantidadeExeplaresDisponiveis = "";
   String localizacao = "";
 
   String token = AppController.instance.token!;
@@ -35,7 +35,6 @@ class BookController extends ChangeNotifier {
     if (title == "Idioma") idioma = text;
     if (title == "Categoria") categoria = text;
     if (title == "Quantidade de exemplares") quantidadeExeplares = text;
-    if (title == "Quantidade de exemplares disponíveis") quantidadeExeplaresDisponiveis = text;
     if (title == "Localização") localizacao = text;
   }
 
@@ -50,14 +49,13 @@ class BookController extends ChangeNotifier {
     idioma = "";
     categoria = "";
     quantidadeExeplares = "";
-    quantidadeExeplaresDisponiveis = "";
     localizacao = "";
   }
 
   getBooks() async{
      var response = await http.get(url, 
       headers: {
-        'Authorization': token!
+        'Authorization': token
       }
     );
 
@@ -71,6 +69,7 @@ class BookController extends ChangeNotifier {
         'edition': element['edition'],
         'volume': element['volume'],
         'year': element['year'],
+        'author': element['authors'][0]['name'],
         'publishing_company_id': element['publishing_company_id'],
         'language_id': element['language_id'],
         'category': element['category'],
@@ -85,25 +84,49 @@ class BookController extends ChangeNotifier {
     notifyListeners();
   }
 
-  registerBook(context) {
+  registerBook(context) async{
     var bookRegister = {
-      "codigo": codigo,
-      "titulo": titulo,
-      "autores": autores,
-      "edicao": edicao,
-      "volume": volume,
-      "ano": ano,
-      "editora": editora,
-      "idioma": idioma,
-      "categoria": categoria,
-      "quantidadeExeplares": quantidadeExeplares,
-      "quantidadeExeplaresDisponiveis": quantidadeExeplaresDisponiveis,
-      "localizacao": localizacao,
+      'title': titulo, 
+      'code': codigo,
+      'edition': int.parse(edicao),
+      'authors': [autores],
+      'volume': int.parse(volume),
+      'year': int.parse(ano),
+      'author': autores,
+      'publishing_company_id': editora,
+      'language_id': idioma,
+      'category': categoria,
+      'copies_number': int.parse(quantidadeExeplares),
+      'copies_number_available': int.parse(quantidadeExeplares),
+      'location': localizacao,
     };
 
-    books.add(bookRegister);
+    var dio = Dio();
+    try {
+       var response = await dio.post("https://unipamapi.devjhon.com/books",
+          data: bookRegister,
+          options: Options(headers: {'Authorization': token
+      }));
+    } catch (e) {
+      print(e);
+    }
+
+    await getBooks();
     Navigator.pop(context);
     notifyListeners();
+  }
+
+  deleteBook(id) async {
+
+    var urlDelete = Uri.parse('https://unipamapi.devjhon.com/books/$id');
+
+    var response = await http.delete(urlDelete,
+      headers: {
+        'Authorization': token
+      }
+    );
+    notifyListeners();
+    await getBooks();
   }
 
 } 

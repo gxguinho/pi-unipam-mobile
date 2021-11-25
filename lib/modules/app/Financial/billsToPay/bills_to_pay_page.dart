@@ -47,6 +47,7 @@ class _BillsToPayPageState extends State<BillsToPayPage> {
                     DataColumn(label: Text("Vencimento")),
                     DataColumn(label: Text("Valor")),
                     DataColumn(label: Text("A pagar")),
+                    DataColumn(label: Text("Pago em")),
                     DataColumn(label: Text("Valor pago")),
                     DataColumn(label: Text("")),
                     DataColumn(label: Text("")),
@@ -55,17 +56,18 @@ class _BillsToPayPageState extends State<BillsToPayPage> {
                     ...BillsToPayController.instance.billsToPay
                         .map((e) => DataRow(cells: [
                               DataCell(Text(e['title_number'])),
-                              DataCell(Text("provider")),
+                              DataCell(Text(e["provider"])),
                               DataCell(Text(DateFormat("dd/MM/yyyy").format(DateTime.parse(e['due_date'])))),
-                              DataCell(Text(e['description'])),
+                              DataCell(Text('R\$' + e['title_value'])),
+                              DataCell(Text('R\$' + e['title_value'])),
                               DataCell(Text(DateFormat("dd/MM/yyyy").format(DateTime.parse(e['issue_date'])))),
-                              DataCell(Text(e['title_value'])),
+                              DataCell(Text('R\$' + e['title_value'])),
                               DataCell(IconButton(
                                   onPressed: () {}, icon: Icon(Icons.edit))),
                               DataCell(IconButton(
                                   onPressed: () => BillsToPayController.instance.deletebillsToPay(e['id']) ,
                                   icon: Icon(Icons.remove_circle))),
-                            ]))
+                        ]))
                   ],
                 ),
               ));

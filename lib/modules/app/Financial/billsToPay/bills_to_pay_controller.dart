@@ -1,13 +1,14 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
+import 'package:unipam_mobile/modules/app/app_controller.dart';
 
 class BillsToPayController extends ChangeNotifier {
   static BillsToPayController instance = new BillsToPayController();
 
   var url = Uri.parse("https://unipamapi.devjhon.com/bills-to-pay");
 
-  String token =   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkOWYyYmEyLWQ1OTYtNGUzYy04N2RhLTA3NTg2YWYzMjhmNCIsImVtYWlsIjoiYWRtaW5AdW5pcGFtYXBpLmNvbS5iciIsImlhdCI6MTYzNzM2MzYyMSwiZXhwIjoxNjM3NDUwMDIxfQ.yQIQ6XUydhgIbPiIMMny5bp0QF2yt7Rs5YDeUOL0sQI';
+  String token = AppController.instance.token!;
 
   List billsToPay = [];
 
