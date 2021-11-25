@@ -188,6 +188,67 @@ class LibraryInputs {
       "isDropdown": true
     },
   ];
+  var loanInput = [
+    {
+      "title": "Tipo de Relatório",
+      "icon": Icons.people,
+      "itens": [
+        {
+          "title": "livros emprestados por mês",
+          "value": "books_reserved_by_month"
+        },
+        {
+          "title": "livros emprestados por ano",
+          "value": "livros emprestados por ano"
+        },
+        {
+          "title": "livros mais emprestados por mês",
+          "value": "livros mais emprestados por mês"
+        },
+        {
+          "title": "livros mais emprestados por ano",
+          "value": "livros mais emprestados por ano"
+        },
+        {
+          "title": "leitores que mais pegam livros por mês",
+          "value": "leitores que mais pegam livros por mês"
+        },
+        {
+          "title": "leitores que mais pegam livros por ano",
+          "value": "leitores que mais pegam livros por ano"
+        },
+      ],
+      "isDropdown": true
+    },
+    {
+      "title": "Ano",
+      "icon": Icons.date_range,
+      "error": "campo obrigatório",
+      "maxLength": 4,
+      "type": TextInputType.number,
+      "textFormater": '',
+      "isDropdown": false
+    },
+     {
+      "title": "Mês",
+      "icon": Icons.people,
+      "itens": [
+        {"title": "Janeiro", "value": "1"},
+        {"title": "Fevereiro", "value": "2"},
+        {"title": "Março", "value": "3"},
+        {"title": "Abril", "value": "4"},
+        {"title": "Maio", "value": "5"},
+        {"title": "Junho", "value": "6"},
+        {"title": "Julho", "value": "7"},
+        {"title": "Agosto", "value": "8"},
+        {"title": "Setembro", "value": "9"},
+        {"title": "Outubro", "value": "10"},
+        {"title": "Novembro", "value": "11"},
+        {"title": "Dezembro", "value": "12"},
+      ],
+      "isDropdown": true
+    },
+  ];
   var booksInput = [
     {
       "title": "Código",

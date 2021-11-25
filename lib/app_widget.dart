@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:unipam_mobile/modules/app/Library/loan/loan_page.dart';
 import 'package:unipam_mobile/modules/app/academic/classes/closedClass_page.dart';
 import 'package:unipam_mobile/modules/app/academic/classes/openClass_page.dart';
 import 'package:unipam_mobile/modules/app/Events/CategoryEvents/Category_events.dart';
@@ -81,7 +82,8 @@ class AppWidget extends StatelessWidget {
                 "/gerenciarevents": (context) => GerenciarEventsPage(),
                 "/financial": (context) => FinancialPage(),
                 "/billsToPay": (context) => BillsToPayPage(),
-                "/billsToReceive": (context) => BillsToReceivePage()
+                "/billsToReceive": (context) => BillsToReceivePage(),
+                '/loan': (context) => LoanPage(),
               });
         });
   }
