@@ -7,7 +7,8 @@ class BillsToPayController extends ChangeNotifier {
 
   var url = Uri.parse("https://unipamapi.devjhon.com/bills-to-pay");
 
-  String token =   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkOWYyYmEyLWQ1OTYtNGUzYy04N2RhLTA3NTg2YWYzMjhmNCIsImVtYWlsIjoiYWRtaW5AdW5pcGFtYXBpLmNvbS5iciIsImlhdCI6MTYzNzM2MzYyMSwiZXhwIjoxNjM3NDUwMDIxfQ.yQIQ6XUydhgIbPiIMMny5bp0QF2yt7Rs5YDeUOL0sQI';
+  String token =
+      'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkOWYyYmEyLWQ1OTYtNGUzYy04N2RhLTA3NTg2YWYzMjhmNCIsImVtYWlsIjoiYWRtaW5AdW5pcGFtYXBpLmNvbS5iciIsImlhdCI6MTYzNzM2MzYyMSwiZXhwIjoxNjM3NDUwMDIxfQ.yQIQ6XUydhgIbPiIMMny5bp0QF2yt7Rs5YDeUOL0sQI';
 
   List billsToPay = [];
 
