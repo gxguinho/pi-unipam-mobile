@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 import 'package:unipam_mobile/modules/app/app_controller.dart';
@@ -19,10 +20,12 @@ class BillsToPayController extends ChangeNotifier {
   String vencimento = "";
   String valorTitulo = "";
   String fornecedor = "";
+  String tipo = "";
 
   onChangedText(text, title) {
     if (title == "Número do Título") numtitulo = text;
     if (title == "Data de cadastro") dataCadastro = text;
+    if (title == "Tipo de cobrança") tipo = text;    
     if (title == "Descrição") descricao = text;
     if (title == "Data da emissão") dataEmissao = text;
     if (title == "Vencimento") vencimento = text;
@@ -75,20 +78,27 @@ class BillsToPayController extends ChangeNotifier {
     var registerbillsToPay = {
       "title_number": numtitulo,
       "registration_date": dataCadastro,
-      "bill_type": "boleto bancário",
+      "bill_type": tipo,
       "description": descricao,
       "issue_date": dataEmissao,
       "due_date": vencimento,
-      "title_value": valorTitulo,
+      "title_value": int.parse(valorTitulo),
       "provider": fornecedor,
     };
 
-    //var response = await http
-    //    .post(url, body: registerbillsToPay, headers: {'Authorization': token});
-//
-    //await getbillsToPay();
+    var dio = Dio();
+    try {
+      var response = await dio.post("https://unipamapi.devjhon.com/bills-to-pay", 
+      data: registerbillsToPay, options: Options(
+      headers: {
+        'Authorization': token
+      }
+      ));
+    } catch (e) {
+      print(e);
+    }
 
-    billsToPay.add(registerbillsToPay);
+    await getbillsToPay();
     notifyListeners();
     cleanInput();
     Navigator.pop(context);

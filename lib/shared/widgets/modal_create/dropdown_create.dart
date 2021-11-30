@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:unipam_mobile/modules/app/academic/students/students_controller.dart';
 import 'package:unipam_mobile/modules/app/app_controller.dart';
 import 'package:unipam_mobile/shared/themes/app_text.dart';
 
@@ -9,7 +10,8 @@ class DropdownCreate extends StatefulWidget {
   final List<Map<dynamic, dynamic>> itemsSelect;
   final Function(String)? onChanged;
   final String? value;
-  const DropdownCreate({ Key? key, required this.title, required this.itemsSelect, this.onChanged, this.value }) : super(key: key);
+  final Listenable? animation;
+  const DropdownCreate({ Key? key, required this.title, required this.itemsSelect, this.onChanged, this.value, this.animation }) : super(key: key);
 
   @override
   _DropdownCreateState createState() => _DropdownCreateState();
@@ -22,34 +24,40 @@ class _DropdownCreateState extends State<DropdownCreate> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20, top: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            widget.title,
-            style: AppText.input
+    return AnimatedBuilder(
+      animation: StudentsController.instance, 
+      builder: (context, child) {
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 20, top: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                widget.title,
+                style: AppText.input
+              ),
+              SizedBox(height: 4),
+              DropdownButton<String>(
+                underline: Container(
+                  height: 2,
+                  color: value == null ? AppController.instance.colorSelected.withOpacity(0.2) :
+                  AppController.instance.colorSelected,
+                ),
+                hint: widget.value != null ? Text(widget.value.toString().toUpperCase()) : Text("Selecione..."),
+                isExpanded: true,
+                iconSize: 30,
+                value: value ,
+                onChanged: (value) => {
+                  setState(() => this.value = value),
+                  widget.onChanged!(value!)
+                },
+                items: widget.itemsSelect.map(buildMenuItem).toList()
+              )
+            ],
           ),
-          SizedBox(height: 4),
-          DropdownButton<String>(
-            underline: Container(
-              height: 2,
-              color: value == null ? AppController.instance.colorSelected.withOpacity(0.2) :
-              AppController.instance.colorSelected,
-            ),
-            hint: widget.value != null ? Text(widget.value.toString().toUpperCase()) : Text("Selecione..."),
-            isExpanded: true,
-            iconSize: 30,
-            value: value ,
-            onChanged: (value) => {
-              setState(() => this.value = value),
-              widget.onChanged!(value!)
-            },
-            items: widget.itemsSelect.map(buildMenuItem).toList()
-          )
-        ],
-      ),
+        );
+      }
+  
     );
   }
   

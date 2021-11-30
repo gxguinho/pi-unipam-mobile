@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
        Timer(Duration(seconds: 2), () {
          Navigator.push(context, 
           MaterialPageRoute(builder: (context) => 
-            AppController.instance.token == "" ? LoginPage() : HomePage())
+            AppController.instance.token == "" || AppController.instance.token == "Bearer " ? LoginPage() : HomePage())
          );
        }
        );
@@ -41,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
     final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var obtainedToken = await sharedPreferences.getString("@unipamMobile_token");
     var obtainedUser = await sharedPreferences.getString("@unipamMobile_user");
-    var token = obtainedToken!.substring(1, obtainedToken.length-1);
+    var token = obtainedToken == null ? "" : obtainedToken!.substring(1, obtainedToken.length-1);
     setState(() {
       AppController.instance.token = 'Bearer $token';
       AppController.instance.user = obtainedUser.toString();

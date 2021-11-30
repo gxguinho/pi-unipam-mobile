@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 import 'package:unipam_mobile/modules/app/app_controller.dart';
@@ -7,6 +8,7 @@ class  StudentsController extends ChangeNotifier {
   static StudentsController instance = new StudentsController();
 
   List students = [];
+  List groups = [];
   List<Map<dynamic, dynamic>> state = [];
   List<Map<dynamic, dynamic>> city = [];
 
@@ -80,6 +82,26 @@ class  StudentsController extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> getGroups() async {
+    var urlGroups = Uri.parse("https://unipamapi.devjhon.com/groups");
+    var response = await http.get(urlGroups, 
+      headers: {
+        'Authorization': token!
+      }
+    );
+    var json = jsonDecode(response.body) as List;
+    List<Map<dynamic, dynamic>> groupsParsed = [];
+
+    json.forEach((element) { 
+     groupsParsed.add({
+       'name': element['name'], 
+       'id': element['id']});
+    });
+
+    groups = groupsParsed.toList();
+    notifyListeners();
+  }
+
   onChangedText(text, title) {
      if (title == "Nome") nome = text;
     if (title == "CPF") cpf = text;
@@ -149,10 +171,10 @@ class  StudentsController extends ChangeNotifier {
     grupoUsuario = "";
   }
 
-  registerStudent(context) {
+  registerStudent(context) async{
     var studentsRegister = {
       "name": nome,
-      "cpf": cpf,
+      "cpf": cpf.replaceAll(".","").replaceAll("-",""),
       "rg": rg,
       "dispatching_agency": orgaoExpedidor,
       "birth_date": dataNacimento,
@@ -160,9 +182,9 @@ class  StudentsController extends ChangeNotifier {
       "sex": sexo,
       "father_name": nomePai,
       "mother_name": nomeMae,
-      "cep": cep,
+      "cep": cep.replaceAll("-",""),
       "street": logradouro,
-      "home_number": numero,
+      "home_number": int.parse(numero),
       "district": bairro,
       "complement": complemento,
       "state": estado,
@@ -170,19 +192,35 @@ class  StudentsController extends ChangeNotifier {
       "nactionality": nacionalidade,
       "naturalness": naturalidade,
       "email": email,
-      "land_line": telefoneFixo,
-      "phone_number": telefoneCelular,
+      "land_line": int.parse(telefoneFixo.replaceAll("(", "").replaceAll(")", "").replaceAll("-","").replaceAll(" ", "")),
+      "phone_number": int.parse(telefoneCelular.replaceAll("(", "").replaceAll(")", "").replaceAll("-","").replaceAll(" ", "")),
       "registration_date": dataMatricula,
       "termination_date": dataDesligamento,
       "is_working": trabalhando,
       "workplace": localTrabalho,
-      "family_income": rendaFamiliar,
-      "residents_number": quantiedadeMoradores,
-      "school_year": mediaEscolar,
+      "family_income": int.parse(rendaFamiliar),
+      "school_year": int.parse(mediaEscolar),
+      "residents_number": int.parse(mediaEscolar),
       "computer_notions": nocaoInformatica,
       "college_option": opcaoFaculdade,
       "group_id": grupoUsuario
     };
+
+    var dio = Dio();
+    try {
+      var response = await dio.post("https://unipamapi.devjhon.com/students",
+          data: studentsRegister,
+          options: Options(headers: {'Authorization': token
+      }));
+
+      await getStudent();
+      notifyListeners();
+      cleanInputs();
+      Navigator.pop(context);
+    } catch (e) {
+      print(e);
+    }
+
   }
 
   Future<void> getCity(text) async {

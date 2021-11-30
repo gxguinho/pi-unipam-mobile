@@ -22,6 +22,7 @@ class _StudentsPageState extends State<StudentsPage> {
     super.initState();
     StudentsController.instance.getStudent();
     StudentsController.instance.getState();
+    StudentsController.instance.getGroups();
   }
 
   @override

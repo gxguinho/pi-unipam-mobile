@@ -67,6 +67,7 @@ class ModalCreate extends StatelessWidget {
                               title: e['title'] as String, 
                               itemsSelect: e['itens'] as List<Map<dynamic, dynamic>>,
                               onChanged: (text) => onChangedText(text, e['title']),
+                              animation: animation,
                             )
                           ),
                           LabelButtonNavegation(

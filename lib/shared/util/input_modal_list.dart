@@ -199,23 +199,23 @@ class LibraryInputs {
         },
         {
           "title": "livros emprestados por ano",
-          "value": "livros emprestados por ano"
+          "value": "books_reserved_by_year"
         },
         {
           "title": "livros mais emprestados por mês",
-          "value": "livros mais emprestados por mês"
+          "value": "books_more_reserved_by_month"
         },
         {
           "title": "livros mais emprestados por ano",
-          "value": "livros mais emprestados por ano"
+          "value": "books_more_reserved_by_year"
         },
         {
           "title": "leitores que mais pegam livros por mês",
-          "value": "leitores que mais pegam livros por mês"
+          "value": "reader_more_reserved_books_by_month"
         },
         {
           "title": "leitores que mais pegam livros por ano",
-          "value": "leitores que mais pegam livros por ano"
+          "value": "reader_more_reserved_books_by_year"
         },
       ],
       "isDropdown": true
@@ -914,7 +914,7 @@ class AcademicInputs {
       "title": "Curso",
       "error": null,
       "itens": [
-        {"title": "", "value": ""},
+        {"title": "SI", "value": "SI"},
       ],
       "isDropdown": true
     },
@@ -942,8 +942,8 @@ class AcademicInputs {
       "title": "Está Trabalhando",
       "icon": Icons.people,
       "itens": [
-        {"title": "Sim", "value": "sim"},
-        {"title": "Não", "value": "nao"}
+        {"title": "Sim", "value": true},
+        {"title": "Não", "value": false}
       ],
       "isDropdown": true
     },
@@ -1021,9 +1021,10 @@ class AcademicInputs {
     {
       "title": "Grupo de usuário",
       "icon": Icons.people,
-      "itens": [
-        {"title": "", "value": ""}
-      ],
+      "itens": StudentsController.instance.groups.map((e) => {
+          "title": e['name'],
+          "value": e['id']
+      }).toList(),
       "isDropdown": true
     },
   ];

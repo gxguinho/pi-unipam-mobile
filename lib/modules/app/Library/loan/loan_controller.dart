@@ -20,21 +20,16 @@ class LoanController extends ChangeNotifier {
   }
 
   gerarRelatorio() async{
-   /*  var query = {
+     var query = {
       "report_type": tipoRelatorio,
       "year": ano,
-      "mount": mes
+      "month": mes
     };
-    var url = Uri.https("https://unipamapi.devjhon.com","/loans", query);
-    notifyListeners();
-    var report_type =  int.parse(tipoRelatorio);
-    var year =  int.parse(ano);
-    var mount = int.parse(mes);
-
-    var url = Uri.parse("https://unipamapi.devjhon.com/loans?year=$year&report_type=$report_type&mount=$mount"); */
-    /* var response = await http.get(url, 
+    var url = Uri.https("unipamapi.devjhon.com","/loans", query);
+    var response = await http.get(url, 
       headers: {
         'Authorization': token
-    }); */
+    });
+    notifyListeners();
   }
 }
