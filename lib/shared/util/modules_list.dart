@@ -9,73 +9,44 @@ class ModulesListAcademic {
     },
     {
       "title": "Frequência",
-      "icon": Icons.analytics_outlined,
+      "icon": Icons.checklist_rtl_sharp,
       "route": "/frequency"
     },
-    {"title": "Notas", "icon": Icons.analytics_outlined, "route": "/notes"},
-    {"title": "Turmas", "icon": Icons.analytics_outlined, "route": "/turmas"},
+    {"title": "Notas", "icon": Icons.leaderboard_sharp, "route": "/notes"},
+    {"title": "Turmas", "icon": Icons.groups_sharp, "route": "/classes"},
     {
-      "title": "Notas", 
-      "icon": Icons.analytics_outlined, 
-      "route": "/notes"
-    },
-    {
-      "title": "Turmas", 
-      "icon": Icons.analytics_outlined, 
-      "route": "/classes"
-    },
-    {
-      "title": "Horarios", 
-      "icon": Icons.analytics_outlined, 
-      "route": "/schedule"
-    },
-    {
-      "title": "Relatórios",
-      "icon": Icons.article,
-      "route": "/reports"
-    },
-     {
-      "title": "Cursos",
       "title": "Horarios",
-      "icon": Icons.analytics_outlined,
+      "icon": Icons.pending_actions_sharp,
       "route": "/schedule"
     },
+    {"title": "Módulos", "icon": Icons.mobile_friendly, "route": "/modules"},
+    {"title": "Relatórios", "icon": Icons.post_add_sharp, "route": "/reports"},
     {
-      "title": "Módulos",
-      "icon": Icons.mobile_friendly,
-      "route": "/modules"
+      "title": "Cursos",
+      "icon": Icons.quick_contacts_mail_sharp,
+      "route": "/courses"
     },
-    {"title": "Relatórios", "icon": Icons.article, "route": "/reports"},
-    {"title": "Cursos", "icon": Icons.analytics_outlined, "route": "/courses"},
   ];
 }
 
 class ModulesListLibrary {
   List libraryModules = [
-    {"title": "Leitores", "icon": Icons.people, "route": "/readers"},
-    {
-      "title": "Autores",
-      "icon": Icons.collections_bookmark,
-      "route": "/authors"
-    },
+    {"title": "Leitores", "icon": Icons.groups_sharp, "route": "/readers"},
+    {"title": "Autores", "icon": Icons.group_work_sharp, "route": "/authors"},
     {
       "title": "Emprestimos",
-      "icon": Icons.accessible_forward_sharp,
+      "icon": Icons.receipt_long_sharp,
       "route": "/loan"
     },
-    {
-      "title": "Livros",
-      "icon": Icons.accessible_forward_sharp,
-      "route": "/books"
-    },
+    {"title": "Livros", "icon": Icons.book_sharp, "route": "/books"},
     {
       "title": "Reservas",
-      "icon": Icons.accessible_forward_sharp,
+      "icon": Icons.restore_page_sharp,
       "route": "/reservations"
     },
-    {"title": "Categoria", "icon": Icons.book_outlined, "route": "/category"},
-    {"title": "Idiomas", "icon": Icons.flag_outlined, "route": "/language"},
-    {"title": "Editoras", "icon": Icons.people, "route": "/publishers"},
+    {"title": "Categoria", "icon": Icons.category_sharp, "route": "/category"},
+    {"title": "Idiomas", "icon": Icons.flag_sharp, "route": "/language"},
+    {"title": "Editoras", "icon": Icons.edit_sharp, "route": "/publishers"},
   ];
 }
 
@@ -96,10 +67,14 @@ class ModulesListFinancial {
 
 class ModulesListEvents {
   var eventsModules = [
-    {"title": "Categorias", "icon": Icons.people, "route": "/categoryevents"},
+    {
+      "title": "Categorias",
+      "icon": Icons.category_sharp,
+      "route": "/categoryevents"
+    },
     {
       "title": "Gerenciar Eventos",
-      "icon": Icons.people,
+      "icon": Icons.manage_search_sharp,
       "route": "/gerenciarevents"
     },
   ];
