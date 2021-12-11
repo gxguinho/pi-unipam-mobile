@@ -52,6 +52,7 @@ class AppWidget extends StatelessWidget {
                 fontFamily: GoogleFonts.archivo().toString(),
               ),
               title: "Unipam Mobile",
+              debugShowCheckedModeBanner: false,
               initialRoute: '/',
               routes: {
                 '/': (context) => SplashScreen(),

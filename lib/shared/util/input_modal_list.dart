@@ -1042,8 +1042,8 @@ class AcademicInputs {
       {
         "title": "Curso",
         "itens": [
-          {"title": " Saramago ", "value": "Saramago "},
-          {"title": "Edgar", "value": "Edgar"}],
+          {"title": "Administração", "value": "administração "},
+          {"title": "Sistemas", "value": "Sistemas"}],
         "isDropdown": true
       },
       {

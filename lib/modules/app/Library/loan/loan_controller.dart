@@ -10,7 +10,6 @@ class LoanController extends ChangeNotifier {
   String ano = "";
   String mes = "";
 
-
   String token = AppController.instance.token!;
   
   onChangedText(text, title) {
@@ -30,6 +29,7 @@ class LoanController extends ChangeNotifier {
       headers: {
         'Authorization': token
     });
+
     notifyListeners();
   }
 }

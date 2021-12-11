@@ -71,9 +71,8 @@ class _LoanPageState extends State<LoanPage> {
                   )
                 ],
                 primaryXAxis: CategoryAxis(),
-                primaryYAxis: NumericAxis(
-                  title: AxisTitle(text: 'GDP in billions of U.S. Dollars')),
-                ),
+               ),
+              SizedBox(height: 20),
               AlertRemoveButton(
                 text: "Gerar Relatórios",
                 onChanged: (context) => {},
@@ -87,7 +86,7 @@ class _LoanPageState extends State<LoanPage> {
 
   List<GDPData> getChartData() {
     final List<GDPData> chartData = [
-      GDPData("Ocenia", 1200)
+      GDPData("Reservas", 2)
     ];
     return chartData;
   }

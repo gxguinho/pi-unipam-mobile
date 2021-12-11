@@ -22,20 +22,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
         color: AppController.instance.colorSelected,
         child: ListView(
           children: [
-             UserAccountsDrawerHeader(
-                accountName: Text(
-                  AppController.instance.name,
-                  style: AppText.NameUser
-                ), 
-                accountEmail: Text(
-                  AppController.instance.email,
-                   style: AppText.EmailUser 
-                ),
-                currentAccountPicture: ClipRRect(
-                  borderRadius: BorderRadius.circular(40),
-                  child: Image.network("https://avatars.githubusercontent.com/u/80070421?v=4"),
-                ),
-              ),
+             
               Divider(color: AppColors.white),
               ...PagesList().list.map((e) => 
                 DrawerItem(
